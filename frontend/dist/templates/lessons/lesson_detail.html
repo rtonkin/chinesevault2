@@ -1,0 +1,134 @@
+<div class="content" ng-controller="LessonDetailController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row"></div>
+        </div>
+    </div>
+
+    <section class="lesson-detail-section">
+        <div class="container">
+            <div flex="100" ng-cloak class="flash-list" ng-if="lesson">
+                <div layout="column" ng-cloak>
+                    <div class="lesson-head hidden-sm">
+                        <div class="redirect-blk left" ng-if="previousLesson">                                
+                            <a class="md-button md-primary redirect-btn" ui-sref="lesson_detail({lessonNumber: previousLesson.number})" >
+                                <md-icon class="fa fa-caret-left fa-2x"></md-icon>
+                                Previous Lesson
+                            </a>
+                            <span>{$ previousLesson.name $}</span>                            
+                        </div>
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-8 mt0px"> <strong> Lesson: {$ lesson.number $} </strong> </h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content>
+                            <p>{$ lesson.name $}</p>
+                        </md-content>
+                        <div class="redirect-blk right" ng-if="nextLesson">
+                            <a class="md-button md-primary redirect-btn" ui-sref="lesson_detail({lessonNumber: nextLesson.number})" >
+                                Next Lesson
+                                <md-icon class="fa fa-caret-right fa-2x"></md-icon>
+                            </a>
+                            <span>{$ nextLesson.name $}</span>
+                            <!-- <a ui-sref="lesson_detail({lessonNumber: nextLesson.number})"> {$ nextLesson.name $} </a> -->
+                        </div>
+                    </div>
+                    <div class="lesson-head visible-sm">
+                        <md-toolbar layout="row">
+                            <div layout="column" flex>
+                                <h2 class="md-display-8 mt0px"> <strong> Lesson: {$ lesson.number $} </strong> </h2>
+                                <p>{$ lesson.name $}</p>
+                            </div>
+                        </md-toolbar>
+                        <md-content layout="row" layout-align="start">
+                            <div class="mobile-prev" flex="50" >  
+                                <div ng-if="previousLesson">
+                                    <a class="md-button md-primary redirect-btn" ui-sref="lesson_detail({lessonNumber: previousLesson.number})" >
+                                        <md-icon class="fa fa-caret-left fa-2x"></md-icon>
+                                        Previous Lesson
+                                    </a>
+                                    <span>{$ previousLesson.name $}</span>    
+                                </div>                        
+                            </div>
+                            <div class="mobile-next" flex="50" >
+                                <div ng-if="nextLesson">
+                                    <a class="md-button md-primary redirect-btn" ui-sref="lesson_detail({lessonNumber: nextLesson.number})" >
+                                        Next Lesson
+                                        <md-icon class="fa fa-caret-right fa-2x"></md-icon>
+                                    </a>
+                                    <span>{$ nextLesson.name $}</span>                                
+                                </div>
+                            </div>
+                        </md-content>
+                    </div>
+                    
+                    <div class="inner-lesson-detail" ng-cloak>
+                        <div class="">
+                            <md-content>
+                                <div ng-cloak layout="column" class="word-detail-border" ng-if="lesson.new_words.length">
+                                    <div flex class="word-detail">
+                                        <md-toolbar layout="row" class="md-hue-3">
+                                            <div class="md-toolbar-tools" layout-align="center">
+                                                <h2 class="md-display-10"> New Words </h2>
+                                            </div>
+                                        </md-toolbar>
+                                        <md-content class="lesson-detail-cont">
+                                            <div flex class="brd-btm plr20px">
+                                                <md-list-item class="md-3-line" layout="row" >
+                                                    <h5> The list contains all the new words you are likely to come across in this lessons. It is recommended that you first learn as many of these words as possible before starting the lesson. To add a lesson to your flashcard lists just click the <md-icon class="fa fa-plus-circle fa-lg fab-color" aria-label="check"> </md-icon> button. Words already found in your lists will have the <md-icon class="fa fa-check lesson-ok-green fa-lg" aria-label="check"> </md-icon> symbol displayed. </h5>
+                                                </md-list-item>
+                                            </div>
+                                            <table ng-table class="table table-striped new-words" >
+                                                <tr ng-repeat="word in lesson.new_words track by $index" class="list-row">
+                                                    <td class="text-center">
+                                                        <span ng-bind="word.simplified" ng-click="selectWordFromDictionary(word.simplified)"></span>
+                                                    </td>
+                                                    <td>
+                                                        <span ng-bind="word.pinyin_normalized" ng-click="selectWordFromDictionary(word.simplified)"></span>
+                                                    </td>
+                                                    <td>{$ word.selected_description $}</td>
+                                                    <td class="column audio text-center">
+                                                        <div class="speaker inline-block">
+                                                            <span class="icon icon-speakera" ng-click="playSound('word', word.id)">
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center column added">
+                                                        <md-icon class="fa lesson-ok-green" ng-class="word.added ? 'fa-check ' : ''" aria-hidden="true"  ng-show="word.added"> </md-icon>
+                                                    </td>
+                                                    <td class="text-center column add">
+                                                        <md-label> Add </md-label>
+                                                        <md-button class="md-fab md-mini" aria-label="add" >
+                                                            <md-icon class="fa fa-plus" aria-hidden="true" ng-click="openAddToListDialog(word)"> </md-icon>
+                                                        </md-button>
+                                                    </td>                                                    
+                                                </tr>
+                                            </table>
+                                        </md-content>
+                                    </div>
+                                </div>
+                                <div ng-cloak layout="column" class="word-detail-border">
+                                    <div flex class="word-detail">
+                                        <md-toolbar layout="row" class="md-hue-3">
+                                            <div class="md-toolbar-tools" layout-align="center">
+                                                <h2 class="md-display-10"> Word Usage </h2>
+                                            </div>
+                                        </md-toolbar>
+                                        <md-content class="word-detail-cont" ng-if="lesson.word_usage">
+                                            <div dynamic="lesson.word_usage" data-ng-init="init()" class="word-sub-title"></div>
+                                            <div layout="row" layout-align="center center" layout-wrap>
+                                                <md-button aria-label="complete lesson" ng-if="!lesson.lesson_completed" class="md-raised md-primary comp-btn" ng-click="completeLesson(lessonNumber)">Complete Lesson </md-button>
+                                                <md-button aria-label="next lesson" ng-if="nextLesson" class="md-raised md-primary next2-btn" ui-sref="lesson_detail({lessonNumber: nextLesson.number})">Next chapter </md-button>
+                                            </div>
+                                        </md-content>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

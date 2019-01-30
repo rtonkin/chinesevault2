@@ -1,0 +1,18 @@
+<div class="panel cards-dialog">
+    <div class=" panel-heading">
+        Add words to category
+    </div>
+
+    <div class=" panel-body ">
+        <form ng-show="_cardsToAdd">
+            <fieldset>
+                <p>Which category would you like to add this words to?</p>
+                    <select class="form-control marginTop" ng-options="category.name for category in userCategories" ng-model="addDestinationCategory"></select>
+                    <div class="text-center">
+                         <md-button aria-label="add" class=" md-primary light-blue-btn md-raised" ng-click="addCardsToList(addDestinationCategory)">Add</md-button>
+                    </div>
+            </fieldset>
+        </form>
+        <p ng-show="!cardsToAdd()">You have not selected any words</p>
+    </div>
+</div>

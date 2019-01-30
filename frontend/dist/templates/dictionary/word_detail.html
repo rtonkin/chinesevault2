@@ -1,0 +1,202 @@
+<!--suppress ALL -->
+
+<div class="content" ng-controller="WordDetailController">
+        <!-- <div class="banner flash-banner">
+                <div class="container">
+                    <div layout-xs="row" layout-gt-xs="row">
+        
+                    </div>
+                </div>
+            </div> -->
+    <!-- <div class="row">
+            <form ng-submit="submitQuery()" novalidate>
+                <div class="form-group dictionary-search col-xs-12 col-sm-9">
+                    <input tabindex="1" class="form-control search-field" type="search" ng-change="submitQuery()" placeholder="有, yǒu, you3 ..." ng-model="query" />
+                    <button class="btn" type="submit">Search</button>
+                </div>
+                <div class="col-xs-12 col-sm-3" style="padding-top: 10px; padding-left: 15px; margin-bottom: 30px;">
+                    <a href="javascript: void history.back();">Return to Results</a>
+                </div>
+            </form>
+    </div> -->
+
+    <div class="banner banner-dr">
+        <div class="container">
+            <div layout="row">
+                <div flex-xs="90" flex-offset-xs="5" flex="70" flex-offset="15">
+                    <div layout="column" ng-cloak>
+                        <h1 class="md-flex">  Chinese Dictionary </h1>
+                        <md-content>
+                            <div class="search-form">
+                                <form ng-submit="submitQuery()" novalidate>
+                                   <!-- <input id="queryField" tabindex="1" class="form-control search-field" type="text" ng-change="search(query)" placeholder="有, yǒu, you3..." ng-model="query" /> -->
+                                   <input tabindex="1" class="form-control search-field" type="search" ng-change="submitQuery()" placeholder="有, yǒu, you3 ..." ng-model="query" />
+                                    <!-- <input id="queryField" tabindex="1" class="textbox" type="search" placeholder="有, yǒu, you3..." ng-model="query" /> -->
+                                    <button type="submit" class="search-btn"> &nbsp; </button>
+                                    <!-- <md-button class="md-raised md-primary light-blue-btn"> &nbsp; </md-button> -->
+                                </form>
+                            </div>
+                        </md-content>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="word-info-section">
+        <div class="container">
+            <div layout="row">
+                <div ng-cloak flex>
+                    <md-content>
+                        <md-tabs md-dynamic-height md-border-bottom>
+                            <md-tab label="WORD INFO">
+                                <md-content class="md-padding">
+                                    <div layout="column" layout-gt-sm="row" layout-wrap>
+                                        <div flex="100" flex-gt-sm="55" class="word" flex>
+                                            <div class="simplified character" ng-show="options.characters === 'simplified' || options.characters === 'both'" ng-bind-html="word.simplified|asChinese:'s'|asHtml"></div>
+                                            <div class="traditional character" ng-show="options.characters === 'traditional' || options.characters === 'both'" ng-bind-html="word.traditional|asChinese:'t'|asHtml"></div>
+                                            <div class="character-mean"> {$ word.pinyin_normalized $} </div>
+                                            <div class="options-items-wrap">
+                                                <a ng-class="'options-items ' + classForOption('characters', 'simplified')" ng-click="setOption('characters', 'simplified')">Simplified</a>
+                                                <a ng-class="'options-items ' + classForOption('characters', 'traditional')" ng-click="setOption('characters', 'traditional')">Traditional</a>
+                                                <a ng-class="'options-items ' + classForOption('characters', 'both')" ng-click="setOption('characters', 'both')">Both</a>
+                                            </div>
+                                            <div class="word-hsk" ng-show="word.hsk_level">
+                                                <span>HSK</span>
+                                                <span ng-bind="word.hsk_level"></span>
+                                            </div>
+                                            <div class="text-center speaker mt20px">
+                                                <span ng-click="playSoundd('word', word.id)" class="icon icon-speaker" ng-class="{speakerplaying: soundIsPlayingg}"></span>
+                                            </div>
+                                        </div>
+                                        <div flex="100" flex-gt-sm="45" class="word-meanings" flex>
+                                            <h3 class="md-display-4">Definitions of site</h3>
+                                            <ul>
+                                                <li class="meaning" ng-repeat="meaning in word.meanings_references">
+                                                    <strong> {$ $index + 1 $}. </strong>
+                                                    <span ng-bind-html="meaning|asHtml"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="CHARACTER INFO">
+                                <md-content class="md-padding">
+                                    <div layout="column" layout-wrap layout-align="center center">
+                                        <animate-chinese class="animated-char-box"></animate-chinese>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="LISTS">
+                                <md-content class="md-padding">
+                                    <div layout="row" layout-gt-xs="row" layout-wrap layout-align="center center">
+                                        <div flex="100" flex-gt-sm="100" class="lists">
+                                            <h4 class="md-display-5"> Your Lists </h4>                                            
+                                            <md-toolbar layout="column" class="md-hue-3 " ng-show="word.categories.length == 0">
+                                                <p> This word doesn’t appear in any of your lists. Add it now so you don’t forget it! </p>
+                                                <div class="md-toolbar-tools" layout-align="center">                                                    
+                                                    <md-button aria-label="add to list"class="md-raised md-primary add-list-btn" ng-click="openAddToListDialog(word)">Add to list</md-button>
+                                                </div>
+                                            </md-toolbar>
+                                            <!-- <div ng-show="word.categories.length > 0">
+                                                    <p>Found in List(s)</p>
+                                                    <ul>
+                                                        <li ng-repeat="category in word.categories">{$ category $}</li>
+                                                    </ul>
+                                                </div> -->
+                                            <div class="check-box-wrap" ng-show="word.categories.length > 0">
+                                                <p> This word appears in these lists </p>
+                                                <div class="check-box" ng-repeat="category in word.categories">
+                                                    <label> {$ category $} </label>
+                                                    <!-- <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+                                                    </md-checkbox> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                       <!-- <div flex="100" flex-gt-sm="50" class="lists">
+                                            <h4 class="md-display-5"> Public Lists </h4>
+                                            <p> This word appears in these public lists </p>
+                                             <div >
+                                                <p>Found in List(s)</p>
+                                                <ul>
+                                                    <li ng-repeat="category in word.categories">{$ category $}</li>
+                                                </ul>
+                                            </div> -->
+                                            <!-- <div class="check-box-wrap" ng-show="word.categories.length > 0">
+                                                <div class="check-box" ng-repeat="category in word.categories">
+                                                    <label> {$ category $} </label>
+                                                     <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+                                                    </md-checkbox> 
+                                                </div>
+                                            </div> -->
+                                            <!-- <md-toolbar layout="row" class="md-hue-3 ">
+                                                <div class="md-toolbar-tools" layout-align="center">
+                                                    <md-button class="md-raised md-primary add-list-btn" ng-click="openAddToListDialog(word)">Add to list</md-button>
+                                                </div>
+                                            </md-toolbar> 
+                                        </div>-->
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="examp-section" ng-if="word.exampleSentences.length != 0">
+        <div class="container">
+            <md-content class="inner-examp-blk" >    
+                <div flex>
+                    <md-toolbar layout="row" class="md-hue-3 ">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-6">Example Sentences</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content class="result-list-wrap mb10px plr20px" ng-if="word.exampleSentences.length > 0">                        
+                        <table ng-table class="list-row wordsTable">
+                            <tr ng-repeat="sentence in word.exampleSentences | startFrom:currentPage*pageSize | limitTo:pageSize">
+                                <td class="md-list-item-text sm-width">
+                                    <span ng-class="sentence.added ? 'fa fa-check' : ''" ng-show="sentence.added"></span>
+                                </td>
+                                <td class="md-list-item-text sm-width">
+                                    <md-button class="md-fab md-mini" aria-label="add" ng-click="openAddToSentenceListDialog(sentence)">
+                                        <md-icon class="fa fa-plus" aria-hidden="true"></md-icon>
+                                    </md-button>
+                                </td>
+                                <td class="md-list-item-text sm-width">
+                                    <!-- <div id="speak" class="speaker inline-block">
+                                        <span class="icon icon-speakera texttool-span-no-space" aria-hidden="true" ng-click=" playSound('sentence', sentence.id, $event) "></span>
+                                    </div> -->
+                                    <a ng-click="playSoundd('sentence', sentence.id)">
+                                        <span class="icon icon-speakera texttool-span-no-space" ng-class="{speakerplaying: soundIsPlayingg}" aria-hidden="true" ></span>
+                                    </a>
+                                </td>
+                                <td class="md-list-item-text list-sentense">
+                                    <h4 dynamic="sentence.simple"></h4>
+                                    <p ng-bind="sentence.pinyin"></p>
+                                    <p ng-bind="sentence.english"></p>
+                                    <span class="source">Source: <a href="//tatoeba.org">Tatoeba.org</a></span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div ng-show="word.exampleSentences.length == 0">
+                            <p>No example sentences found</p>
+                        </div>
+                    </md-content>
+                    <div flex layout="row" class="mb20px plr20px" >
+                        <ul class="pagination">
+                            <li ng-show="currentPage != 0"><a ng-click="currentPage=currentPage-1; loggingMinus()">Previous</a></li>
+                            <li>{$currentPage+1$}/{$numberOfPages()$}</li>
+                            <li ng-show="currentPage < word.exampleSentences.length/pageSize - 1"><a ng-click="currentPage=currentPage+1; loggingPlus()">Next</a> </li>
+                        </ul>
+                    </div>
+                    <md-content ng-if="word.exampleSentences.length == 0" class="md-padding">
+                        <p style="font-size:20px">No example sentences for this word</p>
+                    </md-content>
+                </div>
+            </md-content>
+        </div>
+    </section>
+</div>

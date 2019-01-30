@@ -1,0 +1,90 @@
+<div ng-if="contentType=='audio'">
+    <div ng-cloak>
+        <md-content class="md-content-st">
+            <div ng-cloak layout="column">
+                <div flex>
+                    <md-toolbar layout="row" layout-xs="column" class="md-hue-3 headline-blk" layout-align-xs="center center">
+                        <div class="md-toolbar-tools" layout-align-xs="center center">
+                            <h2 class="md-display-3">Audio</h2>
+                        </div>
+                        <div ng-cloak layout="row" flex-gt-xs="50" layout-align="end">
+                            <md-card-content>
+                                <div layout="row" layout-align="space-between center">
+                                    <md-select ng-init="selectLevel = dataLevel.data[0]" ng-model='selectLevel' placeholder="All Levels" ng-change='selectFunction(selectLevel, selectTheme)' class="md-no-underline" aria-label="select level" md-on-open="stopscroll()" md-on-close="removestop()"><!-- ng-model-options -->
+                                        <md-option ng-repeat="val in dataLevel.data track by val.levelUrl" ng-value="val">{$ val.levelName $}</md-option>
+                                    </md-select>
+                                    <!--<md-select name="location" id="inputCountry" ng-model="form.location" placeholder="Select Location">
+                                        <md-option ng-repeat="location in countries" ng-value="location.id">{$ location.name $}</md-option>
+                                    </md-select>-->
+                                </div>
+                            </md-card-content>
+                        
+                            <md-card-content>
+                                <div layout="row" layout-align="space-between center">
+                                    <md-select ng-init="selectTheme= dataTheme.data[0]" ng-model="selectTheme" ng-change='selectFunction(selectLevel, selectTheme)'  placeholder="All Themes" class="md-no-underline" aria-label="select theme" md-on-open="stopscroll()" md-on-close="removestop()">
+                                        <md-option ng-repeat="val in dataTheme.data track by val.themeUrl" ng-value="val">{$ val.themeName $}</md-option>
+                                    </md-select>
+                                </div>
+                            </md-card-content>
+                        </div>                                    
+                    </md-toolbar>
+                                
+                    <md-content class="sentense-cont">
+                        <md-list-item ng-if="items.length==0" class="md-3-line" layout="row">
+                            <div class="error_selection" >
+                                <h3>No matching audio content found</h3>
+                                <p>Try selecting a different theme or study level</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-3-line" layout="row"  ng-repeat="item in items" >
+                            <div class="md-list-item-text text-center" flex="10">
+                                <md-icon aria-hidden="true"> <i class="fa fa-volume-up fa-2x"></i> </md-icon>
+                            </div>
+                            <div class="md-list-item-text st-list-item" flex="80" flex-xs=70>
+                                <h3 ng-bind="item.name" ng-click="go('study_content_audio_item', {id: item.id})"></h3>
+                                <p ng-bind="item.description" ></p>                                
+                                <span ng-click="go('study_content_audio_item', {id: item.id})" class="visible-sm"> {{ item.study_level | cnvStudyLevel }} </span>
+                            </div>
+                            <div class="md-list-item-text text-center hidden-sm" flex="15" flex-xs="20">
+                                <span ng-click="go('study_content_audio_item', {id: item.id})"> {{ item.study_level | cnvStudyLevel }} </span>
+                            </div>  
+                        </md-list-item>
+
+                        <!-- <md-list flex class="list-row">
+                            <md-list-item class="md-3-line" layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex>
+                                    <md-button md-no-ink class="md-primary show-btn">Load More </md-button>
+                                </div>
+                            </md-list-item>
+                        </md-list> -->
+                    </md-content>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>
+<div ng-if="contentType=='video'">
+    <div class="panel">
+        <div class="panel-heading">Video</div>
+        <div class="panel-body">
+            <div class="row padding-bottom marginTop" style="cursor: pointer" ng-click="go('study_content_video_item', {id: item.id})"  ng-repeat="item in items">
+                <div class="col-xs-8 visible-xs">
+                    <h4 ng-bind="item.name"></h4>
+                </div>
+                <div class="col-xs-4 visible-xs">{{ item.study_level | cnvStudyLevel }}</div>
+                <div class="col-xs-12 col-sm-4 col-md-3 marginTop">
+                    <a ui-sref="study_content_video_item({id: item.id})">
+                        <img src="{{ item.thumbnail }}" class="img-thumbnail video-img" alt="{{item.name}}" />
+                    </a>
+                </div>
+                
+                <div class="col-xs-12 col-sm-6 col-md-7 text-left marginTop">
+                    <h3 class="hidden-xs" ng-bind="item.name"></h3>
+                    <p ng-bind="item.description"></p>
+                </div>
+                <div class="col-sm-2 hidden-xs marginTop">{{ item.study_level | cnvStudyLevel }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TODO: move cursor-pointer to CSS -->

@@ -1,0 +1,1053 @@
+<div class="content" ng-controller="StaticController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="ptb40px">
+        <div class="container">
+            <header>
+                <h2 class="md-display-8 text-center">Pinyin Chart</h2>
+            </header>
+            <script type="text/ng-template" id="myPopoverTemplate.html">
+                <div ng-repeat="tone in tones | orderBy:'url' ">
+                    <div class="speaker inline-block">
+                        <span class="icon icon-speakera" ng-click="playSound($index)"></span>
+                        <audio ng-src="http://www.chinesevault.com{$tone.url$}"></audio>
+                    </div>
+                    <span class="word-chart">{$tone.pinyin_normalized$}</span>
+                </div>
+            </script>
+            <section>
+                <div class="table-responsive">
+                    <table id="table-1" class="Basic-Table no-paddings mb30px">        
+                        <colgroup>
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                            <col class="Row-Column" />
+                        </colgroup>
+                        <thead>
+                            <tr class="Row-Column">
+                                <td class="cell-style-override-1" colspan="34"></td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">&#160;</td>
+                                <td align="center" class="cell-style-override-3">a</td>
+                                <td align="center" class="cell-style-override-2">o</td>
+                                <td align="center" class="cell-style-override-3">e</td>
+                                <td align="center" class="cell-style-override-2">ai</td>
+                                <td align="center" class="cell-style-override-3">ei</td>
+                                <td align="center" class="cell-style-override-2">ao</td>
+                                <td align="center" class="cell-style-override-3">ou</td>
+                                <td align="center" class="cell-style-override-2">an</td>
+                                <td align="center" class="cell-style-override-3">en</td>
+                                <td align="center" class="cell-style-override-2">ang</td>
+                                <td align="center" class="cell-style-override-3">eng</td>
+                                <td align="center" class="cell-style-override-2">i</td>
+                                <td align="center" class="cell-style-override-3">ia</td>
+                                <td align="center" class="cell-style-override-2">ie</td>
+                                <td align="center" class="cell-style-override-3">iao</td>
+                                <td align="center" class="cell-style-override-2">iu</td>
+                                <td align="center" class="cell-style-override-3">ian</td>
+                                <td align="center" class="cell-style-override-2">in</td>
+                                <td align="center" class="cell-style-override-3">iang</td>
+                                <td align="center" class="cell-style-override-2">ing</td>
+                                <td align="center" class="cell-style-override-3">u</td>
+                                <td align="center" class="cell-style-override-2">ua</td>
+                                <td align="center" class="cell-style-override-3">uo</td>
+                                <td align="center" class="cell-style-override-2">ue</td>
+                                <td align="center" class="cell-style-override-3">uai</td>
+                                <td align="center" class="cell-style-override-2">ui</td>
+                                <td align="center" class="cell-style-override-3">uan</td>
+                                <td align="center" class="cell-style-override-2">un</td>
+                                <td align="center" class="cell-style-override-3">uang</td>
+                                <td align="center" class="cell-style-override-2">ong</td>
+                                <td align="center" class="cell-style-override-3">iong</td>
+                                <td align="center" class="cell-style-override-2">ü</td>
+                                <td align="center" class="cell-style-override-3">üe</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">b</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ba')">ba</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bo')">bo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bai')">bai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bei')">bei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bao')">bao</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ban')">ban</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ben')">ben</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bang')">bang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('beng')">beng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bi')">bi</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bie')">bie</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('biao')">biao</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bian')">bian</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bin')">bin</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bing')">bing</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('bu')">bu</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">p</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pa')">pa</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('po')">po</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pai')">pai</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pei')">pei</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pao')">pao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pou')">pou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pan')">pan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pen')">pen</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pang')">pang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('peng')">peng</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pi')">pi</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pie')">pie</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('piao')">piao</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pian')">pian</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pin')">pin</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ping')">ping</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('pu')">pu</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">m</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ma')">ma</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mo')">mo</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('me')">me</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mai')">mai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mei')">mei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mao')">mao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mou')">mou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('man')">man</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('men')">men</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mang')">mang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('meng')">meng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mi')">mi</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mie')">mie</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('miao')">miao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('miu')">miu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mian')">mian</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('min')">min</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ming')">ming</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('mu')">mu</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">f</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fa')">fa</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fo')">fo</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fei')">fei</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fou')">fou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fan')">fan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fen')">fen</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fang')">fang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('feng')">feng</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('fu')">fu</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">d</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('da')">da</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('de')">de</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dai')">dai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dei')">dei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dao')">dao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dou')">dou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dan')">dan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('den')">den</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dang')">dang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('deng')">deng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('di')">di</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('die')">die</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('diao')">diao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('diu')">diu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dian')">dian</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ding')">ding</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('du')">du</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('duo')">duo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dui')">dui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('duan')">duan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dun')">dun</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('dong')">dong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">t</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ta')">ta</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('te')">te</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tai')">tai</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tao')">tao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tou')">tou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tan')">tan</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tang')">tang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('teng')">teng</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ti')">ti</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tie')">tie</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tiao')">tiao</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tian')">tian</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ting')">ting</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tu')">tu</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tuo')">tuo</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tui')">tui</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tuan')">tuan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tun')">tun</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('tong')">tong</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">n</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('na')">na</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ne')">ne</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nai')">nai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nei')">nei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nao')">nao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nou')">nou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nan')">nan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nen')">nen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nang')">nang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('neng')">neng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ni')">ni</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nie')">nie</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('niao')">niao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('niu')">niu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nian')">nian</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nin')">nin</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('niang')">niang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ning')">ning</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nu')">nu</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nuo')">nuo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nuan')">nuan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nun')">nun</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nong')">nong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nü')">nü</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('nüe')">nüe</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">l</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('la')">la</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lo')">lo</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('le')">le</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lai')">lai</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lei')">lei</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lao')">lao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lou')">lou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lan')">lan</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lang')">lang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('leng')">leng</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('li')">li</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lia')">lia</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lie')">lie</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('liao')">liao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('liu')">liu</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lian')">lian</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lin')">lin</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('liang')">liang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ling')">ling</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lu')">lu</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('luo')">luo</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('luan')">luan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lun')">lun</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('long')">long</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lü')">lü</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('lüe')">lüe</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">g</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ga')">ga</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ge')">ge</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gai')">gai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gei')">gei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gao')">gao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gou')">gou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gan')">gan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gen')">gen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gang')">gang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('geng')">geng</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gu')">gu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gua')">gua</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('guo')">guo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('guai')">guai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gui')">gui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('guan')">guan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gun')">gun</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('guang')">guang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('gong')">gong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">k</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ka')">ka</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ke')">ke</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kai')">kai</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kao')">kao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kou')">kou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kan')">kan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ken')">ken</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kang')">kang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('keng')">keng</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ku')">ku</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kua')">kua</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kuo')">kuo</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kuai')">kuai</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kui')">kui</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kuan')">kuan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kun')">kun</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kuang')">kuang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('kong')">kong</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">h</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ha')">ha</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('he')">he</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hai')">hai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hei')">hei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hao')">hao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hou')">hou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('han')">han</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hen')">hen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hang')">hang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('heng')">heng</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hu')">hu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hua')">hua</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('huo')">huo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('huai')">huai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hui')">hui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('huan')">huan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hun')">hun</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('huang')">huang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('hong')">hong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">j</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ji')">ji</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jia')">jia</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jie')">jie</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jiao')">jiao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jiu')">jiu</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jian')">jian</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jin')">jin</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jiang')">jiang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jing')">jing</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ju')">ju</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jue')">jue</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('juan')">juan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jun')">jun</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('jiong')">jiong</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">q</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qi')">qi</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qia')">qia</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qie')">qie</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qiao')">qiao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qiu')">qiu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qian')">qian</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qin')">qin</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qiang')">qiang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qing')">qing</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qu')">qu</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('que')">que</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('quan')">quan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qun')">qun</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('qiong')">qiong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">x</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xi')">xi</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xia')">xia</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xie')">xie</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xiao')">xiao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xiu')">xiu</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xian')">xian</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xin')">xin</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xiang')">xiang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xing')">xing</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xu')">xu</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xue')">xue</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xuan')">xuan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xun')">xun</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('xiong')">xiong</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">zh</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zha')">zha</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhe')">zhe</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhai')">zhai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhei')">zhei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhao')">zhao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhou')">zhou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhan')">zhan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhen')">zhen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhang')">zhang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zheng')">zheng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhi')">zhi</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhu')">zhu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shua')">shua</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhuo')">zhuo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhuai')">zhuai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhui')">zhui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhuan')">zhuan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhun')">zhun</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhuang')">zhuang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zhong')">zhong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">ch</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cha')">cha</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('che')">che</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chai')">chai</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chao')">chao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chou')">chou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chan')">chan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chen')">chen</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chang')">chang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cheng')">cheng</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chi')">chi</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chu')">chu</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chua')">chua</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chuo')">chuo</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chuai')">chuai</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chui')">chui</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chuan')">chuan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chun')">chun</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chuang')">chuang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('chong')">chong</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">sh</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sha')">sha</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('she')">she</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shai')">shai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shei')">shei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shao')">shao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shou')">shou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shan')">shan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shen')">shen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shang')">shang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sheng')">sheng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shi')">shi</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shu')">shu</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shua')">shua</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shuo')">shuo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shuai')">shuai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shui')">shui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shuan')">shuan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shun')">shun</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('shuang')">shuang</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">r</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('re')">re</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('rao')">rao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('rou')">rou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ran')">ran</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ren')">ren</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('rang')">rang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('reng')">reng</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ri')">ri</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ru')">ru</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ruo')">ruo</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('rui')">rui</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ruan')">ruan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('run')">run</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('rong')">rong</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">z</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('za')">za</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ze')">ze</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zai')">zai</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zei')">zei</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zao')">zao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zou')">zou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zan')">zan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zen')">zen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zang')">zang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zeng')">zeng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zi')">zi</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zu')">zu</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zuo')">zuo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zui')">zui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zuan')">zuan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zun')">zun</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('zong')">zong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">c</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ca')">ca</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ce')">ce</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cai')">cai</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cao')">cao</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cou')">cou</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('can')">can</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cen')">cen</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cang')">cang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ceng')">ceng</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ci')">ci</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cu')">cu</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cuo')">cuo</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cui')">cui</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cuan')">cuan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cun')">cun</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('cong')">cong</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">s</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sa')">sa</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('se')">se</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sai')">sai</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sao')">sao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sou')">sou</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('san')">san</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sen')">sen</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sang')">sang</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('seng')">seng</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('si')">si</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('su')">su</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('suo')">suo</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sui')">sui</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('suan')">suan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('sun')">sun</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('song')">song</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">a</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ai')">ai</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ao')">ao</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('an')">an</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ang')">ang</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">e</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('e')">e</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('en')">en</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">o</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('ou')">ou</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-3">y</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ya')">ya</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yo')">yo</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ye')">ye</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yao')">yao</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('you')">you</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yan')">yan</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yang')">yang</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yi')">yi</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yin')">yin</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('ying')">ying</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yu')">yu</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yue')">yue</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yuan')">yuan</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yun')">yun</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td align="center" class="hoverable cell-style-override-0" uib-popover-template="dynamicPopover.templateUrl"popover-trigger="outsideClick"popover-placement="right"popover-append-to-body="true"ng-click="callingAudio('yong')">yong</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                                <td class="cell-style-override-0">&#160;</td>
+                            </tr>
+                            <tr class="Row-Column">
+                                <td align="center" class="cell-style-override-2">w</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wa')">wa</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wo')">wo</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wai')">wai</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wei')">wei</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wan')">wan</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wen')">wen</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wang')">wang</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('weng')">weng</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td align="center" class="cell-style-override-4 hoverable" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="right" popover-append-to-body="true" ng-click="callingAudio('wu')">wu</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                                <td class="cell-style-override-4">&#160;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <div class="col-md-12 ">
+                <h3 class="page-header text-center">Pinyin Chart</h3>
+                <p>Above you’ll find a complete chart with all the different pinyin combinations. Click on any combination to see all the tones and for real (non-computerized) audio for every sound.</p>
+                <h3 class="page-header text-center">Pronounce Each Sound?</h3>
+                <p>While other websites include a lengthy explanation about how to say each sound we believe in the practical method. Use the chart above to listen to each sound. You’ll soon find that there are patterns which are reasonably easy to follow, and that generally speaking, each “consonant” and each “vowel combination” for the most part follow set rules. There are a few exceptions though so listen carefully!</p>
+                <p>Once you think you’re getting the hang of it, of if you just want to throw yourself in the deep end, you can test yourself with real audio using our <a class='link' ui-sref="test" href="/app/test">Tones Practice</a> tool! (FREE – but you need to create an account) </p>
+            </div>
+        </div>
+    </section>
+</div>

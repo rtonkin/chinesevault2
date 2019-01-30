@@ -1,0 +1,66 @@
+{
+  "name": "putonghua",
+  "version": "0.1.0",
+  "description": "Chinese Education Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start tests/karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:svfat/putonghua-social.git"
+  },
+  "keywords": [
+    "chinese",
+    "learning",
+    "education",
+    "dictionary"
+  ],
+  "author": "Stan Fateev",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "bower": "~1.4.1",
+    "browserify": "^13.0.0",
+    "connect": "~3.4.0",
+    "connect-livereload": "^0.5.4",
+    "cucumber": "^0.9.4",
+    "del": "^2.2.0",
+    "es6-promise": "~3.0.2",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "~1.1.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-cssnano": "~2.0.0",
+    "gulp-csso": "~1.0.1",
+    "gulp-embedlr": "^0.5.2",
+    "gulp-if": "~2.0.0",
+    "gulp-imagemin": "~2.4.0",
+    "gulp-inject": "~3.0.0",
+    "gulp-jade": "~1.1.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "~1.2.2",
+    "gulp-myth": "~1.1.0",
+    "gulp-ng-annotate": "~1.1.0",
+    "gulp-notify": "~2.2.0",
+    "gulp-replace": "~0.5.4",
+    "gulp-sloc": "~1.0.4",
+    "gulp-sourcemaps": "~1.6.0",
+    "gulp-stylus": "~2.1.1",
+    "gulp-uglify": "~1.5.1",
+    "gulp-useref": "~3.0.4",
+    "gulp-using": "^0.1.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "~4.3.5",
+    "jshint": "^2.9.1",
+    "protractor-cucumber-framework": "^0.3.3",
+    "tiny-lr": "^0.2.1",
+    "zombie": "^4.2.1"
+  },
+  "dependencies": {
+    "fs": "0.0.2"
+  }
+}

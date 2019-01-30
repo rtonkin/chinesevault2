@@ -1,0 +1,33 @@
+
+body,div,dl,dt,dd,ul,ol,li,p,pre,code,blockquote{margin:0;padding:0;border-width:0}
+.cell-style-override-0,.cell-style-override-1,.cell-style-override-2,.cell-style-override-3,.cell-style-override-4{border:1px solid}
+td.hoverable:hover{cursor:pointer;background-color:#00aff0!important;color:#fff}
+table{border-collapse:collapse}
+li{display:block}
+body{font-size:12px;-epub-hyphens:auto;hyphens:auto}
+table.Basic-Table{border:1px solid #231f20;margin-bottom:-4px;margin-top:4px;font-family:ProximaNova;font-size:13px}
+p.Basic-Paragraph{-epub-ruby-position:over;ruby-position:over;color:#231f20;font-size:12px;font-style:normal;font-variant:normal;font-weight:400;line-height:1.2;margin-bottom:0;margin-left:0;margin-right:0;text-align:left;text-decoration:none;text-indent:0}
+td.cell-style-override-1{background-color:#00aff0}
+td.cell-style-override-2{background-color:#8bd8f5}
+td.cell-style-override-3{background-color:#49bfea54}
+td.cell-style-override-4{background-color:#f5f5f5}
+span.char-style-override-1{font-style:normal;font-weight:700}
+span.char-style-override-2{font-size:15px}
+span.char-style-override-3{font-size:13px;font-style:normal;font-weight:700}
+span.char-style-override-4{color:#a9d9f0;font-size:13px;font-style:normal;font-weight:700}
+col.Row-Column{width:50px}
+tr.Row-Column{height:22px}
+.arrow:after{border-right-color:#333!important}
+.popover{background-color:#333!important;color:#fff!important;font-weight:800}
+.word-chart{vertical-align:top}
+.popover.right{margin-left:10px}
+.fade.in{opacity:1}
+.popover{position:absolute;top:0;left:0;z-index:13;display:none;max-width:276px;padding:1px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:14px;font-style:normal;font-weight:400;line-height:1.42857143;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;letter-spacing:normal;word-break:normal;word-spacing:normal;word-wrap:normal;white-space:normal;background-color:#fff;background-clip:padding-box;border:1px solid #ccc;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 5px 10px rgba(0,0,0,.2);line-break:auto}
+.fade{opacity:0;transition:opacity .15s linear}
+.popover.right>.arrow:after{bottom:-10px;left:1px;content:"";border-right-color:#fff;border-left-width:0}
+.popover>.arrow:after{content:"";border-width:10px}
+.popover>.arrow,.popover>.arrow:after{position:absolute;display:block;width:0;height:0;border-color:transparent;border-style:solid}
+.arrow:after{border-right-color:#333!important}
+.popover-content{padding:9px 14px}
+.popover>.arrow{border-width:11px}
+.popover.right>.arrow{top:50%;left:-11px;margin-top:-11px;border-right-color:#999;border-right-color:rgba(0,0,0,.25);border-left-width:0}

@@ -1,0 +1,68 @@
+sudo apt-get install python3
+
+sudo apt-get install virtualenv
+
+sudo apt-get install postgresql-9.5
+
+sudo apt-get install postgresql-server-dev-9.5
+
+sudo apt-get install python3-pip
+
+cd requirements/
+
+pip install --upgrade pip
+
+cd ..
+
+pip3 install -r base.txt
+
+sudo apt-get install postgis
+
+sudo -u postgres psql
+
+CREATE DATABASE phua;
+CREATE USER test_user WITH password 'qwerty';
+GRANT ALL privileges ON DATABASE phua TO test_user;
+\q
+
+psql -h localhost test_database test_user
+CREATE EXTENSION hstore;
+
+insert in files: putonghua-social/putonghua/settings/base.py,
+          putonghua-social/putonghua/settings/local.py
+"DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+      'NAME': 'phua',                      # Or path to database file if using sqlite3.
+      'USER': 'test_user',                      # Not used with sqlite3.
+      'PASSWORD': 'qwerty',                  # Not used with sqlite3.
+      'HOST':'localhost',
+   }
+}"
+
+cd db_dump
+psql -h localhost -d rest_db -U postgres < ./db_dump/mydb.backup
+
+cd ..
+
+python3.5 manage.py makemigrations
+
+python3.5 manage.py migrate
+
+python3.5 manage.py runserver
+
+npm i
+
+npm run gulp
+
+DEPLOY:
+
+git commit
+
+git push
+
+source putonghua_env/bin/activate
+
+git pull & fab deploy
+
+pasphrase - USER: phua: from access card

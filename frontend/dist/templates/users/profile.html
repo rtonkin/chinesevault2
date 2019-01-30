@@ -1,0 +1,209 @@
+<div class="content" >
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="profile-section" ng-controller="ProfileController">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row" layout-align="center">
+                <div flex="100"  ng-cloak >
+                    <form name="profileForm" class="form-horizontal " ng-submit="submit()">
+                        <div class="alert alert-success" ng-if="updateSuccess">Success!</div>
+                        <div class="form-errors" ng-if="form.errors.__all__.length > 0">
+                            <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.__all__">{$ error $}</div>
+                        </div>
+                        <md-content class="md-content-st md-whiteframe-4dp login-panel mb30px ">
+                            <div ng-cloak layout="column" class="contactForm">
+                                <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                                    <div class="md-toolbar-tools" layout-align="center">
+                                        <h2 class="md-display-3">Account Details</h2>
+                                    </div>
+                                </md-toolbar>
+                                <md-content layout-padding class="mtb20px ">   
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>Username <span class="required">*</span></label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                            <md-input-container md-no-float class="md-block" ng-class="{'has-error': profileForm.username.$dirty && profileForm.username.$invalid}">                                  
+                                                <input type="text" name="username" id="inputUserName" ng-value="auth.getUser().username" aria-label="Username" disabled>
+                                                <md-icon class="fa fa-user disabled" ></md-icon>
+                                            </md-input-container> 
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flexlayout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>Email <span class="required">*</span></label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                            <md-input-container md-no-float class="md-block" ng-class="{'has-error': profileForm.email.$dirty && profileForm.email.$invalid}">                                  
+                                                <input type="email" id="inputEmail" ng-value="auth.getUser().email" aria-label="Email" disabled>
+                                                <md-icon class="fa fa-envelope-o"></md-icon>
+                                            </md-input-container> 
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>Location </label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >
+                                            <md-input-container md-no-float class="md-block" ng-class="{'has-error': profileForm.location.$dirty && profileForm.location.$invalid}">
+                                                <label>Location</label>
+                                                <md-select name="location" id="inputCountry" ng-model="form.location" placeholder="Select Location" aria-label="location" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                    <md-option ng-repeat="location in countries" ng-value="location.id">{$ location.name $}</md-option>
+                                                </md-select>
+                                                <md-icon class="fa fa-map-marker"></md-icon>
+                                            </md-input-container>
+                                            <div class="form-errors" ng-if="form.errors.location.length > 0">
+                                                <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.location">{$
+                                                    error $}
+                                                </div>
+                                            </div>                          
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>Chinese Level </label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >
+                                            <md-input-container md-no-float class="md-block"  ng-class="{'has-error': profileForm.chineseLevel.$dirty && profileForm.chineseLevel.$invalid}">
+                                                <label>Chinese level</label>
+                                                <md-select aria-label="chinese level" id="inputChineseLevel" name="chineseLevel" ng-model="form.chinese_level" placeholder="Select Chinese Level" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                    <md-option ng-repeat="chinese_level in chinese_levels" ng-value="chinese_level">{$ chinese_level $}</md-option>
+                                                </md-select>                                                    
+                                                <md-icon class="fa fa-bar-chart"></md-icon>
+                                            </md-input-container>  
+                                            <div class="form-errors" ng-if="form.errors.chineseLevel.length > 0">
+                                                <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.chineseLevel">
+                                                    {$ error $}
+                                                </div>
+                                            </div>                           
+                                        </div>
+                                    </div>
+                                    <!--  <md-button type="submit" ng-disabled="forgotPasswordForm.$invalid || forgotPasswordForm.$pending" ng-click="submitForm()" class="md-primary md-raised md-login">SEND NOW</md-button>   -->                                                              
+                                </md-content> 
+                            </div>
+                        </md-content>
+
+                        <md-content class="md-content-st md-whiteframe-4dp login-panel mb30px">
+                            <div ng-cloak layout="column" class="contactForm">
+                                <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                                    <div class="md-toolbar-tools" layout-align="center">
+                                        <h2 class="md-display-3">Subscription Details</h2>
+                                    </div>
+                                </md-toolbar>
+                                <md-content layout-padding ng-if="!isUnsubscribe">   
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">
+                                        <div flex-xs="100" flex-gt-xs="50" ng-cloak class="text-right" >
+                                            <label>User type :</label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak>                                
+                                            <label>{$ usertype $}</label>
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px" ng-if="subscriptionRenewalDate">
+                                        <div flex-xs="100" flex-gt-xs="50" ng-cloak class="text-right" >
+                                            <label>Subscription Renewal Date :</label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                            <label>{$ subscriptionRenewalDate | date:'yyyy-MM-dd' $}</label>
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px" ng-if="subscriptionDetails">
+                                        <div flex-xs="100" flex-gt-xs="50" ng-cloak class="text-right" >
+                                            <label>Subscription details :</label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-sm="80" ng-cloak >                                
+                                            <label>{$ subscriptionDetails $}</label>
+                                        </div>
+                                    </div>
+                                </md-content>
+                                <md-content ng-if="isUnsubscribe">
+                                    <div layout-xs="row" class="layout-row flex profile-box" layout-align="center" >
+                                        <div flex-xs="100" flex-gt-xs="100" ng-cloak class="text-center" >
+                                            <label>Your currently unsubscribed</label>
+                                        </div>
+                                    </div>
+                                </md-content>
+                                <md-content class="mb20px">
+                                    <md-button aria-label="Cancel Subscription" type="button" ng-if="usertype == 'Paid member' && !isUnsubscribe" ng-click="deleteSubscription()" ng-cloak class="md-primary md-raised md-login">Cancel Subscription</md-button>
+                                    <md-button aria-label="Renew Subscription" type="button" ng-if="usertype == 'Paid member' && isUnsubscribe" ng-click="renewSubscription()" ng-cloak class="md-primary md-raised md-login">Renew Subscription</md-button>
+                                    <md-button aria-label="Became Paid Member" type="button" ng-if="usertype == 'Free member'" ng-click="updateSubscription()" class="md-primary md-raised md-login">Became Paid Member</md-button>
+                                    <!-- <button class="btn btn-sm subscriptionBtn" type="button" ng-if="usertype == 'Paid member' && !isUnsubscribe" ng-click="deleteSubscription()" ng-cloak>Cancel Subscription</button>
+                                    <button class="btn btn-sm subscriptionBtn" type="button" ng-if="usertype == 'Paid member' && isUnsubscribe" ng-click="renewSubscription()" ng-cloak>Renew Subscription </button> 
+                                    <button class="btn btn-sm subscriptionBtn" type="button" ng-if="usertype == 'Free member'" ng-click="updateSubscription()" ng-cloak>Became Paid Member </button> -->                          
+                                </md-content>                                    
+                            </div>
+                        </md-content>
+
+                        <md-content class="md-content-st md-whiteframe-4dp login-panel last-panel">
+                            <div ng-cloak layout="column" class="contactForm">
+                                <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                                    <div class="md-toolbar-tools" layout-align="center">
+                                        <h2 class="md-display-3">Change Password</h2>
+                                    </div>
+                                </md-toolbar>
+                                <md-content layout-padding class="mb20px">   
+                                    <div flex="100" flex-gt-sm="100" ng-cloak class="text-center signup-text">
+                                        <h4>Leave the password fields blank if you do not want to change the password.</h4>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">                                       
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>Current Password <span class="required">*</span></label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                            <md-input-container md-no-float class="md-block" ng-class="{'has-error': profileForm.currentPassword.$dirty && profileForm.currentPassword.$invalid}">                                  
+                                                <input id="inputCurrentPassword" type="password" name="currentPassword" min="6" placeholder="Current Password"  ng-model="form.currentPassword">
+                                                <md-icon class="fa fa-lock"></md-icon>
+                                            </md-input-container>
+                                            <div class="form-errors " ng-if="form.errors.currentPassword.length > 0">
+                                                <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.currentPassword">{$ error $} </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">                                        
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>New Password <span class="required">*</span></label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                            <md-input-container md-no-float class="md-block" ng-class="{'has-error': profileForm.password1.$dirty && profileForm.password1.$invalid}">                                  
+                                                <input id="inputpassword" type="password" name="password1" min="6" placeholder="New Password"  ng-model="form.password1">
+                                                <md-icon class="fa fa-lock"></md-icon>
+                                            </md-input-container> 
+                                            <div class="form-errors" ng-if="form.errors.password1.length > 0">
+                                                <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.password1">{$ error $}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div layout-xs="column" layout-gt-xs="row" flex layout-align="start center" layout-align-xs="start inherit" class="profile-box mb10px">                                        
+                                        <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                            <label>Re-type Password <span class="required">*</span></label>
+                                        </div>
+                                        <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                            <md-input-container md-no-float class="md-block" ng-class="{'has-error': profileForm.password2.$dirty && profileForm.password2.$invalid}" >                                  
+                                                <input id="inputPassword2" type="password" name="password2" match="form.password1" placeholder="Password (confirm)"  ng-model="form.password2">
+                                                <md-icon class="fa fa-lock"></md-icon>
+                                            </md-input-container> 
+                                            <div class="form-errors" ng-if="form.errors.confirmPassword.length > 0">
+                                                <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.confirmPassword">{$ error $} 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <md-button aria-label="Save" type="submit" class="md-primary md-raised md-login mt30px" ng-disabled="profileForm.$invalid || profileForm.$pending"> Save </md-button>
+                                </md-content> 
+                            </div>
+                        </md-content>
+                        <!-- <md-content layout-padding class="panel-footer md-content-st md-whiteframe-4dp">
+                            <md-button type="submit" class="md-primary md-raised md-login" ng-disabled="profileForm.$invalid || profileForm.$pending"> Save </md-button>
+                        </md-content> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>

@@ -1,0 +1,115 @@
+<div class="content" ng-controller="TestSettingsSentencesController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="test-section">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row">
+                <div flex="100" flex-gt-sm="50" ng-cloak class="flash-list">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Flashcard Lists </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="card-list md-whiteframe-4dp">
+                        <md-content >
+                            <div class="flashcard-table cards-table" flex>
+                                <md-content>                                    
+                                    <table ng-table  class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Cards</th>
+                                                <th>Score</th>
+                                                <th>Last Tested</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tr ng-if="!categories.length">
+                                            <td colspan="5">
+                                                <p>Loading...</p>
+                                            </td>
+                                        </tr>
+                                        <tr ng-repeat="category in categories">
+                                            <td> {$ category.name $} </td>
+                                            <td> {$ category.cards.length $} </td>
+                                            <td> {$ ((category.learnedCards.length / category.cards.length) * 100) | number:0 $}% </td>
+                                            <td> {$ category.current_time | default: 'Never' $} </td>
+                                            <td> 
+                                                <md-checkbox aria-label="checkbox" name="normal" class="md-primary" ng-model="category.selected" ng-change="loadCategory($index, category.id)"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                        <md-label>Total Selected: {$ getTotalSelected() $}</md-label>
+                                        <md-button aria-label="Select All" class="md-raised md-primary light-blue-btn" ng-click="selectAllCategories()"> Select All </md-button>
+                                        <md-button aria-label="Clear" class="md-raised md-primary light-blue-btn" ng-click="clearCategoriesSelection()"> Clear </md-button>
+                                    </div>                                    
+                                </md-content>
+                            </div>
+                        </md-content>
+                    </div>
+                </div>
+                <div flex="100" flex-gt-sm="50" ng-cloak class="flash-list">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Selection Options </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="card-list md-whiteframe-4dp">
+                        <md-content>
+                            <form>
+                                <div class="flashcard-table option-list" flex>
+                                    <md-list ng-cloak>
+                                        <md-subheader class="md-no-sticky">No. of Cards</md-subheader>	
+                                        <md-radio-group ng-model="options.number">
+                                            <md-radio-button name="number" value="20" class="md-primary" ng-model="options.number" aria-label="20Cards">20 </md-radio-button>
+                                            <md-radio-button name="number" value="30" class="md-primary" ng-model="options.number" aria-label="30Cards">30  </md-radio-button>
+                                            <md-radio-button name="number" value="50" class="md-primary" ng-model="options.number" aria-label="50Cards">50 </md-radio-button>
+                                            <md-radio-button name="number" value="100" class="md-primary" ng-model="options.number" aria-label="100Cards">100 </md-radio-button>
+                                            <md-radio-button name="number" value="200" class="md-primary" ng-model="options.number" aria-label="200Cards">200 </md-radio-button>
+                                        </md-radio-group>
+                                    </md-list>
+                                    <md-list ng-cloak>
+                                        <md-subheader class="md-no-sticky">Show</md-subheader>
+                                        <md-checkbox class="md-primary" ng-model="options.show.hanzi" aria-label="Chinese">Chinese</md-checkbox>
+                                        <md-checkbox class="md-primary" ng-model="options.show.pinyin" aria-label="Pinyin">Pinyin</md-checkbox>
+                                        <md-checkbox class="md-primary" ng-model="options.show.english" aria-label="English">English</md-checkbox>
+                                        <md-checkbox class="md-primary" ng-model="options.show.simplified" aria-label="Simplified">Simplified</md-checkbox>
+                                        <md-checkbox class="md-primary" ng-model="options.show.traditional" aria-label="Traditional">Traditional</md-checkbox>
+                                    </md-list>
+                                    <md-list ng-cloak>
+                                        <md-subheader class="md-no-sticky">Selection Method</md-subheader>	
+                                        <md-radio-group ng-model="options.method">
+                                            <md-radio-button value="random" class="md-primary" name="method" value="random" ng-model="options.method" aria-label="Random"> 
+                                                Random <span class="text-bottom"> The system will randomly select cards regardless of score</span>	
+                                            </md-radio-button>
+                                            <md-radio-button name="method" class="md-primary" value="priority" ng-model="options.method" checked="true" aria-label="Priority"> 
+                                                Priority <span class="text-bottom"> The system will prioritize cards with lower scores</span>	
+                                            </md-radio-button>
+                                        </md-radio-group>
+                                    </md-list>                                 
+                                
+                                    <md-list ng-cloak class="list-btn">
+                                        <div layout="row" layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                            <md-button aria-label="Defaults" class="md-raised md-primary light-blue-btn" ng-click="resetDefaults()">Defaults </md-button>
+                                            <md-button aria-label="Start" class="md-raised md-primary light-blue-btn" ui-sref="test-sentences" ng-disabled="selectedCategories() <= 0">Start</md-button>                                     
+                                        </div>	
+                                    </md-list> 									
+                                </div>
+                            </form>
+                        </md-content>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+</div>

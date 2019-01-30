@@ -1,0 +1,279 @@
+<div class="content texttool" ng-controller="TextToolController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+
+    <section class="test-section">
+        <div class="container">
+            <div layout="row" layout-align="center center">               
+            </div>
+
+            <!-- <div layout="row" layout-align="center center" >
+                <div flex-gt-xs="80" flex="100" ng-cloak>
+                    <div class="card-list card-analysis">
+                        <md-toolbar>
+                            <h2>Analysis</h2>
+                        </md-toolbar>
+                        <md-content>
+                            <div class="panel-body word-analysis">
+                                <form class="form-horizontal  text-left" role="form" ng-if="result.words.length" layout="row" layout-align="space-around center">
+                                    <div flex-gt-xs="45" flex="100">
+                                        <label class="control-label" for="SortBy">Sort By</label>
+                                        <md-select class="analysis-dropdown" aria-label="sort by" placeholder="SortBy" ng-model="controlPanel.select.sortby">
+                                            <md-option value="0">In Order of Occurrence</md-option>
+                                            <md-option value="1">In Order of Occurrence (Group Similar entries)</md-option>
+                                            <md-option value="2">Most Commonly Occurring</md-option>
+                                        </md-select>
+                                    </div>
+                                    <div flex-gt-xs="45" flex="100">
+                                        <label class="control-label" for="Show">Show</label>
+                                        <md-select class="analysis-dropdown" ng-model="controlPanel.select.show" name="Show" placeholder="All Words" aria-label="All Words">
+                                            <md-option value="0" ng-selected="selected">All Words</md-option>
+                                            <md-option value="1">Only words not in flashcards</md-option>
+                                            <md-option value="2">Only Words already in flashcard Lists</md-option>
+                                        </md-select> 
+                                    </div>
+                                </form>
+                                <table class="table table-striped table-condensed search-table" ng-if="result.words.length">
+                                    <tbody>
+                                        <tr ng-repeat="word in result.words | orderBy: 'position' | showFilter: controlPanel.select">
+                                            <td ng-show="!controlPanel.traditional" class="column simplified wbr">
+                                                <a href="#" class="texttool-span-no-space" ng-class="{'texttool-hgltd': result.origtext.selected.simplified == word.simplified}" ng-click="selectWord(word)">{$ word.simplified $}</a>
+                                            </td>
+                                            <td ng-show="controlPanel.traditional" class="column traditional wbr">
+                                                <a href="#" class="texttool-span-no-space"ng-class="{'texttool-hgltd': result.origtext.selected.traditional == word.traditional}" ng-click="selectWord(word)">{$ word.traditional $}</a>
+                                            </td>
+                                            <td class="column">{$ word.occurence $}</td>
+                                            <td class="column added text-blue text-center">
+                                                <span ng-class="word.added ? 'fa fa-check fa-lg' : ''"  ng-show="word.added"></span>
+                                            </td>
+                                            <td class="column add result-list-wrap">
+                                                <md-button class="md-fab md-mini" aria-label="add" ng-click="openAddToListDialog(word, categories, destinationCategory)">
+                                                    <md-icon class="fa fa-plus" aria-hidden="true"> <i></i> </md-icon>
+                                                </md-button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                           
+                        </md-content>
+                    </div>
+                </div>
+            </div> -->
+            <div layout="row" layout-align="center " layout-sm="column" layout-xs="column" >
+                <div  flex-gt-sm="70" flex="100" ng-cloak flex-order-sm="1" flex-order-xs="1">
+                    <div class="main-heading mb0px">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7"> Text </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>                    
+                    <div ng-cloak class="card-list">
+                        <md-content>
+                            <form class="form-horizontal">
+                                <div layout="row" layout-wrap class="flash-btn-wrap textool">
+                                    <div flex="100" flex-gt-sm="50" layout-align="start center">
+                                        <div md-no-float flex layout='row' layout-padding layout-align="start " >
+                                            <label class="texttool_label">Input mode</label>
+                                            <md-radio-group ng-model="controlPanel.language">
+                                                <md-radio-button name="inputLang" class="md-primary" id="chinese" ng-model="controlPanel.language" ng-change="saveAndLoadState('chinese')" value="chinese"  aria-label="chinese"> Chinese </md-radio-button>
+                                                <md-radio-button name="inputLang" class="md-primary" id="pinyin" ng-model="controlPanel.language" ng-change="saveAndLoadState('pinyin')" value="pinyin"  aria-label="pinyin"> Pinyin </md-radio-button>
+                                            </md-radio-group>                                            
+                                        </div>
+                                    </div>
+                                    <div flex="100" flex-gt-sm="50" layout-align="end center">
+                                        <div md-no-float flex layout='row' layout-padding layout-align="start ">
+                                            <label class="texttool_label">Pinyin</label>
+                                            <md-select ng-model="controlPanel.pinyin" placeholder="Pinyin" aria-label="pinyin" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                <md-option value="pinyin">Convert all to Pinyin</md-option>
+                                                <md-option value="pin1yin1">Convert all to Pin1yin1</md-option>
+                                                <md-option value="pinyin_annotate" ng-show="controlPanel.language == 'chinese'">Annotate with Pinyin</md-option>
+                                                <md-option value="pin1yin1_annotate" ng-show="controlPanel.language == 'chinese'">Annotate with Pin1yin1</md-option>
+                                                <md-option value="off" ng-show="controlPanel.language == 'chinese'">Off</md-option>
+                                            </md-select> 
+                                        </div>
+                                        <div md-no-float flex layout='row' layout-padding layout-align="start">
+                                            <label class="texttool_label">Simp./Trad.</label>
+                                            <md-select ng-model="controlPanel.tradorsimpl" placeholder="Simplified/Traditional" aria-label="simplified/traditional" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                <md-option value="simplified">View as Simplified</md-option>
+                                                <md-option value="traditional">View as Traditional</md-option>
+                                            </md-select> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>                                    
+                        </md-content>
+                        <md-content ng-show="!result.analyzeFinished && controlPanel.language.length">
+                            <form ng-submit="submitText(textarea)"  novalidate>
+                                <div class="chinesetext">
+                                    <textarea rows="15" ng-model="result.original" class="form-control texttool-textbox" placeholder="Enter your text here to have it analyzed. Click on any word to see the definition. Find all the words you don't know in the Analysis panel and add them to flashcard lists so that you don't forget them."></textarea>
+                                </div>
+                                <div class="analyzecode">
+                                    <div class="dis-inline" ng-show="controlPanel.language == 'pinyin'">
+                                        <md-button aria-label="keyboard" ng-click="toogleKeyboard()" ng-show="!openKeyboard" class="md-primary md-raised light-blue-btn">Open pinyin keyboard</md-button>
+                                    </div>
+                                    <md-button aria-label="analyze" class="md-primary md-raised light-blue-btn" type="submit">Analyze</md-button>
+                                </div>
+                            </form>
+                        </md-content>
+                        <md-content ng-show="result.analyzeFinished">
+
+                            <!-- Chinese -->
+
+                            <div ng-show="controlPanel.language == 'chinese' && controlPanel.pinyin != 'off'" >
+                                <div class="texttool-textbox p20px resultbox" ng-show="controlPanel.pinyin == 'pinyin'">
+                                    <span ng-repeat="word in result.origtext.words track by $index" | orderBy: 'position'>
+                                        <span>{$ word.pinyin_normalized $}</span>
+                                        <span class="texttool-span-no-space" ng-if="!word.simplified" ng-bind-html="word | nl2br"></span>
+                                    </span>
+                                </div>
+                                <div class="texttool-textbox p20px text-for-analysis resultbox" ng-show="controlPanel.pinyin == 'pin1yin1'" >
+                                    <span ng-repeat="word in result.origtext.words track by $index" | orderBy: 'position'>
+                                        <span>{$ word.pinyin $}</span>
+                                        <span class="texttool-span-no-space" ng-if="!word.traditional" ng-bind-html="word | nl2br"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div ng-show="controlPanel.language == 'chinese' && result.words.length && controlPanel.pinyin != 'pinyin' && controlPanel.pinyin != 'pin1yin1'" class="ptb15px resultbox">
+                                <p ng-show="controlPanel.analyze == 'on'" class="text-note">Click any word below to discover the meaning</p>
+                                <div class="p10px texttool-textbox-no-space text-for-analysis" ng-show="controlPanel.tradorsimpl == 'simplified'" layout="row" layout-wrap="wrap">
+                                    <span ng-repeat="word in result.origtext.words track by $index" | orderBy: 'position'>
+                                        <span class="texttool-span-no-space" ng-if="word.simplified" ng-click="result.origtext.selected = word; selectWord(word)" ng-class="{'texttool-hgltd': controlPanel.analyze == 'on' && result.origtext.selected.simplified == word.simplified, 'annotated-span': controlPanel.pinyin == 'pin1yin1_annotate' || controlPanel.pinyin == 'pinyin_annotate'}">
+                                        {$ word.simplified $}
+                                        <span class="pinyin" ng-show="controlPanel.pinyin == 'pin1yin1_annotate'">{$ word.pinyin $}</span>
+                                        <span class="pinyin" ng-show="controlPanel.pinyin == 'pinyin_annotate'">{$ word.pinyin_normalized $}</span>
+                                        </span>
+                                        <span class="texttool-span-no-space" ng-if="!word.simplified" ng-bind-html="word | nl2br"></span>
+                                    </span>
+                                </div>
+                                <div class="p10px texttool-textbox-no-space" ng-show="controlPanel.tradorsimpl == 'traditional'" layout="row" layout-wrap="wrap">
+                                    <span ng-repeat="word in result.origtext.words track by $index" | orderBy: 'position'>
+                                        <span class="texttool-span-no-space annotated-span" ng-if="word.traditional" ng-click="result.origtext.selected = word; selectWord(word)" ng-class="{'texttool-hgltd': controlPanel.analyze == 'on' && rresult.origtext.selected.traditional == word.traditional}">{$ word.traditional $}
+                                        <span class="pinyin" ng-show="controlPanel.pinyin == 'pin1yin1_annotate'">{$ word.pinyin $}</span>
+                                        <span class="pinyin" ng-show="controlPanel.pinyin == 'pinyin_annotate'">{$ word.pinyin_normalized $}</span>
+                                        </span>
+                                        <span class="texttool-span-no-space" ng-if="!word.traditional" ng-bind-html="word | nl2br"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- PinYin -->
+
+                            <div ng-show="controlPanel.language == 'pinyin' && controlPanel.pinyin != 'pin1yin1'" class="ptb15px resultbox">
+                                <div class="p10px texttool-textbox" >
+                                    <span ng-bind-html="result.pinyin | nl2br"></span>
+                                </div>
+                            </div>
+                            <div ng-show="controlPanel.language == 'pinyin' && controlPanel.pinyin == 'pin1yin1'" class="ptb15px resultbox">
+                                <div class="p10px texttool-textbox">
+                                    <span ng-bind-html="result.pin1yin1 | nl2br"></span>
+                                </div>
+                            </div>
+                            <div class="analyzecode">
+                                <md-button aria-label="New analysis" class="md-primary md-raised light-blue-btn" ng-click="newAnalysis()">New Analysis</md-button>
+                            </div>
+
+                        </md-content>
+                        <div class="keyboard-container" ng-show="openKeyboard">
+                            <div class="panel pinyin-keyboard" ng-show="!result.analyzeFinished">
+                                <div class="panel-heading">Pinyin Keyboard <md-icon class="fa fa-close fa-2x" ng-click="toogleKeyboard()"></md-icon></div>
+                                <div class="panel-body pinyintool">
+                                    <div class="copied">Copied!</div>
+                                    <textarea class="form-control textarea-pinyin p10px" name="pinyin-keyboard" cols="30" rows="8" ng-model="pinyinText" ng-keydown="removeChar($event)"></textarea>
+                                </div>
+                                <div class="panel-footer">
+                                    <div>
+                                        <button type="button" class="key-btn md-whiteframe-3dp" ng-click="addPinyinChar(char)" ng-repeat="char in pinyinCharsArr" ng-bind-html="char.char"></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <md-button aria-label="Copy" class="md-primary md-raised mt10px" ng-click="copyPinyinText()" ng-click-copy="{$ pinyinText $}">Copy</md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spinner spinner-block center-block"><img src="/static/images/spinner.svg"></div>
+                    </div>                    
+                </div>
+                <div flex-gt-sm="30" flex="100" ng-cloak ng-show="result.analyzeFinished && controlPanel.language != 'pinyin' && controlPanel.analyze != 'off'">
+                    <div class="main-heading mb0px">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7"> Analysis </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div class="card-list card-analysis">
+                        <md-content>
+                            <div class="panel-body word-analysis">
+                                <form class="form-horizontal  text-left" role="form" ng-if="result.words.length" layout="row" layout-align="space-around center">
+                                    <div flex-gt-xs="45" flex="100">
+                                        <label class="control-label" for="SortBy">Sort By</label>
+                                        <md-select class="analysis-dropdown" aria-label="sort by" placeholder="SortBy" ng-model="controlPanel.select.sortby" md-on-open="stopscroll()" md-on-close="removestop()">
+                                            <md-option value="0">In Order of Occurrence</md-option>
+                                            <md-option value="1">In Order of Occurrence (Group Similar entries)</md-option>
+                                            <md-option value="2">Most Commonly Occurring</md-option>
+                                        </md-select>
+                                    </div>
+                                    <div flex-gt-xs="45" flex="100">
+                                        <label class="control-label" for="Show">Show</label>
+                                        <md-select class="analysis-dropdown" ng-model="controlPanel.select.show" name="Show" placeholder="All Words" aria-label="All Words" md-on-open="stopscroll()" md-on-close="removestop()">
+                                            <md-option value="0" >All Words</md-option>
+                                            <md-option value="1">Only words not in flashcards</md-option>
+                                            <md-option value="2">Only Words already in flashcard Lists</md-option>
+                                        </md-select> 
+                                    </div>
+                                </form>
+                                <div class="analysisresult" ng-if="result.words.length"  ng-scrollbars ng-scrollbars-config="config">
+                                    <table class="table table-striped table-condensed search-table" >
+                                        <tbody>
+                                            <tr ng-repeat="word in result.words | orderBy: 'position' | showFilter: controlPanel.select">
+                                                <td ng-show="!controlPanel.traditional" class="column simplified wbr">
+                                                    <a href="#" class="texttool-span-no-space" ng-class="{'texttool-hgltd': result.origtext.selected.simplified == word.simplified}" ng-click="selectWord(word)">{$ word.simplified $}</a>
+                                                </td>
+                                                <td ng-show="controlPanel.traditional" class="column traditional wbr">
+                                                    <a href="#" class="texttool-span-no-space"ng-class="{'texttool-hgltd': result.origtext.selected.traditional == word.traditional}" ng-click="selectWord(word)">{$ word.traditional $}</a>
+                                                </td>
+                                                <td class="column">{$ word.occurence $}</td>
+                                                <td class="column added text-blue text-center">
+                                                    <span ng-class="word.added ? 'fa fa-check fa-lg' : ''"  ng-show="word.added"></span>
+                                                </td>
+                                                <td class="column add result-list-wrap">
+                                                    <md-button class="md-fab md-mini" aria-label="add" ng-click="openAddToListDialog(word, categories, destinationCategory)">
+                                                        <md-icon class="fa fa-plus" aria-hidden="true"> <i></i> </md-icon>
+                                                    </md-button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                           
+                        </md-content>
+                    </div>
+                </div>
+                <div flex-gt-sm="30" flex="100" ng-cloak ng-show="!result.analyzeFinished">
+                    <div class="main-heading mb0px">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7"> Instructions </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div class="card-list card-analysis">
+                        <md-content>
+                            <p class="mb10px"><strong>Enter Chinese text</strong> and click ‘Analyze’ to find all words in the text and their definitions. Easily annotate the text with Pinyin, or switch between simplified and traditional characters.</p>
+                            <p class="mb10px"><strong>In Pinyin mode</strong> you can quickly switch between toned Pinyin (nǐhǎo) and numbered Pinyin (ni3hao3).</p>
+                        </md-content>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

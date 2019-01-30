@@ -1,0 +1,37 @@
+<!--suppress ALL -->
+<div class="panel login-dialog" ng-controller="LoginController">
+    <div class="panel panel-heading">Sign In</div>
+    <div class="panel panel-body">
+            <div ng-if="!showMessage">
+                <p>This feature requires you to be logged in. Please Login below or Signup for a new account, it only takes 2 minutes and is completely free</p>
+            </div>
+        <form name="loginForm" ng-submit="login()" autocomplete="off">
+            <div class="form-errors" ng-if="formData.errors.__all__.length > 0">
+                <div class="alert alert-danger" role="alert" ng-repeat="error in formData.errors.__all__">{$ error $}</div>
+            </div>
+            <div class="form-group">
+                <div class="input-group" ng-class="{'has-error': (loginForm.identification.$dirty && loginForm.identification.$invalid) || formData.errors.identification.length > 0}">
+                    <input class="form-control" type="text" required name="identification" placeholder="Username or Email" ng-model="credentials.identification">
+                    <span class="input-group-addon"> <i class="fa fa-envelope-o"></i></span>
+                </div>
+                <div class="form-errors" ng-if="formData.errors.identification.length > 0">
+                    <div class="alert alert-danger" role="alert" ng-repeat="error in formData.errors.identification">{$ error $}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group" ng-class="{'has-error': (loginForm.password.$dirty && loginForm.password.$invalid) || formData.errors.password.length > 0}">
+                    <input class="form-control" type="password" required name="password" placeholder="Password" ng-model="credentials.password">
+                    <span class="input-group-addon"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <div class="form-errors" ng-if="formData.errors.password.length > 0">
+                    <div class="alert alert-danger" role="alert" ng-repeat="error in formData.errors.password">{$ error $}</div>
+                </div>
+            </div>
+            <button type="submit" ng-disabled="loginForm.$invalid || loginForm.$pending" class="btn btn-sm login-button">Sign Me In</button>
+        </form>
+    </div>
+    <div class="panel panel-footer">
+        <div>Forgot <a href="/accounts/password/reset/">Username / Password?</a></div>
+        <div>Don't have an account? <a ng-click="redirect('/' + path('signup'))">Sign up here</a></div>
+    </div>
+</div>

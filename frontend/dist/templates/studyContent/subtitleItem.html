@@ -1,0 +1,116 @@
+<section class="studyContentDetail test-section">
+    <div class="container">
+        <div layout="column" layout-gt-sm="row">
+            <div flex="100" flex-gt-sm="70" ng-cloak class="flash-list">
+                <md-content class="md-whiteframe-7dp md-content-curved">
+                    <div ng-cloak layout="column" class="studydetails">
+                        <div flex>
+                            <md-toolbar layout="row" class="md-hue-3">
+                                <div class="md-toolbar-tools">
+                                    <h2 class="md-display-3 text-left" ng-bind="item.name"></h2>
+                                </div>
+                            </md-toolbar>                            
+                            <md-content class="study-result" ng-show="controlLanguage == 'chinese'">
+                                <div class="srt_wrapper">
+                                    <div class="srt_container srt_container_chinese">
+                                        <div style="position: relative; top:0">
+                                            <p  class="srt_line" ng-if="item.srt.length" ng-repeat="line in item.srt">
+                                                <span id="studySpeak" class="srt_word chinese-hoverable "  ng-click="searchWord(word.text)" ng-repeat="word in line" ng-class="  {'srt_word__highlited': word.id == currentTextId, 'srt_word__clicked': word.text == selectedWord.simplified}" >
+                                                    <span class="texttool-span-no-space"  ng-attr-id="{{ word.id }}" scroll-on-update="word.id" container="chinese">{{ word.text }}</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-content>
+                            <md-content class="study-result" ng-show="controlLanguage == 'pinyin'">
+                                <div class="srt_wrapper">
+                                    <div class="srt_container srt_container_pinyin">
+                                        <div style="position: relative; top:0">
+                                            <p class="srt_line" ng-if="item.srt.length" ng-repeat="line in item.srt">
+                                            <span class="srt_word chinese-hoverable" ng-click="searchWord(word.text)" ng-repeat="word in line" ng-class="{'srt_word__highlited': word.id == currentTextId, 'srt_word__clicked': word.text == selectedWord.simplified}" >
+                                                <span ng-attr-id="{{ word.id }}" scroll-on-update="word.id" line-length="line" container="pinyin">{{ word.pinyin_text}}</span>
+                                            </span>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-content>
+                            <md-content class="study-result" ng-show="controlLanguage == 'pin1yin1'">
+                                <div class="srt_wrapper">
+                                    <div class="srt_container srt_container_pin1yin1">
+                                        <div style="position: relative; top:0">
+                                            <p class="srt_line " ng-if="item.srt.length" ng-repeat="line in item.srt">
+                                            <span class="srt_word chinese-hoverable"  ng-click="searchWord(word.text)" ng-repeat="word in line" ng-class="{'srt_word__highlited': word.id == currentTextId, 'srt_word__clicked': word.text == selectedWord.simplified}" >
+                                                <span ng-attr-id="{{ word.id }}" scroll-on-update="word.id" container="pin1yin1">{{ word.pinyin_num}}</span>
+                                            </span>
+                                        </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </md-content>
+                            <md-content class="study-result">
+                                <div class="videogular-container" ng-class="{'audio': item.type == 'audio', 'video': item.type == 'video'}">
+                                    <videogular vg-player-ready="onPlayerReady($API)" vg-update-time="onUpdateTime($currentTime, $duration)"
+                                                vg-theme="mediaconfig.theme.url" class="videogular-container"
+                                                ng-class="{'audio': item.type == 'audio', 'video': item.type == 'video'}">
+                                        <vg-media ng-if="item.type == 'video'" vg-src="mediaconfig.sources" vg-type="video"></vg-media>
+                                        <vg-media ng-if="item.type == 'audio'" vg-src="mediaconfig.sources" vg-type="audio"></vg-media>
+
+                                        <vg-controls>
+                                            <vg-play-pause-button></vg-play-pause-button>
+                                            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                            <vg-scrub-bar>
+                                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                            </vg-scrub-bar>
+                                            <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                            <vg-playback-button vg-speeds='mediaconfig.playbackSpeeds'></vg-playback-button>
+                                            <vg-volume>
+                                                <vg-mute-button></vg-mute-button>
+                                            </vg-volume>
+                                        </vg-controls>
+                                    </videogular>
+                                </div>
+                            </md-content>
+                            <md-content class="text-center control-section mt30px">
+                                <div class="md-group md-raised">
+                                    <md-button aria-label="off" class="md-primary light-blue-btn" ng-class="{'active':controlLanguage==='chinese'}" ng-click="changeType('chinese')"> Off </md-button>
+                                    <md-button aria-label="pinyin" class="md-primary light-blue-btn" ng-class="{'active':controlLanguage==='pinyin'}" ng-click="changeType('pinyin')">Pinyin</md-button>
+                                    <md-button aria-label="pinyin1" class="md-primary light-blue-btn" ng-class="{'active':controlLanguage==='pin1yin1'}" ng-click="changeType('pin1yin1')">Pin1yin1</md-button>
+                                </div>
+                            </md-content>
+                        </div>                    
+                    </div>
+                </md-content>
+            </div>
+            <div flex="100" flex-gt-sm="30" ng-cloak class="flash-list resultlist">
+                <md-content class="md-whiteframe-7dp md-content-curved" ng-if="item.keywords.length != 0">
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-3"> KeyWords </h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content class="md-padding">
+                        <div ng-cloak class="keywordlist">
+                            <md-list ng-repeat="keyword in item.keywords">
+                                <div layout="row" layout-align="center" flex>
+                                    <div flex-xs="20" flex-gt-xs="20" layout="row" layout-align="center center">
+                                        <i ng-click="playWord(keyword.keyword)" class="fa fa-volume-up fa-2x orange play-word-speaker"></i>
+                                    </div>
+                                    <div flex-xs="80" flex-gt-xs="80">
+                                        <h3 class="play-word-speaker" ng-click="playWord(keyword.keyword)">{{keyword.keyword}}</h3>
+                                        <p>{{keyword.meaning}}</p>
+                                        <ul ng-if="item.keywords.description.length != 0">
+                                            <li class="panel-keywords-definition" ng-repeat="description in keyword.description"><span>{{$index+1}}. </span>{{description}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </md-list>
+                        </div>
+                    </md-content>
+                </md-content>
+            </div>  
+        </div>
+    </div>
+</section>

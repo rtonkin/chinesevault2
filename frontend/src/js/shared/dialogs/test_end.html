@@ -1,0 +1,68 @@
+<section class="test-section">
+    <div class="container">
+        <div layout="column" layout-gt-sm="row">
+            <div flex="100" flex-gt-sm="100" ng-cloak class="flash-list">
+                <div class="main-heading">
+                    <md-toolbar layout="row">
+                        <div layout="row" layout-align="center" flex>
+                            <h2 class="md-display-7">  Test Ended </h2>
+                        </div>
+                    </md-toolbar>
+                </div>
+                <div ng-cloak class="card-list md-whiteframe-4dp">
+                    <md-content>
+                        <div class="flashcard-table cards-table scores" flex>
+                            <md-content>
+                                <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} words correctly for a score of</h4>
+                                <h1 class="text-center ">{$ statistics['Percentage']()|number:1 $} %</h1>
+                                <div layout="row" layout-sm="column" layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                    <div class="dictionary-options button-vert-padding">
+                                        <md-button aria-label="New Test" class="md-primary md-raised light-blue-btn" ng-click="configureNewTest()">New Test</md-button>
+                                    </div>
+                                    <div class="dictionary-options button-vert-padding">
+                                        <md-button aria-label="Retake Test" class="md-primary md-raised light-blue-btn" ng-click="restartTest()">Retake Test</md-button>
+                                    </div>
+                                    <div class="dictionary-options button-vert-padding" ng-if="incorrectCardsList.length">
+                                        <md-button aria-label="Retest" class="md-primary md-raised light-blue-btn" ng-click="restartTestIncorrect()" >Retest Incorrect Cards</md-button>
+                                    </div>
+                                </div>
+                                <table ng-table class="table table-striped table-condensed table-test-end" ng-show="incorrectCardsList.length">
+                                    <tbody>
+                                        <tr ng-repeat="card in incorrectCardsList">
+                                            <td class="text-center xs-width"><!-- <input type="checkbox" value="{$ card.id $}" ng-model="card.Selected" /> -->
+                                                <md-checkbox ng-model="card.Selected" aria-label="Checkbox 1" value="{$ card.id $}"></md-checkbox>
+                                            </td>
+                                            <td class="simplified wbr sm-width"><span ng-bind-html="card.word.simplified|asChinese:'s'|asHtml"></span></td>
+                                            <td class="pinyin wbr sm-width">{$ card.word.pinyin_normalized $}</td>
+                                            <td class="meanings column-meaning">
+                                                <span ng-repeat="meaning in card.word.meanings_references">
+                                                    <span>{$ $index + 1 $}.</span>
+                                                    <span class="meaning" ng-bind-html="meaning|asHtml"></span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div flex="100" layout-xs="column" layout-sm="row" ng-if="incorrectCardsList.length " class="text-center">
+                                    <div flex-gt-sm="50" class="dictionary-options button-vert-padding">
+                                        <md-button aria-label="Clear" class="md-primary light-blue-btn md-raised" ng-click="clearAllSelections()" ng-if="!clearAllSelectionsClicked">Clear All Selections</md-button>
+                                        <md-button aria-label="Select" class="md-primary light-blue-btn md-raised" ng-click="selectAllSelections()" ng-if="clearAllSelectionsClicked">Select All</md-button>
+                                    </div>
+
+                                    <div flex-gt-sm="50" class="dictionary-options button-vert-padding" ng-show="ifcardsToAdd()">
+                                        <md-button aria-label="Add to Existing" class="md-primary light-blue-btn md-raised" ng-click="addToExistingList()" >Add to Existing List</md-button>
+                                    </div>
+
+                                    <div flex-gt-sm="50" class="dictionary-options button-vert-padding" ng-show="ifcardsToAdd()">
+                                        <md-button aria-label="Add to new" class="md-primary light-blue-btn md-raised" ng-click="addToNewList()" >Add to New List</md-button>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    

@@ -1,0 +1,70 @@
+<div flex="100" flex-gt-sm="100" ng-cloak >
+    <div class="test-card tonepractice">
+        <md-content class="test-result-section " ng-if="!showResults" ng-scrollbars ng-scrollbars-config="config">
+            <table ng-table  class="table table-striped text-center text-result" >
+                <tbody>
+                    <tr ng-if="options.tone == 'hanzi'">
+                        <td colspan="2" class="card-simplified">
+                            <span ng-if="!options.show.traditional" ng-bind-html="currentCard.word.simplified|asChinese:'s'|asHtml"></span>
+                            <span ng-if="options.show.traditional" ng-bind-html="currentCard.word.traditional|asChinese:'t'|asHtml"></span>
+                        </td>
+                    </tr>
+                    <tr ng-if="options.tone == 'englishpinyin'">
+                        <td colspan="2" class="card-pinyin">{$ currentCard.word.pinyin | unToned $}</td>
+                    </tr>
+                    <tr ng-if="options.tone == 'englishpinyin'" ng-repeat="meaning in currentCard.word.meanings_references">
+                        <td width="0%"></td>
+                        <td width="100%" style="text-align: center" class="card-meaning">
+                            <span ng-if="currentCard.word.meanings_references.length > 1">{$ $index+1 $}.</span>
+                            <span class="meaning" ng-bind-html="meaning|asHtml"></span>
+                        </td>
+                    </tr>                    
+                </tbody>
+            </table>
+            <div style="color: green"  class="text-center resultmsg" ng-show="correctMessage">Correct!</div>
+            <div style="color: red" class="text-center resultmsg" ng-show="incorrectMessage">Incorrect!</div>
+        </md-content>
+        <md-content class="test-mode" ng-if="showResults">
+            <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} words correctly for a score of {$ statistics['Percentage']()|number:1 $} %</h4>
+        </md-content>
+        <md-content class="tone-panel mode-options" ng-if="!showResults">
+            <div layout="column"  class=" layout-align-center-center" >
+                <div class="show-status tonepractice" layout="column" flex="100" flex-gt-sm="100">
+                    <div class="result-heading">Tones left: {$ tones.length $}</div>
+                    <div layout="row" layout-align="center">
+                        <div flex-xs="20" flex-gt-xs="20" class="brd-right answercard test-button" ng-disabled="counter > cards.length - 1" ng-click="answerTone(1)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t1.svg">
+                            </div>
+                            <p class="button-number">1</p>
+                        </div>
+                        <div flex-xs="20" flex-gt-xs="20" class="brd-right answercard test-button" ng-disabled="counter > cards.length - 1" ng-click="answerTone(2)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t2.svg">
+                            </div>
+                            <p class="button-number">2</p>
+                        </div>
+                        <div flex-xs="20" flex-gt-xs="20" class="brd-right answercard test-button" ng-disabled="counter > cards.length - 1" ng-click="answerTone(3)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t3.svg">
+                            </div>
+                            <p class="button-number">3</p>
+                        </div>
+                        <div flex-xs="20" flex-gt-xs="20" class="brd-right answercard test-button" ng-disabled="counter > cards.length - 1" ng-click="answerTone(4)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t4.svg">
+                            </div>
+                            <p class="button-number">4</p>
+                        </div>
+                        <div flex-xs="20" flex-gt-xs="20" class="answercard test-button" ng-disabled="counter > cards.length - 1" ng-click="answerTone(5)">
+                            <div class="center-block tone-mark">
+                                <div class="fake-tone-mark"></div>
+                            </div>
+                            <p class="button-number">5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+phua-small-lesson-list a{color:#fff}
+a.link{color:#00aff0}
+phua-small-lesson-list a:hover{color:#000}
+phua-small-study-content-list .content-list span{padding-right:10px}
+phua-small-study-content-list{line-height:200%}
+phua-small-study-content-list .content-list-icon{color:#fff;margin-right:10px}
+a.more{color:#fff;font-size:20px}
+span.capitalize.ng-binding.ng-scope{float:right;text-transform:capitalize}
+.diss{pointer-events:none;opacity:.6}
+@media (min-width: 1200px) {
+    .diff-height{height:230px!important}
+    .panel-home{height:350px}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .diff-height{height:230px!important}
+    .panel-home{height:375px}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .mainpage-panel-body{height:auto}
+    .panel-home{height:auto}
+}
+@media (max-width: 767px) {
+    .container{margin:0;padding:0}
+    .mainpage-panel-body{height:auto}
+    .panel-home{height:auto;height:auto}
+}

@@ -1,0 +1,11 @@
+{
+  "appName": "ChineseVault.Com",
+  "features": {
+    "dictionary": true,
+    "flashcards": false,
+    "textTool": false,
+    "lessons": false,
+    "studyContent": false,
+    "users": false
+   }
+}

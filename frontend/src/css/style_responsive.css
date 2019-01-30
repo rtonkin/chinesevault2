@@ -1,0 +1,260 @@
+/*
+ Table Of Contents
+ 1.) Media Query for Handheld Devices
+ 2.) Media Query for Medium devices
+ 3.) Media Query for Tablet
+ 4.) Media Query for mobile
+ ===============================================*/
+/*
+ 1.) Media Query for Handheld Devices
+ ===============================*/
+ 
+@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+	
+}
+
+/*
+ 2.) Media Query for Medium devices
+ ===============================*/
+
+@media only screen and (min-width: 960px) and (max-width: 1279px) {
+	.navigation .md-button, .login-wrap .md-button{font-size: 14px}
+	.member-ship{padding:20px 15px}
+	h3{ font-size: 19px}
+}
+
+/*
+ 3.) Media Query for Tablet
+ ===============================*/
+@media only screen and (min-width: 600px) and (max-width: 959px) {	
+	.word-search-tab {margin: 0 0 15px}
+	.words-search-sec{padding: 30px 15px}
+	.latest-blogs-section{padding:30px 15px}
+	.latest-blogs-section .blogs-box{margin-right: 15px}
+	.blogs-figcap{padding: 15px}
+}
+
+@media only screen and (max-width: 959px) {
+	.header, .toggle-menu.md-button{padding:0}
+	.result-list-wrap-option h4, .md-button.options-items, .multichoice p{font-size:14px}
+	.answercard p, .banner p{font-size:15px}	
+	.logo h3, .resultmsg{font-size:18px}
+	h1.md-flex{font-size:30px}
+	.next-btn{margin:0 auto;}
+	.toggle-menu.md-button, .mobile-menu li a,.subscribe-form .layout-xs-column>.flex {margin:0}
+	.main-heading .md-display-7{margin-bottom:10px}
+	.test-section .card-list{margin-bottom:20px}
+	.panel-section .panel,.panel:last-child{margin:15px}
+	.subscribe-form md-input-container{margin:0 15px 15px 0}
+	.mobile-menu li a, .mobile-menu .close-btn, .mobile-menu md-icon.md-default-theme, .mobile-menu md-icon{color:#ffffff}
+	.toggle-menu.md-button{padding:0;width:35px;background:transparent;float:right}
+	.toggle-menu.md-button span{height:2px;background:#ffffff;width:30px;display:block;margin-bottom:6px}
+	.toggle-menu.md-button.md-default-theme.md-raised:hover:not([disabled]), .toggle-menu.md-button.md-raised:hover:not([disabled]), .md-button.md-default-theme.md-raised.md-focused:not([disabled]), .md-button.md-raised.md-focused:not([disabled]){background-color:transparent}
+	.mobile-menu li a{font-size:18px;text-transform:none;padding:10px 15px;display:block}
+	.mobile-menu md-sidenav.md-default-theme,.mobile-menu md-sidenav,.mobile-menu md-sidenav.md-default-theme md-content,.mobile-menu md-sidenav md-content,.mobile-menu .md-whiteframe-4dp{background-color:#2d4469}
+	.mobile-menu md-icon.md-default-theme, .mobile-menu md-icon{line-height: 1.3}
+	.mobile-menu .close-btn{border:2px solid #00aff0;font-size:22px;height:36px;position:absolute;right:0px;top:5px;width:36px;border-radius:50%;background: #00aff0}
+	.analysisresult{max-height:300px}
+	.study-table td{font-size:13px;text-align:left}
+	.member-ship{background:#fafafa}
+	.md-ripple-container{background-color:transparent!important}
+	.words-search-sec{padding:35px 0px}
+	.member-ship, .lesson-item{padding:20px}
+	.tab-section .layout-xs-column>.flex-xs-100{max-height:335px!important}
+	.latest-blogs-section .layout-xs-column>.flex-xs-100{max-height:550px!important}
+	.subscribe-form .layout-xs-column>.flex, .chinesetext textarea.texttool-textbox{height:auto}
+	.md-button.options-items, .subscribe-form .layout-xs-column>.flex, .mobile-menu .close-btn, .subscribe-sec form input, .show-btn-wrap .blue-btn.md-button.md-primary.md-raised,.toggle-menu.md-button{min-width:inherit}
+	.test-section .card-list, .tab-cont-block, .flashcard-table, md-content.test-result-section, .resultbox, .test-card{min-height:inherit}
+	md-content.test-result-section{height:170px;overflow-y:auto;padding:0}
+	.test-section .flash-list:first-child{margin-top:0!important}
+	.tab-cont-block h3{line-height:1.5}
+	.tab-cont-block.no-br,.subscribe-form .layout-xs-column>.white-btn{text-align:center}
+	.tab-cont-block{border-right:0}
+	.option-list md-radio-button{margin:0px 10px}
+	.test-section .card-list.card-analysis{margin-left:0}
+	.option-list md-radio-button .md-label{margin:0 10px 0 25px}
+	#sidebar-wrapper{z-index:92;opacity:1}
+	.fanning-char{padding:0px 0 30px}
+	.subscribe-form .layout-xs-column>md-input-container{width: 60%;padding: 0}
+	.subscribe-form, .show-btn-wrap .blue-btn.md-button.md-primary.md-raised{padding:0 30px}
+	.subscribe-sec form input{height: 53px}
+	.subscribe-form .layout-xs-column>.white-btn{width: 32%}
+	.show-btn-wrap .blue-btn.md-button.md-primary.md-raised{line-height:30px;font-size:14px;min-height:inherit}
+	.cards .main-heading{margin-bottom: 0;margin-top:30px}
+	.text-mode-wrap,.sentences-sec, .lesson-head,.multichoice, section.lesson-detail-section{padding:20px 0}
+	md-backdrop.md-sidenav-backdrop {z-index: 59;height: 100vh}
+	.hidden-sm{display:none}
+	.visible-sm{display:block}
+	.mobile-next.flex-50 {text-align: right}
+	h2.md-display-8{margin-bottom:0}
+	a.redirect-btn {padding:0;margin: 0}
+	.redirect-btn md-icon {text-align: left;min-width: inherit}
+	.lesson-head.visible-sm md-content._md.layout-align-start-stretch.layout-row{height:100%;overflow:hidden}
+	.mobile-menu .layout-row>.flex {padding-top: 5px}
+	.history{height:100px}
+	.show-cards a{padding:30px 0}
+	.answercard{padding:3px}
+	.result-heading{padding:5px}
+	.test-section .flash-list{padding-right:0px}
+	.test-section .flash-list:last-child{padding-left:0}
+	span.lang-zh-Hans, span.lang-zh-Hant{font-size:45px;margin:5px 0}
+	.sm-mt20px,.playsoundmarg{margin-top:20px}
+	.playsoundmarg{display: block}
+	.stop-scroll .header, body.stop-scroll{padding-right:0}
+	body.stop-scroll{position: relative}
+	.icon-speakeri:before{top:-1.3em;width:5em;height:2.5em}
+	.icon-speakeri{border-top-width:3em;border-bottom-width:3em;border-right-width:4em}
+}
+@media only screen and (max-width:800px){	
+	.container{padding-left:15px;padding-right:15px}
+	section.tab-section .container{padding:0}
+	.subscribe-sec, .view-result-sec md-list-item.md-3-line{padding-left:0;padding-right:0}
+	.panel .md-display-7{font-size:20px}
+	.panel p{font-size:13px}	
+	.panel-section .panel, .panel:last-child{margin:10px 10px 30px 10px}
+	.headline-blk md-select{padding:5px 10px;margin:0 5px;font-size:14px}
+}
+/*
+ 4.) Media Query for mobile
+ ===============================*/
+
+@media only screen and (max-width: 599px) {	
+	.plr22px{padding:0}
+	.banner-dr{padding:45px 0}
+	.banner{padding:52px 0}
+	.flash-banner{padding:30px 0}
+	.banner span, .banner span strong {font-size: 13px;letter-spacing: 1px}
+	.search-btn{width: 33px;height: 30px;top: 3px;right: 7px;background-size: contain}
+	.search-form form input{width:87%;line-height:35px;border:1px solid #374b6f}
+	.nametable md-icon {font-size: 1.6em}
+	ul.first-letter{margin: 0 10px;border-radius: 3px}
+	ul.first-letter li button.btn-albha{padding: 5px 7px;font-size: 13px;font-weight: 400}
+	.search-form{border: 1px solid #cacaca;}
+	.multichoice, .show-cards a{padding:34px 10px;}
+	.result-heading md-icon.fa.fa-check, .result-heading md-icon.fa.fa-close{vertical-align: middle;min-height: inherit;height: auto}
+	.result-heading{padding: 7px 0px 3px}
+	.panel-section .panel, .panel:last-child {margin-bottom:10px}
+	.word-title, .word-info-section md-tab-item,.flashcard-table td, .flashcard-table th, .view-result-sec .md-list-item-text span, .view-result-sec, .result-list-wrap-option h4, .md-button.options-items{font-size:12px}	
+	.word-gram li, .staticContent dl, .staticContent p,.examp-section .list-sentense p{font-size:13px;}
+	.result-heading, .tab-cont-block ul li, .lists p, .check-box label, .panel p, .md-button, .text-mode-wrap .light-blue-btn, .show-btn-wrap .blue-btn.md-button, .lesson_cont p, .answercard p, .texttool-span-no-space, .visible-xs .redirect-btn, .resource-list h4, .text-result{font-size:14px}
+	.word-title strong,.banner p, .subscribe-sec p, .blue-btn.md-button.md-primary.md-raised{font-size:16px}
+	.mobile-menu .close-btn,.result-heading md-icon.fa.fa-check, .result-heading md-icon.fa.fa-close{font-size:17px}
+	.word-search-tab h3, .md-toolbar-tools h2.md-display-3{font-size:18px}
+	.md-display-5, .main-heading .md-display-7, .lesson_cont .md-toolbar-tools h3, .headline-blk .md-display-3, .text-heading h3, h1.md-flex, .md-display-4, .md-display-2, .tab-cont-block h3, .user-message h3, .login-section .pricechart md-icon.material-icons, .staticContent .md-heading-4,.examp-section span.fa.fa-check, .md-toolbar-tools .md-display-10{font-size:20px;text-transform:inherit}
+	.staticContent .md-heading-4{font-weight:400}
+	.next-btn span {font-size:20px;font-weight:300;line-height:1.3}
+	img.medium-image{height:80px;width:auto}
+	.next-btn md-icon{font-size:2em}
+	.md-toolbar-tools h2.md-display-3{font-family:ProximaNova;line-height:1;padding:6px 0 10px}
+	.subscribe-sec h2{font-size:22px}
+	.panel .md-display-7, .character-mean{font-size:23px}
+	h1, .study-content .md-display-3{font-size:26px}
+	.character span.lang-zh-Hans, .character span.lang-zh-Hant,span.lang-zh-Hans, span.lang-zh-Hant{font-size:35px}
+	.word-sentence li span{margin:0 5px 0 0}
+	.result-list-wrap .md-button.md-fab.md-mini, .text-right.flex-gt-xs-25.flex-100, .profile-section md-toolbar+md-content, span.lang-zh-Hans, span.lang-zh-Hant, .test-section md-radio-group.layout-row md-radio-button{margin:5px 0}
+	md-checkbox, h2.md-display-8, .cards .main-heading,.test-section .flash-list:last-child{margin-bottom:0}
+	.word-search-tab h3,.word-title, .word-gram,.social-links, .tab-section .md-tab md-icon, .subscribe-form .layout-xs-column>.flex, .blue-btn.md-button.md-primary.md-raised , .main-heading .md-display-7{margin-bottom:10px}
+	.banner span strong, .banner span, .latest-blogs-section .blogs-box, .subscribe-sec p, .panel-section .layout-gt-sm-row.layout-column{margin-bottom: 20px}
+	.main-heading, .character span.lang-zh-Hans, .character span.lang-zh-Hant, .login-section .headline-blk .md-display-3,.profile-section .headline-blk .md-display-3, .lesson-head.visible-xs h2, .contactForm md-input-container{margin:0}
+	.subscribe-form md-input-container,.word-search-tab{margin:0 0 15px}
+	.cards .main-heading,.test-section .flash-list:last-child {margin-top:30px}
+	.mobile-menu .close-btn, .sentense-cont md-list-item._md-button-wrap>div.md-button, .subscribe-form .layout-xs-column>.flex, .view-result-sec .md-list-item-text.list-item-text-lg,.view-result-sec .list-row, md-content.result-list-wrap.plr10px, .result-list-wrap.plr20px {padding: 0}
+	.panel .md-toolbar-tools{padding:5px 0}
+	.study-table td, .wordsTable td{padding:5px}
+	.word-gram li,.view-result-sec md-list-item.md-3-line, .new-words td, .word-info-section md-tab-item{padding:0 5px}
+	.view-result-sec .md-list-item-text.list-item-text-lg{width:100px!important}
+	.tab-cont-block, .xs-padding, .test-section .flash-list, .test-section .flash-list:last-child {padding:0 15px!important}
+	.staticContent md-content{min-height:inherit}
+	.column.add .md-button.md-fab.md-mini{margin:0 3px 3px}
+	.column.add md-label {margin:3px 0 0}
+	.lesson-head, .latest-blogs-section {padding:20px 0}
+	.tab-section, .text-mode-wrap, .pagination-blk, .character span.lang-zh-Hans, .character span.lang-zh-Hant {padding: 15px 0}
+	.tabs-wrapper .md-tab,.staticContent md-content{padding:15px}
+	.word-info-section, .examp-section{padding:30px 0}
+	.flashcard-table td, .flashcard-table th{padding:5px 10px}
+	.word-gram li:first-child{padding:0 5px 0 0}
+	.arrange-card-sec {padding:30px 0}	
+	.tabs-wrapper md-tabs:not(.md-no-tab-content):not(.md-dynamic-height){min-height:500px}
+	.word-search-tab md-tab-content, .md-button.options-items, .word-add fieldset.ng-scope{padding:10px}
+	.latest-blogs-section .blogs-box{margin-right:0}
+	.word-search-tab md-tabs-wrapper,.circle-char{width:100px}
+	.circle-char{height:100px}
+	.animated-char{margin-top:15px}
+	.sentense-cont .md-list-item-text span, .word-search-tab h3{margin-top:5px}
+	h2,.sentences-sec md-list-item.md-3-line .md-list-item-text p{margin-top:0}
+	.word-search-tab md-tabs-content-wrapper{left:100px}
+	.subscribe-sec form input{min-width:inherit}
+	.tabs-wrapper md-pagination-wrapper{left:0}
+	.tabs-wrapper md-pagination-wrapper, .tabs-wrapper md-tabs-canvas, .tabs-wrapper .md-tab{height:130px}
+	.tabs-wrapper md-tabs-content-wrapper{top:130px;height: 375px}
+	.resources.layout-wrap {flex-wrap:nowrap;height:inherit}
+	.resource-list:after, .resource-list:before{display:none}
+	md-content.result-section{margin:20px 0}
+	md-content.result-section+md-content.result-section{margin-bottom:40px}
+	.ngdialog.ngdialog-theme-default{padding:160px 20px 0}
+	.word-info-section md-tab-item{line-height:50px}
+	.word-info-section md-pagination-wrapper, .word-info-section md-tabs-canvas{height:45px}
+	.inner-examp-blk, .word-info-section md-tabs{border-radius:10px}
+	.blue-btn.md-button.md-primary.md-raised {min-width:100px;padding:0 20px}
+	.arrange-card-sec md-tabs-canvas,.arrange-card-sec md-pagination-wrapper{height:38px}
+	.arrange-card-sec .md-tab{line-height:18px;padding:12px 15px}
+	.md-button {min-width:inherit;;padding:0 10px;line-height:1.8;min-height:30px;margin:5px}
+	.flashcard-table, .test-section .card-list{min-height:inherit}
+	.chinesetext textarea.texttool-textbox{height: 100px}
+	.login-panel .md-select-value{padding-left:8px}
+	.md-button.options-items{margin:5px}
+	.show-btn-wrap .blue-btn.md-button{line-height:30px}
+	.view-result-sec .md-list-item-text.sm-width, .examp-section .list-row .sm-width{width:40px!important}
+	.subscribe-form .layout-xs-column>.flex,.subscribe-form .layout-xs-column>.white-btn, .toggle .container, .flash-btn-wrap md-label, .staticContent md-input-container.md-block, .profile-box md-input-container.md-block, fieldset .profile-box, .subscribe-sec form input{width:100%}
+	.login-section, .panel-section, .profile-section {padding:23px 0}
+	.table-responsive {overflow-x:auto;padding-bottom:30px}
+	.charfequency .dataTables_filter, .charfequency .dataTables_info, .charfequency .dataTables_length, .charfequency .dataTables_paginate{margin:10px 0}
+	.study-content .fa-5x {font-size: 2.5em} 
+	.study-content{border:1px solid #ddd;margin:0px 0 30px;box-shadow:0 4px 5px -2px rgba(0,0,0,.2),0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12)}
+	.study-content md-list-item.md-3-line, .study-content md-list-item.md-3-line:before{min-height:inherit;}
+	.study-content h3.seeall, fieldset .profile-box label, .cards .card-list md-content.md-padding._md, .answercard, .search,.sound .answercard, .visible-xs .redirect-btn, .contactForm label{padding:0}
+	.lesson_cont p{max-height:65px;overflow:hidden}
+	.flashcard-table.cards-table.flex md-content{overflow:auto;max-height:465px}
+	.study-content .md-display-3{line-height:25px}
+	.hidden-xs{display:none}
+	.visible-xs,.flash-btn-wrap md-label,.mobile-prev span, .mobile-next span, .visible-xs .redirect-btn,.contactForm label{display:block}
+	.lesson-head.visible-xs h2, .flash-btn-wrap md-label,.panel p, h2.md-display-8{text-align:center}
+	.visible-xs .redirect-btn{color:#444!important}
+	.mobile-next span,.mobile-next .redirect-btn{text-align:right}
+	.mobile-prev span, .mobile-next span{font-size:15px;font-family:proxima_nova_ltsemibold}
+	.xasisscroll{overflow-x:auto!important}
+	animate-chinese.animated-char-box, .word-sub-title img, div[dynamic] img{max-width:100%}
+	.mobile-content .main-heading + md-content{box-shadow:0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);padding:0}
+	.mobile-content .test-card.md-whiteframe-7dp{box-shadow:none}
+	.test-section .flash-list, .test-section .flash-list:last-child {padding:0!important;overflow:visible}
+	.staticContent li:before{width:5px;height:5px;left:3px}
+	.staticContent li{padding-left:20px}
+	.staticContent h3.md-heading-3{font-size:21px;font-weight:400;margin:0 0 10px;line-height:1.2}
+	.contactForm .text-right,.visible-xs .redirect-btn, .text-right.flex-gt-xs-25.flex-100{text-align:left}
+	.contactForm label,p.button-number,.footer-nav{margin-bottom:5px}
+	.footer-nav a{margin:0 auto;width:50%;text-align:left}
+	.footer-nav a:before{top:13px}
+	.staticContent md-input-container.md-block, .profile-box md-input-container.md-block{margin: 0}
+	.layout-align-xs-start-inherit {justify-content:flex-start;align-items:inherit}
+	.login-section .headline-blk .md-display-3,.profile-section .headline-blk .md-display-3{font-size:20px;text-transform:capitalize}
+	.profile-section md-toolbar+md-content{padding:0 10px}
+	.contactForm .mb30px{margin:10px 0}
+	fieldset .profile-box {float:left}
+	.md-primary.md-raised.light-blue-btn.md-button.md-ink-ripple{white-space:inherit;line-height:1.4;padding:5px 15px}
+	.result-list-wrap-option h4{line-height:1.3}
+	.pinyin-keyboard{max-width:90%;width:300px}
+	.test-sidebar h2.md-display-7{margin:0 auto 10px}
+	.option-list md-radio-button{margin:10px 5px}
+	.topaudio .brd-right{border-right:0}
+	.md-select-value .md-select-icon:after{color:#6b6a6a;font-size:15px}
+	.md-button.md-fab.md-mini{line-height:25px;width:25px;height:25px;min-height:25px}
+	.flashcard-table.cards-table.flex{max-height:400px}
+	.footer{padding:20px 0 0}
+	.profile-section md-input-container + .form-errors{width:100%}
+	span.texttool-span-no-space{margin:3px 0px;display:inline-block}
+	.icon-speakeri:before{top:-1em;width:4.3em;height:2em}
+	.icon-speakeri{border-top-width:2.5em;border-bottom-width:2.5em;border-right-width:3.5em}
+}
+@media (max-width: 456px){
+	md-sidenav {width: calc(100% - 100px);min-width: calc(100% - 100px);max-width: calc(100% - 100px)}
+} 

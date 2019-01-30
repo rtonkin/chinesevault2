@@ -1,0 +1,26 @@
+<div class="panel categories-dialog ">
+    <div class="panel-heading">
+        Save Categories
+    </div>
+    <div class=" panel-body p10px text-center">
+        <p>Are you sure you want to save the following categories:</p>
+        <ul>
+            <li ng-repeat="category in selectedPubCategories()">{$ category.name $}</li>
+        </ul>
+        <md-button aria-label="save" class="md-raised md-primary light-blue-btn" ng-click="pubcategoriesSave()">Save</md-button>
+    </div>
+</div>
+<!-- <div  layout="column" ng-cloak class="categories-dialog" >
+    <md-toolbar layout="row" class="modal-heading">
+        <div class="md-toolbar-tools" layout-align="center">
+            <h2 class="md-display-7" >  Save Categories </h2>
+        </div>
+    </md-toolbar>
+    <md-content flex layout-padding>
+        <p> Are you sure you want to save the following categories:</p>
+        <ul>
+            <li ng-repeat="category in selectedPubCategories()">{$ category.name $}</li>
+        </ul>
+        <md-button class="md-raised md-primary light-blue-btn action-button" ng-click="pubcategoriesSave()">Save</md-button>
+    </md-content>
+</div> -->

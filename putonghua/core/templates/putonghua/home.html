@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="panel panel-danger">
+            <div class="panel-heading">Dictionary</div>
+            <div class="panel-body">
+                <div class="col-md-2 col-lg-2 wallpaper">&nbsp;</div>
+
+                <div class="col-md-8 col-lg-7 searchbox">
+                    <div class="form-group">
+                        <form action="{% url 'dictionary' %}" method="get">
+                            <input tabindex="1" class="form-control" placeholder="有, yǒu, you3 ..." name="query"/>
+                        	<button type="submit" class="btn" style="display: inline;">Search</button>
+                        </form>
+                    </div>
+                    <div class="subarea">
+                    	<p class="dictionary-description">Dictionary is searchable in English, Pinyin (nihao or ni3hao3) and Chinese (both Traditional and Simplified)</p>
+	                	<span class="latest-searches"><span class="label">Latest Searches</span><span class="hanzi" ng-repeat="search in lastSearches">{$ search $}</span></span>
+	                	<span class="random-entries"><span class="label">Random Entries</span>
+                        <span class="hanzi" ng-repeat="search in randomCharacters">{$ search $}</span></span>
+	                </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2 wallpaper">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% if not user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">SignUp</div>
+                <div class="panel-body"><p>Signing up allows you to save words and content and enjoy an experience customized to your Chinese level. It only take two minutes and best of all it's</p> <h3 style="text-align: center;">100% Free</h3><br/>
+                    <div class="form-group">
+                        <form method="post" action="{% url 'pre-signup' %}">
+                        {% csrf_token %}
+                        <center>
+    						<div class="input-group">
+    	                        <input class="form-control" type="text" name="email" placeholder="Email Address" value="">
+    	                        <span class="input-group-addon"> <i class="fa fa-envelope-o" style="width: 14px;"></i> </span>
+    	                    </div>
+                        </center><br/>
+                        <center><button type="submit" class="btn btn-sm" style="text-align: center;">Create Account</button></center><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">About Us</div>
+                <div class="panel-body"><p>Welcome to Chinesevault.com, we are a new website aiming to revolutionize studying Mandarin Chinese. Our dictionary allows users to not only search for words but also to save new vocabulary, check out example sentences and images, and collaborate to improve the dictionary. Through our translation tool you can practice your skills and check out examples that other have translated. There's heaps of new features coming soon so stay tuned. </p> chinesevault.com <br/><br/><br/><br/></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

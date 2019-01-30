@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en-us" ng-app="putonghua" ng-controller="BaseController">
+<head>
+    <base href="/app/">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta content="charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="fragment" content="!"/>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    
+
+    <title>{{ title }}</title>
+
+    <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/minified.css?rev=823lxpu6lc9j6uzjgr2h">
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-8244048-18"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-8244048-18');
+    </script>
+    <meta name="user.username" content="{{ user.username }}">
+    <meta name="user.email" content="{{ user.email }}">
+    <meta name="validation:username" content="{{ username_pattern }}">
+    <meta name="user.has_active_subscription" content="{{ has_active_subscription }}">
+</head>
+<body >
+    <!-- <md-content class="maintenace">
+        <div>
+            <h1>Server under maintenance</h1>
+            <i class="fa fa-cogs fa-5x"></i>
+            <p>We are currently under maintenance. We should be back shortly. Thank you for your paitence.</p>
+        </div>
+    </md-content> -->
+<div class="scrollBody">
+    <div ng-if="false">
+        <div class="full-bg">
+            <div class="col-xs-12 preloading">
+                <div class=" center-block">
+                    <div class="loader">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <navigation ng-cloak></navigation>
+    <div id="wrapper" ng-cloak >
+        <div ng-if="SelectedWord" id="sidebar-wrapper"  click-out="alert('!')">
+            <word-info word="globals.SelectedWord"></word-info>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <section class="subscribe-sec" ng-cloak ng-show="subscriptionBox" >
+        <div class="container">
+            <div layout="row" layout-align="center">
+                <div flex-md="80"  flex-xs="100" ng-if="!newsLetterSuccess">
+                    <h2 > Sign up for our newsletter </h2>
+                    <p> Stay up to date with our latest news and receive new words updates, blog posts, and more. </p>
+                    <div class="subscribe-form" >
+                        <form layout-xs="column" ng-submit="submitNewsletterForm()">
+                            <md-input-container md-no-float flex>
+                                <input type="email" ng-model="form.newsletter_email" placeholder="Enter your email address..." required />
+                            </md-input-container>
+                            <md-button type="submit" md-no-ink class="md-primary white-btn md-raised">Subscribe</md-button>                            
+                        </form>
+                    </div>
+                </div>
+                <div flex-md="80"  flex-xs="100" ng-if="newsLetterSuccess">
+                    <div class="alert alert-success">Thank you for contacting us. We will get back to you shortly.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer" class="footer" ng-cloak>
+        <div class="container">
+            <section class="footer-nav" layout="row" layout-sm="row" layout-align-xs="start" layout-align="center center" layout-wrap>
+                <a class="md-button md-ink-ripple" ui-sref="about"><span> About Us </span></a>
+                <a class="md-button md-ink-ripple" ui-sref="terms-of-use"><span> Terms of Use </span></a>
+                <a class="md-button md-ink-ripple" ui-sref="privacy-policy"><span> Privacy Policy </span></a>
+                <a class="md-button md-ink-ripple" ui-sref="contact"><span> Contact Us </span></a>
+            </section>
+            <section class="social-links" layout="row" layout-xs="row" layout-align="center center" layout-wrap>
+                <md-button class="md-fab" aria-label="Facebook" href="//www.facebook.com/chinesevault/" target="_blank">
+                    <md-icon class="fa fa-facebook" aria-hidden="true"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-primary md-twitter" aria-label="Twitter" href="//twitter.com/chinesevault" target="_blank">
+                    <md-icon class="fa fa-twitter" aria-hidden="true"></md-icon>
+                </md-button>
+            </section>
+            <section class="copy-right" layout="row" layout-xs="row" layout-align="center center" layout-wrap>
+                <span><a ng-href="{$ chinese $}" target="_blank">&copy; 2019 ChineseVault.com.</a> All Rights Reserved</span>
+            </section>
+        </div>
+    </footer>
+</div>
+<!-- <div login-dialog></div>
+<form method="post">
+    {% csrf_token %}
+</form> -->
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+<script src="/static/js/minified.js?rev=3bd2ycxrxsrmagar5587k"></script>
+
+</body>
+</html>

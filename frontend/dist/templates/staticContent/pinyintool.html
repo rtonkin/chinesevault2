@@ -1,0 +1,40 @@
+<div class="content ">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <!--keyboard-container -->
+    <section class="ptb40px">
+        <div class="container">
+            <md-content class="md-whiteframe-7dp staticContainer">
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools" layout-align="center">
+                        <h2 class="md-display-3">Pinyin Keyboard</h2>
+                    </div>
+                </md-toolbar>
+                <md-content class="md-padding">
+                    <div class=" pinyin-keyboard-container">
+                        <div class="pinyintool">
+                            <div class="copied">Copied!</div>
+                            <textarea class="curved textarea-pinyin p10px" name="pinyin-keyboard" cols="30" rows="8" ng-model="pinyinText" ng-keydown="removeChar($event)"></textarea>
+                        </div>
+                        <div class="pinyintool">
+                            <ul flex layout="row" layout-wrap="wrap" layout-align="center center">
+                                <li ng-repeat="char in pinyinCharsArr">
+                                    <md-button aria-label="add pinyin" type="button" class="btn-albha md-raised md-primary" ng-click="addPinyinChar(char)" ng-bind-html="char.char"></md-button>
+                                </li>
+                            </ul>
+                            <div class="col-sm-12 text-center">
+                                <md-button aria-label="copy pinyin" class="md-primary md-raised mt10px light-blue-btn" ng-click="copyPinyinText()" ng-click-copy="{$ pinyinText $}"> Copy </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-content>
+        </div>
+    </section>
+        
+</div>

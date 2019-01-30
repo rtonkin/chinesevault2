@@ -1,0 +1,178 @@
+<div class="content dic-res-content" ng-controller="DictionaryController">
+
+    <div class="banner banner-dr">
+        <div class="container">
+            <div layout="row">
+                <div flex-xs="90" flex-offset-xs="5" flex="70" flex-offset="15">
+                    <div layout="column" ng-cloak>
+                        <h1 class="md-flex">  Chinese Dictionary </h1>
+                        <md-content>
+                            <div class="search-form">
+                                <form ng-submit="search(query)">
+                                   <input id="queryField" tabindex="1" class="form-control search-field" type="search" placeholder="有, yǒu, you3..." ng-model="query" ng-change="search(query)" />
+                                   <!-- <input id="queryField" tabindex="1" class="form-control search-field" type="search" placeholder="有, yǒu, you3..."  ng-keyup="setParamsToUrl()" ng-model="query" /> -->
+                                    <!-- <input id="queryField" tabindex="1" class="textbox" type="search" placeholder="有, yǒu, you3..." ng-model="query" /> -->
+                                    <button type="submit" class="search-btn"> &nbsp; </button>
+                                    <!-- <md-button class="md-raised md-primary light-blue-btn"> &nbsp; </md-button> -->
+                                </form>
+                            </div>
+                        </md-content>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <section class="view-result-sec">
+        <div class="container">
+            <div ng-cloak layout="column">    
+                <md-content class="result-list-wrap-option no-br mt20px">
+                    <div layout-xs="column" layout="row" layout-align="space-between" layout-align-xs="center">
+                        <div flex-gt-sm="50" ng-cloak layout-align="start center" layout-align-xs="center center" layout="row">
+                            <h4>Show Results:</h4>
+                            <md-button aria-label="chinese" ng-class="'options-items ' + classForOption('results', 'chinese')" ng-click="setOption('results', 'chinese')">Chinese</md-button>
+                            <md-button aria-label="english" ng-class="'options-items ' + classForOption('results', 'english')" ng-click="setOption('results', 'english')">English</md-button>
+                            <md-button aria-label="both" ng-class="'options-items ' + classForOption('results', 'both')" ng-click="setOption('results', 'both')">Both</md-button>
+                        </div>
+                        <div flex-gt-sm="50" ng-cloak layout-align="end center" layout="row" layout-align-xs="center center">
+                            <h4>Show Characters:</h4>
+                            <md-button aria-label="Simplified" ng-class="'options-items ' + classForOption('characters', 'simplified')" ng-click="setOption('characters', 'simplified')">Simplified</md-button>
+                            <md-button aria-label="Traditional" ng-class="'options-items ' + classForOption('characters', 'traditional')" ng-click="setOption('characters', 'traditional')">Traditional</md-button>
+                            <md-button aria-label="Both characters" ng-class="'options-items ' + classForOption('characters', 'both')" ng-click="setOption('characters', 'both')">Both</md-button>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+        </div>
+    </section>
+
+    <section class="view-result-sec">
+        <div class="container">
+             <!-- Chinese word search result -->
+            <md-content ng-show="loadedFlag && query.length > 0 && (options.results === 'both' || options.results === 'chinese')" class="md-whiteframe-7dp result-section">
+                <div ng-cloak layout="column" class="view-result-sec">
+                    <div flex>
+                        <md-toolbar layout="row" class="md-hue-3">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-3">Chinese Results <span class="small">(Showing {$ searchResults.chinese_visible.length $} of {$ searchResults.chinese_total_count $})</span></h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content class="result-list-wrap maxHeight_scroll plr10px" ng-if="searchResults.chinese.length"  is-bar-shown="flag" ng-scrollbars ng-scrollbars-config="config">
+                            <md-list flex class="list-row cursorpointer" ng-repeat="word in searchResults.chinese" >
+                                
+                                <md-list-item class="md-3-line" layout="row" >
+                                    <div class="md-list-item-text wbr fix-width text-center" flex="10" ng-show="options.characters === 'simplified' || options.characters === 'both'" ui-sref="word({wordId: word.id})">
+                                        <a class="chineseword" ui-sref="word({wordId: word.id})" ng-bind-html="word.simplified|asChinese:'s'|asHtml"></a>
+                                    </div>
+                                    <div class="md-list-item-text wbr fix-width text-center" flex="10" ng-show="options.characters === 'traditional' || options.characters === 'both'" ui-sref="word({wordId: word.id})">
+                                        <a class="chineseword" ui-sref="word({wordId: word.id})" ng-bind-html="word.traditional|asChinese:'t'|asHtml"></a>
+                                    </div>
+                                    <div class="md-list-item-text fix-width text-center" flex="15" ui-sref="word({wordId: word.id})">
+                                        <span>{$ word.pinyin_normalized $} </span><span ng-if="word.taiwanese_pinyin.length > 0">[<strong lang="zh-Hans">台</strong>. {$ word.taiwanese_pinyin $}]</span>
+                                    </div>
+                                    <div class="md-list-item-text list-item-text-lg " flex="66" ui-sref="word({wordId: word.id})">
+                                        <span ng-repeat="meaning in word.meanings_references"><span>{$ $index+1 $}.</span><span class="meaning" ng-bind-html="meaning|asChinese:'s'|asHtml"></span></span>
+                                    </div>
+                                    <div class="md-list-item-text wbr fix-width text-center" flex="10" ui-sref="word({wordId: word.id})">
+                                        <span ng-show="word.hsk_level"><span>HSK </span><span ng-bind="word.hsk_level"></span></span>
+                                    </div>
+                                    <div class="md-list-item-text wbr fix-width text-center" flex="10" ng-if="features.users" ui-sref="word({wordId: word.id})">
+                                        <span ng-class="word.added ? 'fa fa-check' : ''"  ng-show="word.added"></span>
+                                    </div>
+                                    <div class="md-list-item-text wbr sm-width" flex="10" ng-if="features.users">
+                                        <md-button class="md-fab md-mini" aria-label="add" ng-click="openAddToListDialog(word)">
+                                            <md-icon class="fa fa-plus" aria-hidden="true"> <i></i> </md-icon>
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                            </md-list>                                
+                            <!-- <md-list flex class="list-row">
+                                <md-list-item class="md-3-line" layout="row">
+                                        <div layout="row" layout-align="center" class="show-btn-wrap">
+                                            <md-button md-no-ink class="md-primary show-btn">Show More  </md-button> 
+                                    </div>
+                                </md-list-item>
+                            </md-list> -->
+                        </md-content>
+                        <md-content class="result-list-wrap plr10px" ng-if="!searchResults.chinese.length" >
+                            <span class="no-results">No results <a ui-sref="suggest_word" class="suggest-word">(Suggest a new word)</a></span>
+                        </md-content>
+                        <md-content class="less-results text-center" ng-show="searchResults.chinese_visible.length > results_per_page">
+                            <span class="fa fa-chevron-up"></span>
+                            <a ng-click="collapseResults('chinese')"> &nbsp;Show less&nbsp; </a>
+                            <span class="fa fa-chevron-up"></span>
+                        </md-content>
+            
+                        <md-content class="more-results text-center" ng-show="searchResults.chinese_visible.length < searchResults.chinese_total_count">
+                            <span class="fa fa-chevron-down"></span>
+                            <a ng-click="addResults('chinese')">Show more</a>
+                            <span class="fa fa-chevron-down"></span>
+                        </md-content>
+                    </div>                    
+                </div>
+            </md-content>
+            
+            <!-- English word search result -->
+            <md-content ng-show="loadedFlag && query.length > 0 && (options.results === 'both' || options.results === 'english')" class="md-whiteframe-7dp result-section">
+                <div ng-cloak layout="column" class="view-result-sec">
+                    <div flex>
+                        <md-toolbar layout="row" class="md-hue-3">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-3"> English Results <span class="small">(Showing {$ searchResults.english_visible.length $} of {$ searchResults.english_total_count $})</span></h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content class="result-list-wrap plr10px maxHeight_scroll" ng-if="searchResults.english.length" is-bar-shown="flag" ng-scrollbars ng-scrollbars-config="config">
+                            <md-list flex class="list-row cursorpointer" ng-repeat="word in searchResults.english_visible" >
+                                  
+                                <md-list-item class="md-3-line" layout="row">
+                                    <div class="md-list-item-text fix-width wbr  text-center" flex="10" ng-show="options.characters === 'simplified' || options.characters === 'both'" ui-sref="word({wordId: word.id})">
+                                        <a class="chineseword" ui-sref="word({wordId: word.id})" ng-bind-html="word.simplified|asChinese:'s'|asHtml"></a>
+                                    </div>
+                                    <div class="md-list-item-text  fix-width wbr text-center" flex="10" ng-show="options.characters === 'traditional' || options.characters === 'both'" ui-sref="word({wordId: word.id})">
+                                        <a class="chineseword" ui-sref="word({wordId: word.id})" ng-bind-html="word.traditional|asChinese:'t'|asHtml"></a>
+                                    </div>
+                                    <div class="md-list-item-text fix-width text-center" flex="10" ui-sref="word({wordId: word.id})">
+                                        <span>{$ word.pinyin_normalized $} </span><span ng-if="word.taiwanese_pinyin.length > 0">[<strong lang="zh-Hans">台</strong>. {$ word.taiwanese_pinyin $}]</span>
+                                    </div>
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="66" ui-sref="word({wordId: word.id})">
+                                        <span ng-repeat="meaning in word.meanings_references"><span>{$ $index + 1 $}.</span><span class="meaning" ng-bind-html="meaning|hilite:query|asChinese:'s'|asHtml"></span></span>
+                                    </div>
+                                    <div class="md-list-item-text fix-width wbr text-center" flex="10" ng-if="features.users" ui-sref="word({wordId: word.id})">
+                                        <span ng-class="word.added ? 'fa fa-check' : ''"  ng-show="word.added"></span>
+                                    </div>
+                                    <div class="md-list-item-text sm-width wbr text-center" flex="10 " ng-if="features.users">
+                                        <md-button class="md-fab md-mini" aria-label="add" ng-click="openAddToListDialog(word)">
+                                            <md-icon class="fa fa-plus" aria-hidden="true"> <i></i> </md-icon>
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                            </md-list><!-- 
+                            <md-list flex class="list-row">
+                                <md-list-item class="md-3-line" layout="row">
+                                        <div layout="row" layout-align="center" class="show-btn-wrap">
+                                            <md-button md-no-ink class="md-primary show-btn">Show More  </md-button> 
+                                    </div>
+                                </md-list-item>
+                            </md-list>-->
+                        </md-content>
+                        <md-content class="result-list-wrap plr10px" ng-if="!searchResults.english.length">
+                            <span class="no-results">No results <a ui-sref="suggest_word" class="suggest-word">(Suggest a new word)</a></span>
+                        </md-content>
+                        <md-content class="less-results text-center" ng-show="searchResults.english_visible.length > results_per_page">
+                            <span class="fa fa-chevron-up"></span>
+                            <a ng-click="collapseResults('english')"> &nbsp;Show less&nbsp; </a>
+                            <span class="fa fa-chevron-up"></span>
+                        </md-content>            
+                        <md-content class="more-results text-center" ng-show="searchResults.english_visible.length < searchResults.english_total_count">
+                            <span class="fa fa-chevron-down"></span>
+                            <a ng-click="addResults('english')">Show more</a>
+                            <span class="fa fa-chevron-down"></span>
+                        </md-content>
+                    </div>            
+                </div>
+            </md-content>
+            
+        </div>
+    </section>    
+    <div class="dictionary-license mtb10px">Dictionary data provided by CC-CEDICT under CC BY-SA 3.0 license</div>
+</div>

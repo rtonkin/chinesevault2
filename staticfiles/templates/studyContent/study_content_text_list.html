@@ -1,0 +1,147 @@
+<div class="content" ng-controller="StudyContentListController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="panel-section studyContentDetail">
+        <div class="container ">
+            <div layout="row">
+                <div flex-gt-sm="100" flex="100" class="main-heading">
+                    <md-toolbar layout="row">
+                        <div layout="row" layout-align="center" flex>
+                            <h2 class="md-display-7">  Study Content </h2>
+                        </div>
+                    </md-toolbar>
+                </div>
+            </div>
+            <md-content class="md-whiteframe-7dp md-content-curved _md mb35px">
+                <div flex="100" >
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-3">Songs</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <div class="option-list text-list">
+                            <!-- <md-list ng-repeat="song in content.songs">
+                                <md-list-item class="md-3-line" layout="row">
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="20">
+                                        <a ui-sref="study_content_text_item({id: song.number})">{$ song.chineseName $}</a>
+                                    </div>
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="20">
+                                        {$ song.chineseArtist $}
+                                    </div>
+                                    <div class="md-list-item-text" flex="30">
+                                        <a ui-sref="study_content_text_item({id: song.number})">{$ song.englishName $}</a>
+                                    </div>
+                                    <div class="md-list-item-text text-center" flex="30">
+                                        {$ song.englishArtist $}
+                                    </div>
+                                    <div class="md-list-item-text text-center" flex="10">
+                                        {$ song.study_level | cnvStudyLevel $}
+                                    </div>
+                                </md-list-item>
+                            </md-list> -->
+                            <table ng-table class="table table-stripped study-table">
+                                <tr ng-repeat="song in content.songs">
+                                    <td><a ui-sref="study_content_text_item({id: song.number})">{$ song.chineseName $}</a></td>
+                                    <td>{$ song.chineseArtist $}</td>
+                                    <td><a ui-sref="study_content_text_item({id: song.number})">{$ song.englishName $}</a></td>
+                                    <td>{$ song.englishArtist $}</td>
+                                    <td>{$ song.study_level | cnvStudyLevel $}</td>
+                                </tr>
+                            </table>
+                            <md-list ng-if="!content.songs.length">
+                                <p class="norecord">No Record Found</p>
+                            </md-list>
+                        </div>
+                    </md-content>
+                </div>
+            </md-content>
+            <md-content class="md-whiteframe-7dp md-content-curved _md mb35px">
+                <div flex="100" >
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-3">Poems</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content >
+                        <div class="option-list text-list">
+                            <!-- <md-list ng-repeat="poem in content.poems">
+                                <md-list-item class="md-3-line" layout="row">
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="20">
+                                        <a ui-sref="study_content_text_item({id: poem.number})">{$ poem.chineseName $}</a>
+                                    </div>
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="20">
+                                        {$ poem.chineseAuthor$}
+                                    </div>
+                                    <div class="md-list-item-text" flex="30">
+                                        <a ui-sref="study_content_text_item({id: poem.number})">{$ poem.englishName $}</a>
+                                    </div>
+                                    <div class="md-list-item-text text-center" flex="20">
+                                        {$ poem.englishAuthor $}
+                                    </div>
+                                    <div class="md-list-item-text text-center" flex="10">
+                                        {$ poem.study_level | cnvStudyLevel $}
+                                    </div>
+                                </md-list-item>
+                            </md-list> -->
+                            <table ng-table class="table table-stripped study-table">
+                                <tr ng-repeat="poem in content.poems">
+                                    <td><a ui-sref="study_content_text_item({id: poem.number})">{$ poem.chineseName $}</a></td>
+                                    <td>{$ poem.chineseAuthor$}</td>
+                                    <td><a ui-sref="study_content_text_item({id: poem.number})">{$ poem.englishName $}</a></td>
+                                    <td class="text-center">{$ poem.englishAuthor $}</td>
+                                    <td class="text-center">{$ poem.study_level | cnvStudyLevel $}</td>
+                                </tr>
+                            </table>
+
+                            <md-list ng-if="!content.poems.length">
+                                <p class="norecord">No Record Found</p>
+                            </md-list>
+                        </div>
+                    </md-content>
+                </div>
+            </md-content>
+            <md-content class="md-whiteframe-7dp md-content-curved _md">
+                <div flex="100" >
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-3">Articles</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <div class="option-list text-list">
+                            <!-- <md-list ng-repeat="article in content.articles">
+                                <md-list-item class="md-3-line" layout="row">
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="40">
+                                        <a ui-sref="study_content_text_item({id: article.number})">{$ article.chineseName $}</a>
+                                    </div>
+                                    <div class="md-list-item-text list-item-text-lg wbr" flex="40">
+                                        <a ui-sref="study_content_text_item({id: article.number})">{$ article.englishName $}</a>
+                                    </div>
+                                    <div class="md-list-item-text  text-center" flex="30">
+                                        {$ article.study_level | cnvStudyLevel $}
+                                    </div>
+                                </md-list-item>
+                            </md-list> -->
+                            <table ng-table class="table table-stripped study-table">
+                                <tr ng-repeat="article in content.articles">
+                                    <td><a ui-sref="study_content_text_item({id: article.number})">{$ article.chineseName $}</a></td>
+                                    <td><a ui-sref="study_content_text_item({id: article.number})">{$ article.englishName $}</a></td>
+                                    <td class="text-center">{$ article.study_level | cnvStudyLevel $}</td>
+                                </tr>
+                            </table>
+                            <md-list ng-if="!content.articles.length">
+                                <p class="norecord">No Record Found</p>
+                            </md-list>
+                        </div>
+                    </md-content>
+                </div>
+            </md-content>
+        </div>
+    </section>
+</div>

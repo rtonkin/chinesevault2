@@ -1,0 +1,47 @@
+<div flex="100" flex-gt-sm="100" ng-cloak >
+    <div class="test-card tonepractice">
+        <md-content class="test-result-section " ng-if="!showResults" ng-scrollbars ng-scrollbars-config="config">
+            <a ng-click="playSound()" class="playsoundmarg"><span class="icon icon-speakeri" ng-class="{speakerplayingi: soundIsPlaying}"></span></a>
+            <div style="color: green" class="text-center resultmsg" ng-show="correctMessage">Correct!</div>
+            <div style="color: red" class="text-center resultmsg" ng-show="incorrectMessage">Incorrect!</div>
+        </md-content>
+        <md-content class="tone-panel mode-options" ng-if="!showResults">
+            <div layout="column"  class=" layout-align-center-center" >
+                <div class="show-status sound" layout="column" flex="100" flex-gt-sm="100">
+                    <div layout="row" layout-align="center">
+                        <div flex="20" class="brd-right answercard test-button " id="1" ng-disabled="counter > cards.length - 1" ng-click="answerTone(1)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t1.svg">
+                            </div>
+                            <p class="button-number">1</p>
+                        </div>
+                        <div flex="20" class="brd-right answercard test-button " id="2" ng-disabled="counter > cards.length - 1" ng-click="answerTone(2)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t2.svg">
+                            </div>
+                            <p class="button-number">2</p>
+                        </div>
+                        <div flex="20" class="brd-right answercard test-button " id="3" ng-disabled="counter > cards.length - 1" ng-click="answerTone(3)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t3.svg">
+                            </div>
+                            <p class="button-number">3</p>
+                        </div>
+                        <div flex="20" class="brd-right answercard test-button " id="4" ng-disabled="counter > cards.length - 1" ng-click="answerTone(4)">
+                            <div class="center-block tone-mark">
+                                <img src="/static/images/t4.svg">
+                            </div>
+                            <p class="button-number">4</p>
+                        </div>
+                        <div flex="20" class="answercard test-button " id="5" ng-disabled="counter > cards.length - 1" ng-click="answerTone(5)">
+                            <div class="center-block tone-mark">
+                                <div class="fake-tone-mark"></div>
+                            </div>
+                            <p class="button-number">5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

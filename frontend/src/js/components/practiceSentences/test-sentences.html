@@ -1,0 +1,257 @@
+<div class="content">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row"></div>
+        </div>
+    </div>
+    <section class="test-section" ng-show="showTestEndDialog">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row">
+                <div flex="100" flex-gt-sm="100" ng-cloak class="flash-list">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Test Ended </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="card-list md-whiteframe-4dp">
+                        <md-content>
+                            <div class="flashcard-table cards-table scores" flex>
+                                <md-content>
+                                    <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} words correctly for a score of</h4>
+                                    <h1 class="text-center ">{$ statistics['Percentage']()|number:1 $} %</h1>
+                                    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap class="flash-btn-wrap bt0bb1">
+                                        <md-button aria-label="New Test" class="md-raised md-primary light-blue-btn" ng-click="configureNewTest()">New Test </md-button>
+                                        <md-button aria-label="Retake Test" class="md-raised md-primary light-blue-btn" ng-click="restartTest()">Retake Test </md-button>
+                                        <md-button aria-label="Retest" class="md-raised md-primary light-blue-btn" ng-click="restartTestIncorrect()" ng-if="incorrectCardsList.length">Retest Incorrect Cards</md-button>
+                                    </div>
+                                    <div class="text-center mtb20px" ng-show="incorrectCardsList.length">
+                                        <h3 class="incorrectcard">Incorrect cards</h3>
+                                    </div>
+                                    <table ng-table class="table" ng-show="incorrectCardsList.length">
+                                        <tr ng-repeat="card in incorrectCardsList">
+                                            <td class="text-center xs-width">
+                                                <md-checkbox aria-label="checkbox" class="md-primary" value="{$ card.id $}" ng-model="card.Selected"></md-checkbox>
+                                            </td>
+                                            <td class="simplified sm-width">
+                                                <span ng-bind-html="card.sentence.chinese_simple|asChinese:'s'|asHtml"></span>
+                                            </td>
+                                            <td class="pinyin sm-width">{$ card.sentence.pinyin $}</td>
+                                            <td class="meanings column-meaning sm-width">{$ card.sentence.english_1 $}</td>
+                                        </tr>
+                                    </table>
+                                    <div class="ptb20px text-center brd-top" ng-if="incorrectCardsList.length">
+                                        <md-button aria-label="Clear" class="md-raised md-primary light-blue-btn" ng-click="clearAllSelections()" ng-if="!clearAllSelectionsClicked">Clear All Selections </md-button>
+                                        <md-button aria-label="Select" class="md-raised md-primary light-blue-btn" ng-click="selectAllSelections()" ng-if="clearAllSelectionsClicked">Select All</md-button>
+                                        <md-button aria-label="Add to existing" class="md-raised md-primary light-blue-btn" ng-click="addToExistingList()" ng-show="ifcardsToAdd()">Add to Existing List</md-button>
+                                        <md-button aria-label="Add to new" class="md-raised md-primary light-blue-btn" ng-click="addToNewList()" ng-show="ifcardsToAdd()">Add to New List</md-button>
+                                    </div>
+                                </md-content>
+                            </div>
+                        </md-content>
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </section>
+
+    <section class="test-section" ng-show="!showTestEndDialog">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row">
+                <div flex="100" flex-gt-sm="70" ng-cloak class="flash-list test-sidebar ">
+                    <md-content>
+                        <div flex="100" flex-gt-sm="100" ng-cloak>   
+                            <div class="main-heading">
+                                <md-toolbar layout="row">
+                                    <div layout="row" layout-align="center" flex>
+                                        <h2 class="md-display-7"> Test </h2>
+                                    </div>
+                                </md-toolbar>
+                            </div>
+                            <md-content class="md-padding">
+                                <div class="test-card md-whiteframe-7dp scores">
+                                    <md-content>
+                                        <div layout="column">
+                                            <md-content class="test-result-section option-list" ng-if="!showResults">
+                                                <md-list ng-if="options.show.hanzi && options.show.simplified">
+                                                    <p ng-if="options.show.simplified" ng-bind-html="currentCard.sentence.chinese_simple|asChinese:'s'|asHtml"></p>
+                                                </md-list>
+                                                <md-list ng-if="options.show.hanzi && options.show.traditional">
+                                                    <p ng-if="options.show.traditional" ng-bind-html="currentCard.sentence.chinese_traditional|asChinese:'t'|asHtml"></p>
+                                                </md-list>
+                                                <md-list ng-if="options.show.pinyin">
+                                                    <p class="sentence-card-pinyin">{$ currentCard.sentence.pinyin $}</p>
+                                                </md-list>
+                                                <md-list ng-if="options.show.english">
+                                                    <p class="sentence-card-pinyin">{$ currentCard.sentence.english_1 $}</p>
+                                                </md-list>
+                                                <!-- <table ng-table  class="table table-striped text-center text-result" >
+                                                    <tbody>
+                                                        <tr ng-if="options.show.hanzi">
+                                                            <td class="sentence-card-simplified">
+                                                                <span ng-if="options.show.simplified" ng-bind-html="currentCard.sentence.chinese_simple|asChinese:'s'|asHtml"></span><br/>
+                                                                <span ng-if="options.show.traditional" ng-bind-html="currentCard.sentence.chinese_traditional|asChinese:'t'|asHtml"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr ng-if="options.show.pinyin">
+                                                            <td  class="sentence-card-pinyin">{$ currentCard.sentence.pinyin $}</td>
+                                                        </tr>
+                                                        <tr ng-if="options.show.english">
+                                                            <td class="sentence-card-pinyin">{$ currentCard.sentence.english_1 $}</td>
+                                                        </tr>                                                        
+                                                    </tbody>
+                                                </table> -->
+                                            </md-content>
+                                            <md-content class="test-mode" ng-if="showResults">
+                                                <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} sentences correctly for a score of {$ statistics['Percentage']()|number:1 $} %</h4>
+                                            </md-content>
+                                            <md-content class=" mode-options" >
+                                                <div layout="column"  class=" layout-align-center-center" >
+                                                    <div class="show-cards" flex="100" flex-gt-sm="100" ng-if="!cardRevealed && !showResults"><a ng-click="showCurrentCard()">Show Card</a></div>
+                                                    <div class="show-status" layout="column" flex="100" flex-gt-sm="100" ng-if="cardRevealed && !showResults">
+                                                        <div layout="row" layout-align="center">
+                                                            <div flex="50" flex-gt-sm="50" class="brd-right">
+                                                                <div class="result-heading"><md-icon class="fa fa-check"></md-icon>Correct</div>
+                                                                <div layout="row" layout-align="center">
+                                                                    <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(4)" class="brd-right answercard">
+                                                                        <p class="button-number">4</p>
+                                                                        <p>Immediate Recall</p>
+                                                                    </div>
+                                                                    <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(3)" class="answercard">
+                                                                        <p class="button-number">3</p>
+                                                                        <p>Took Some Time</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div flex="50" flex-gt-sm="50">
+                                                                <div class="result-heading"><md-icon class="fa fa-close"></md-icon>Incorrect</div>
+                                                                <div layout="row" layout-align="center">
+                                                                    <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(1)" class="brd-right answercard">
+                                                                        <p class="button-number">2</p>
+                                                                        <p>Not Quite Right</p>
+                                                                    </div>
+                                                                    <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(0)" class="answercard">
+                                                                        <p class="button-number">1</p>
+                                                                        <p>Don't Know</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </md-content>
+                                            <md-content ng-if="showResults">
+                                                <md-button aria-label="New Test" class="test-btn md-primary md-raised" ng-click="configureNewTest()">NEW TEST</md-button>
+                                                <md-button aria-label="Restart" class="md-primary test-btn md-raised" ng-click="restartTest()">RESTART TEST</md-button>
+                                            </md-content>
+                                        </div>
+                                    </md-content>
+                                </div> 
+                            </md-content>
+                        </div>
+                    </md-content>
+                </div>                
+                <div flex="100" flex-gt-sm="30" ng-cloak class="flash-list test-sidebar">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <h2 class="md-display-7 mb35px"> Options </h2>
+                        </md-toolbar>
+                    </div>
+                    <div  ng-cloak class="test-card md-whiteframe-4dp">
+                        <md-content>
+                            <md-button aria-label="New Test" class="test-btn md-primary md-raised" ng-click="configureNewTest()">NEW TEST</md-button>
+                            <md-button aria-label="Restart Test" class="md-primary test-btn md-raised" ng-click="restartTest()">RESTART TEST</md-button>
+                        </md-content>
+                    </div>
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <h2 class="md-display-7"> History </h2>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="test-card md-whiteframe-4dp">
+                        <md-content>
+                            <div class="option-list history sentences" id="history">
+                                <md-list ng-cloak flex ng-repeat="card in testedCards track by $index" ng-if="testedCards.length > 0">
+                                    <div layout="row" class="layout-align-center-center" flex>
+                                        <div flex="80" flex-gt-sm="80">
+                                            <div layout="column" flex>
+                                                <div class="historycard" ng-if="options.show.simplified">{$ card.sentence.chinese_simple $}</div>
+                                                <div class="historycard" ng-if="options.show.traditional">{$ card.sentence.chinese_traditional $}</div>
+                                            </div>
+                                        </div>
+                                        <div flex="20" flex-gt-sm="20"><span class="card-correct pull-right" ng-class="card.currentScore > 2 ? 'fa fa-check' : 'fa fa-times' "> </span></div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-if="testedCards.length <= 0" class="p10px">
+                                    <span>No cards tested yet</span>
+                                </md-list>
+                            </div>
+                            <script>
+                                window.setInterval(function() {
+                                    var elem = document.getElementById('history');
+                                    if (!!elem) {
+                                        elem.scrollTop = elem.scrollHeight;
+                                    }
+                                }, 3000);
+                            </script>                            
+                        </md-content>
+                    </div>
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <h2 class="md-display-7"> Statistics </h2>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="test-card md-whiteframe-4dp">
+                        <md-content>
+                            <div class="option-list" flex>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">Current Card</div>
+                                        <div flex="50" flex-gt-sm="50">{$ counter + 1 $}</div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">Total Cards</div>
+                                        <div flex="50" flex-gt-sm="50">{$ statistics['Total Cards'] $}</div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">Progress</div>
+                                        <div flex="50" flex-gt-sm="50">{$ statistics['Progress']() | number:1 $} %</div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">Correct</div>
+                                        <div flex="50" flex-gt-sm="50">{$ statistics['Correct']() $}</div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">Incorrect</div>
+                                        <div flex="50" flex-gt-sm="50">{$ statistics['Incorrect']() $}</div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">% Correct</div>
+                                        <div flex="50" flex-gt-sm="50">{$ statistics['Percentage']() | number:1 $} %</div>
+                                    </div>
+                                </md-list>
+                                <md-list ng-cloak>
+                                    <div layout="row" layout-align="center" flex>
+                                        <div flex="50" flex-gt-sm="50">Total Time</div>
+                                        <div flex="50" flex-gt-sm="50">{$ statistics['Total Time'] $}</div>
+                                        </div>
+                                </md-list>
+                            </div>
+                        </md-content>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </section>
+</div>

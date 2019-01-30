@@ -1,0 +1,138 @@
+<div class="content" ng-controller="ArrangeCardsSentencesController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="arrange-card-sec">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row">
+                <div flex="100" flex-gt-sm="40" ng-cloak class="flash-list">
+                    <div class="main-heading">
+                        <!-- private lists -->
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Flashcard Categories</h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <md-content ng-if="!showPublicLists" class="md-padding">
+                        <div class="flashcard-table md-whiteframe-4dp" flex>
+                            <md-content>
+                                <table ng-table class="table">
+                                    <thead>
+                                        <tr class="brd-btm">
+                                            <th>Name </th>
+                                            <th>No. of Cards </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-click="selectCategory(category)" ng-class="{'selected-category': category.selected}" ng-repeat="category in categories" style="cursor: pointer;">
+                                            <td> {$ category.name $}</td>
+                                            <td> {$ category.cards.length $}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>                                
+                            </md-content>
+                            <div layout="row" layout-align="center center" layout-wrap class="flash-btn-wrap" >
+                                <md-label>Total Selected: <span ng-bind="getTotalSelected()"></span></md-label> 
+                            </div>
+                            <div layout="row"  layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                <md-button aria-label="Delete" class="md-raised md-primary light-blue-btn" ng-click="openDialog('categoriesDelete')" ng-disabled="selectedCategories().length === 0 || isDefaultCategorySelected()" title="Delete Selected Categories">Delete</md-button>
+                                <md-button aria-label="Copy" class="md-raised md-primary light-blue-btn" ng-click="openDialog('categoriesCopy')" ng-disabled="selectedCategories().length === 0" title="Copy Selected Categories">Copy</md-button>
+                                <md-button aria-label="Rename" class="md-raised md-primary light-blue-btn" ng-click="openDialog('categoriesRename')" title="Rename Category" ng-disabled="selectedCategories().length !== 1 || isDefaultCategorySelected()">Rename</md-button>
+                                <md-button aria-label="New" class="md-raised md-primary light-blue-btn" ng-click="openDialog('categoriesNew')" title="Create New Category">New</md-button>
+                            </div>
+                        </div>
+                    </md-content>
+                </div>
+                <div flex="100" flex-gt-sm="60" ng-cloak class="">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Cards</h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <form ng-if="!showPublicLists" class="card-list">
+                        <md-content class="md-padding">
+                            <div class="flashcard-table datatable md-whiteframe-4dp" flex>
+                                <md-content>
+                                    <table ng-table class="table" ng-repeat="category in selectedCategories()">
+                                        <thead>
+                                            <tr class="brd-btm">
+                                                <th colspan="4">{$ category.name $}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="card in category.cards">
+                                                <td>
+                                                    <md-checkbox class="md-primary md-align-top-left"  value="{$ card.id $}" ng-model="card.selected" aria-label="checkbox"> </md-checkbox>
+                                                </td>
+                                                <td>
+                                                    <span>{$ card.sentence.chinese_simple $}</span>
+                                                    <span>{$ card.sentence.english_1 $}</span>
+                                                </td>
+                                                <td>{$ card.times_tested $}</td>
+                                                <td>{$ (((card.score / (card.times_tested || 1)) / 4) * 100) | number:0 $}%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="mtb20px text-center" ng-if="getTotalSelected() <= 0">
+                                        <span>No cards in selected categories</span>
+                                    </div>
+                                    <div layout="row"  layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                        <md-button aria-label="Select All" class="md-raised md-primary light-blue-btn" ng-click="selectAllCards()" ng-if="!allCardsSelected">Select All</md-button>    
+                                        <md-button aria-label="Clear All" class="md-raised md-primary light-blue-btn" ng-click="clearAllCards()" ng-if="allCardsSelected">Clear All</md-button>    
+                                        <md-button aria-label="Delete" class="md-raised md-primary light-blue-btn" ng-disabled="selectedCards().length <= 0" ng-click="cardsDelete()"> Delete </md-button>
+                                        <md-button aria-label="Copy" class="md-raised md-primary light-blue-btn" ng-disabled="selectedCards().length <= 0" ng-click="openDialog('cardsCopy')"> Copy </md-button>
+                                        <md-button aria-label="Move" class="md-raised md-primary light-blue-btn" ng-disabled="selectedCards().length <= 0" ng-click="openDialog('cardsMove')"> Move </md-button>
+                                    </div>
+                                </md-content>
+                            </div>
+                        </md-content>
+                    </form>
+                    <form  ng-if="showPublicLists" class="card-list">
+                        <md-content class="md-padding">
+                            <div class="flashcard-table md-whiteframe-4dp" flex>
+                                <md-content>
+                                    <table ng-table class="table" ng-repeat="pubcategory in selectedPubCategories()">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">{$ pubcategory.name $}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="card in pubcategory.cards">
+                                                <td class="column">
+                                                    <md-checkbox class="md-primary md-align-top-left"  value="{$ card.id $}" ng-model="card.selected" aria-label="checkbox"> </md-checkbox>
+                                                </td>
+                                                <td class="column" style="white-space: nowrap">
+                                                    <a ui-sref="word({wordId: card.id})">{$ card.simplified $}</a>
+                                                </td>
+                                                <td class="column">{$ card.pinyin_normalized $}</td>
+                                                <td class="column">
+                                                    <span class="meaning" ng-repeat="meaning in card.meanings_references">{$ $index+1 $}.</span> <span ng-bind-html="meaning|asHtml"></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="mtb20px text-center" ng-if="getTotalPubSelected() <= 0">
+                                        <span>No cards in selected categories</span>
+                                    </div>
+                                    <div layout="row"  layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                        <md-button aria-label="Select All" class="md-raised md-primary light-blue-btn" ng-click="selectAllPubCards()" ng-if="!allPubCardsSelected"> Select All</md-button>    
+                                        <md-button aria-label="Clear All" class="md-raised md-primary light-blue-btn" ng-click="clearAllPubCards()" ng-if="allPubCardsSelected"> Clear All</md-button>    
+                                        <md-button aria-label="Save" class="md-raised md-primary light-blue-btn" ng-disabled="selectedPubCards().length <= 0" ng-click="openDialog('cardsPubCopy')">Save Selected Words</md-button>
+                                    </div>
+                                </md-content>
+                            </div>
+                        </md-content>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

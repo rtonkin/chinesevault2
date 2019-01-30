@@ -1,0 +1,13 @@
+<div class="panel categories-dialog">
+    <div class=" panel-heading">
+        Copy Lists
+    </div>
+
+    <div class=" panel-body p10px text-center">
+        <p>Are you sure you want to copy the following lists:</p>
+        <ul class="name-category-list ">
+            <li ng-repeat="category in selectedCategories()">{$ category.name $}</li>
+        </ul>
+        <md-button aria-label="copy" class="light-blue-btn md-primary md-raised" ng-click="categoriesCopy()">Copy</md-button>
+    </div>
+</div>

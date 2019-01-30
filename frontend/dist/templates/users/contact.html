@@ -1,0 +1,80 @@
+<div class="content" ng-controller="ContactController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row"></div>
+        </div>
+    </div>
+    <section class="staticContent">
+        <div class="container">
+            <md-content class=" md-whiteframe-7dp">
+                <h3 class="md-heading-3 text-center">Contact Us</h3>
+                <div layout="column" layout-gt-sm="row" layout-align="center">
+                    <div flex="100" flex-gt-sm="80" ng-cloak >
+                        <p class="text-center mb20px">Please feel free to get in touch with us by emailing <a href="mailto:admin@chinesevault.com?subject=ChineseVault.com Contact Request (Test)&body=Enter Your Message Here."> admin@chinesevault.com </a> or by using the contact form below.</p>
+
+                        <div class="alert alert-success" ng-if="contactSuccess" tabindex="-1">Thank you for contacting us. We will get back to you shortly.</div>
+                        <form ng-submit="submitForm()" ng-if="!contactSuccess" class="contactForm">
+                            <div layout="column" layout-wrap >
+                                <div layout-xs="column" layout-gt-xs="row" flex class="mb30px " layout-align="start center" layout-align-xs="start inherit">
+                                    <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                        <label for="customerName">Your Name</label>
+                                    </div>
+                                    <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                        <md-input-container md-no-float class="md-block" >                                  
+                                            <input required type="text" name="name" ng-value="auth.isLoggedIn() ? auth.getUser().username : ''" id="customerName" ng-model="form.name" placeholder="Your Name">
+                                        </md-input-container> 
+                                        <div class="form-errors" ng-if="form.errors.name.length > 0">
+                                            <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.name">{$ error $}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div layout-xs="column" layout-gt-xs="row" flex class="mb30px" layout-align="start center" layout-align-xs="start inherit">
+                                    <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right">
+                                        <label for="customerEmail">Your Email</label>
+                                    </div>
+                                    <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                        <md-input-container md-no-float class="md-block" >                                  
+                                            <input required type="email" name="email" ng-value="auth.isLoggedIn() ? auth.getUser().email : ''" id="customerEmail" ng-model="form.email" placeholder="johnny@appleseed.me">
+                                        </md-input-container> 
+                                        <div class="form-errors" ng-if="form.errors.email.length > 0">
+                                            <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.email">{$ error $}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div layout-xs="column" layout-gt-xs="row" flex class="mb30px" layout-align="start center" layout-align-xs="start inherit">
+                                    <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                        <label for="messageSubject">Subject</label>
+                                    </div>
+                                    <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                        <md-input-container md-no-float class="md-block" >                                  
+                                            <input required type="text" name="subject" id="messageSubject" ng-model="form.subject" placeholder="Enter Subject">
+                                        </md-input-container> 
+                                        <div class="form-errors" ng-if="form.errors.subject.length > 0">
+                                            <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.subject">{$ error $}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div layout-xs="column" layout-gt-xs="row" flex class="mb30px" layout-align="start center" layout-align-xs="start inherit">
+                                    <div flex-xs="100" flex-gt-xs="25" ng-cloak class="text-right" >
+                                        <label class="mt10px" for="messageContent">Message</label>
+                                    </div>
+                                    <div flex-xs="100" flex-gt-xs="80" ng-cloak >                                
+                                        <md-input-container md-no-float class="md-block" >                                  
+                                            <textarea required type="text" rows="5" name="message" id="messageContent" ng-model="form.message" placeholder="Enter Message"></textarea>
+                                        </md-input-container> 
+                                        <div class="form-errors" ng-if="form.errors.message.length > 0">
+                                            <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.message">{$ error $}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div flex-xs="100" flex-gt-xs="40" ng-cloak class="text-center mtb20px">
+                                    <md-button aria-label="submit form" type="submit" class="md-raised light-blue-btn">Submit</md-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+    </section>
+</div>

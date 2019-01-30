@@ -1,0 +1,50 @@
+<!-- <div class="payments-unsubscribe-feedback container">
+    <div class="panel">
+        <div class="panel-heading">
+            Leave Feedback
+        </div>
+
+        <div class="panel-body">
+            <h3>Feedback is important to us. If you wouldn't mind, please let us know why you are cancelling:</h3>
+            <hr>
+                <form role="form" class="text-center">
+                  <div class="form-group">
+                    <textarea type="text" class="form-control" id="reason" ng-model="form.reason" rows=2 placeholder="Your reason"></textarea>
+                  </div>
+                  <button type="submit" class="btn action-button" ng-click="cancelSubscription()">Send Feedback</button>
+                </form>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="banner flash-banner">
+    <div class="container">
+        <div layout-xs="row" layout-gt-xs="row"></div>
+    </div>
+</div>
+<section class="ptb40px checkout">
+    <div class="container">
+        <div layout="row" layout-align="center center">
+            <div flex-xs="100" flex-gt-xs="80"  >
+                <md-content class="md-whiteframe-4dp ">
+                    <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-3">Leave Feedback</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content class="payments-unsubscribe-feedback md-padding text-center">
+                        <h3>Feedback is important to us. If you wouldn't mind, please let us know why you are cancelling:</h3>
+                        <form role="form" class="text-center">
+                            <md-input-container class="width100">
+                                <textarea type="text" id="reason" ng-model="form.reason" rows="2" placeholder="Your reason"></textarea>
+                            </md-input-container>                       
+                            <md-button aria-label="Send Feedback" type="submit" class="md-primary md-raised light-blue-btn" ng-click="cancelSubscription()">Send Feedback</md-button>
+                        </form>
+                    </md-content>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</section>

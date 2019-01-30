@@ -1,0 +1,173 @@
+<div class="content" ng-controller="PracticeController">    
+   <!--  
+       <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <h1>Words</h1>
+        </div>
+        <div class="col-md-5 col-lg-5">&nbsp;</div>
+        <div class="col-md-1 col-lg-1">&nbsp;</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel">
+                <div class="panel-heading">Arrange Cards</div>
+                <div class="panel-body">
+                    <p class="marginBottom">Sort your cards into categories to make testing easier</p>
+                    <a ui-sref="arrange-cards" class="btn btn-sm">Arrange Cards</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel">
+                <div class="panel-heading">Test</div>
+                <div class="panel-body">
+                    <p class="marginBottom">Test yourself by taking a Flashcard Test</p>
+                    <a ui-sref="test-settings" class="btn btn-sm">New Test</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <h1>Sentences</h1>
+        </div>
+        <div class="col-md-5 col-lg-5">&nbsp;</div>
+        <div class="col-md-1 col-lg-1">&nbsp;</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel">
+                <div class="panel-heading">Arrange Cards</div>
+                <div class="panel-body">
+                    <p class="marginBottom">Sort your cards into categories to make testing easier</p>
+                    <a ui-sref="arrange-cards-sentences" class="btn btn-sm">Arrange Cards</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel">
+                <div class="panel-heading">Test</div>
+                <div class="panel-body">
+                    <p class="marginBottom">Test yourself by taking a Flashcard Test</p>
+                    <a ui-sref="test-settings-sentences" class="btn btn-sm">New Test</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+-->
+
+    
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+                
+            </div>
+        </div>
+    </div>
+
+    <section class="panel-section">
+        <div class="container">
+            <div layout="row">
+                <div flex-gt-sm="100" flex="100" class="main-heading">
+                    <md-toolbar layout="row">
+                        <div layout="row" layout-align="center" flex>
+                            <h2 class="md-display-7">  Words </h2>
+                        </div>
+                    </md-toolbar>
+                </div>
+            </div>
+            <div layout="column" layout-gt-xs="row">
+                <div flex-gt-xs="50" flex="100" class="panel" >
+                    <div  layout="column" ng-cloak >
+                        <md-toolbar layout="row" class="panel-heading">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-7" > <md-icon class="icon-card" aria-hidden="true"> </md-icon>  Arrange Cards </h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content flex layout-padding>
+                            <p> Sort your cards into categories to make testing easier </p>
+                        </md-content>
+                        <md-list flex class="list-row">
+                            <md-list-item layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex >
+                                    <md-button aria-label="Arrange cards" class="md-primary blue-btn md-raised" ng-click="arrageCards()">Arrange Cards </md-button> 
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+                <div flex-gt-xs="50" flex="100"  class="panel">
+                    <div  layout="column" ng-cloak >
+                        <md-toolbar layout="row" class="panel-heading test">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-7"> <md-icon class="icon-test" aria-hidden="true"> </md-icon>  Test </h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content flex layout-padding>
+                            <p> Test yourself by taking a Flashcard Test </p>
+                        </md-content>
+                        <md-list flex class="list-row">
+                            <md-list-item  layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex>
+                                    <md-button aria-label="Test" class="md-primary blue-btn md-raised" ng-click="testCards()">Test </md-button> 
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex-gt-sm="100" flex="100" class="main-heading">
+                    <md-toolbar layout="row">
+                        <div layout="row" layout-align="center" flex>
+                            <h2 class="md-display-7">  Sentences </h2>
+                        </div>
+                    </md-toolbar>
+                </div>
+            </div>
+            <div layout="column" layout-gt-xs="row">
+                <div flex-gt-xs="50" flex="100" class="panel" >
+                    <div  layout="column" ng-cloak >
+                        <md-toolbar layout="row" class="panel-heading">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-7"> <md-icon class="icon-card" aria-hidden="true"> </md-icon>  Arrange Cards </h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content flex layout-padding>
+                            <p> Sort your cards into categories to make testing easier </p>
+                        </md-content>
+                        <md-list flex class="list-row">
+                            <md-list-item  layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex>
+                                    <md-button aria-label="Arrange cards" class="md-primary blue-btn md-raised" ng-click="arrangeSentencesCard()">Arrange Cards </md-button> 
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+                <div flex-gt-xs="50" flex="100" class="panel" >
+                    <div layout="column" ng-cloak >
+                        <md-toolbar layout="row" class="panel-heading test">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-7"> <md-icon class="icon-test" aria-hidden="true"> </md-icon>  Test </h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content flex layout-padding>
+                            <p> Test yourself by taking a Flashcard Test </p>
+                        </md-content>
+                        <md-list flex class="list-row">
+                            <md-list-item layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex>
+                                    <md-button aria-label="Test" class="md-primary blue-btn md-raised" ng-click="sentencesTestCards()">Test </md-button> 
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

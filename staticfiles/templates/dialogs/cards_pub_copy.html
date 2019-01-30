@@ -1,0 +1,17 @@
+<div class="panel cards-dialog">
+    <div class=" panel-heading">
+        Copy Cards
+    </div>
+
+    <div class=" panel-body p10px">
+        <form>
+            <fieldset>
+                <p>Where would you like to add these {$ selectedPubCards().length $} cards?</p>
+                <select class="form-control marginTop" ng-options="category.name for category in categories" ng-model="$parent.copyDestination"></select>
+                <div class="text-center">
+                    <md-button aria-label="copy" class="md-primary light-blue-btn md-raised" ng-click="cardsPubCopy()">Copy</md-button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

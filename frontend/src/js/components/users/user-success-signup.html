@@ -1,0 +1,34 @@
+<div class="banner flash-banner">
+    <div class="container">
+        <div layout-xs="row" layout-gt-xs="row"></div>
+    </div>
+</div>
+<section class="login-section">
+    <div class="container">
+        <md-content class="md-padding md-whiteframe-8dp">
+            <h3 class="success">Successful Signup</h3>
+            <div class="panel-body sign-up-success">
+                <div>
+                    <p>You have successfully signed up. A confirmation email has been sent to <strong>{$ userData.email $}</strong>. Please follow the instructions there to activate your account.</p>
+                </div>
+                <br>
+                <div ng-if="userData.paid && options.paymentFinished == false">
+                    <h5><strong>Processing payment, please wait</strong></h5>
+                    <div class="spinner center-block"><img width="80" src="/static/images/spinner.svg"></div>
+                </div>
+                <div ng-if="userData.paid && options.paymentFinished && options.paymentSuccess" class="text-center">
+                    <h5><strong>Congratulations, you’re now a Paid Member of ChineseVault.com.</strong></h5>
+                    <p>This membership entitles you to unlimited use of all the features of the website.</p>
+                    <br>
+                    <p>You are currently enjoying a 30-day trial period and will be charged $7 USD each month starting from
+                        <span ng-bind="options.trialEnd | date:'yyyy-MM-dd'"></span></p>
+
+                    <p>If you change your mind you can cancel at any time. To cancel your membership please go to “Account Details” and click “Cancel  Subscription” in the Subscription Details section.</p>
+                </div>
+                <div ng-if="userData.paid && options.paymentFinished && options.paymentSuccess == false" class="text-center">
+                    <p>Though you are successfully registered there was a problem proceeding your payment, you can try again later from your profile page</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

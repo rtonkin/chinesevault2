@@ -1,0 +1,20 @@
+.word-item{border-top:1px solid lightgray}
+.word-item:nth-child(odd){background-color:#f9f9f9}
+@media (min-width: 1200px) {
+	.lesson-thumbnail{width:180px;height:180px}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.lesson-thumbnail{width:120px;height:120px}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.lesson-thumbnail{width:140px}
+}
+@media (min-width: 425px) and (max-width: 767px) {
+	.lesson-thumbnail{width:160px}
+}
+@media (min-width: 375px) and (max-width: 424px) {
+	.lesson-thumbnail{width:140px}
+}
+@media (max-width: 374px) {
+	.lesson-thumbnail{width:110px}
+}

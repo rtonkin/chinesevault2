@@ -1,0 +1,25 @@
+<div class="panel categories-dialog">
+    <div class=" panel-heading">
+        Rename Category
+    </div>
+
+    <div class=" panel-body">
+        <form>
+            <fieldset>
+                <div class="input-group input-category-name">
+                    <md-input-container md-no-float class="md-block" >  
+                        <input class="form-control" type="text" ng-model="categoryToRename" placeholder="Name" />
+                    </md-input-container>
+                    <md-icon class="new-category-name" ng-class="categoryNameOk(categoryToRename) ? 'fa fa-check' : ' fa fa-times'" ng-show="categoryToRename.length > 0" ></md-icon><!-- 
+                    <span class="input-group-addon">
+                        <i ng-class="categoryNameOk(categoryToRename) ? 'new-category-name fa fa-check' : 'new-category-name fa fa-times'" ng-show="categoryToRename.length > 0">
+                        </i>
+                    </span> -->
+                </div>
+                <div class="text-center">
+                    <md-button aria-label="rename" class="md-primary light-blue-btn md-raised" ng-click="categoryRename(categoryToRename)" ng-disabled="!categoryNameOk(categoryToRename)">Rename</md-button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

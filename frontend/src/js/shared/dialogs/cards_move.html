@@ -1,0 +1,17 @@
+<div class="panel cards-dialog">
+    <div class=" panel-heading">
+        Move Cards
+    </div>
+
+    <div class="p10px panel-body">
+        <form>
+            <fieldset>
+                <p>Where would you like to move the selected cards?</p>
+                <select class="form-control marginTop" ng-options="category.name for category in categories" ng-model="$parent.moveDestination"></select>
+                <div class="text-center">
+                    <md-button aria-label="Move" class="md-primary md-raised light-blue-btn" ng-click="cardsMove()">Move</md-button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="panel categories-dialog">
+    <div class=" panel-heading">
+        Create New Category and add words to it
+    </div>
+
+    <div class=" panel-body">
+        <form ng-submit="$parent.addCardsToNewList()">
+            <fieldset>
+                <div class="input-group">
+                    <md-input-container md-no-float class="md-block">
+                        <input class="form-control" type="text" ng-model="$parent.addDestinationCategory" placeholder="Name" />                        
+                    </md-input-container>
+                    <md-icon class="new-category-name" ng-class="destinationCategoryNameOk() ? 'fa fa-check' : ' fa fa-times'" ng-show="$parent.addDestinationCategory.length > 0" ></md-icon>
+                </div>
+                <div class="text-center">
+                    <md-button type="submit" aria-label="Create and add words" class="md-primary light-blue-btn md-raised" ng-click="$parent.addCardsToNewList()" ng-disabled="!destinationCategoryNameOk()">Create and add words</md-button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

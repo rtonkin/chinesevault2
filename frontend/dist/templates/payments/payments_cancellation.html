@@ -1,0 +1,47 @@
+<!-- <div class="payments-successful-cancellation container">
+    <div class="panel">
+        <div class="panel-heading">
+            Cancelling Subscription
+        </div>
+        <div class="panel-body text-center">
+            <p ng-show="subscriptionStatus.active" style="font-weight:bold;margin:20px 0;">Proceeding cancellation...</p>
+            <div ng-hide="subscriptionStatus.active">
+                <p style="font-weight:bold;margin:20px 0;">Your subscription has been cancelled and will not renewed. You will
+                    retain access to all features until {{ subscriptionStatus.cancel_date | date:'yyyy-MM-dd'}} after which you will revert to a Free Member.</p>
+
+                <a class="btn" ui-sref="profile">Ok</a>
+            </div>
+        </div>
+    </div>
+
+
+</div> -->
+
+<div class="banner flash-banner">
+    <div class="container">
+        <div layout-xs="row" layout-gt-xs="row"></div>
+    </div>
+</div>
+<section class="ptb40px checkout">
+    <div class="container">
+        <div layout="row" layout-align="center center">
+            <div flex-xs="100" flex-gt-xs="80"  >
+                <md-content class="md-whiteframe-4dp ">
+                    <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                        <div class="md-toolbar-tools" layout-align="center">
+                            <h2 class="md-display-3">Cancelling Subscription</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-content class="payments-successful-cancellation md-padding text-center">
+                        <h3 ng-show="subscriptionStatus.active" >Proceeding cancellation...</h3>
+                        <div ng-hide="subscriptionStatus.active">
+                            <p>Your subscription has been cancelled and will not renewed. You will retain access to all features until 
+                                {$ subscriptionStatus.cancel_date | date:'yyyy-MM-dd' $} after which you will revert to a Free Member.</p>            
+                            <a class="md-raised light-blue-btn md-button" ui-sref="profile">Ok</a>
+                        </div>
+                    </md-content>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,176 @@
+<!-- Header -->
+<header id="header" class="header" ng-cloak>
+    <div class="container">
+        <div layout="row" class="hide-xs hide-sm">
+            <div flex="30">
+                <a class="logo" ui-sref="home" ng-click="makeActive('home')">
+                    <img src="/static/images/logo.png" alt="中文"/> <h3>ChineseVault.com</h3>
+                </a>
+            </div>
+            <div flex="60">
+                <div ng-cloak class="navbar-wrap">
+                    <md-content>
+                        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="navigation">
+                            <md-nav-item md-nav-click="goto('page1')" name="page1" ng-if="features.dictionary" ui-sref="dictionary">
+                                Dictionary
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('page2')" name="page2" ng-if="features.flashcards" ui-sref="flashcards">
+                                Flashcards
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('page3')" name="page3" ng-if="features.textTool" ui-sref="texttool">
+                                Text Tool
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('page4')" name="page4" ng-if="features.lessons" ui-sref="lesson">
+                                Lessons
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('page5')" name="page5" ng-if="features.studyContent" ui-sref="study_content_list">
+                                Study Content
+                            </md-nav-item>
+                        </md-nav-bar>
+                    </md-content>
+                </div>
+            </div>
+            <div flex="20"  class="nav navbar-nav navbar-right" style="margin-right:0" role="menubar" ng-show="!auth.isLoggedIn()">                
+                <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="login-wrap">
+                    <md-nav-item md-nav-click="goto('page6')" name="page6" ui-sref="login">
+                        <md-icon class="fa fa-sign-in" aria-hidden="true"></md-icon>
+                        Login
+                    </md-nav-item>
+                    <md-nav-item md-nav-click="goto('page7')" name="page7" ui-sref="signup">
+                        <md-icon class="fa fa-user-plus" aria-hidden="true"></md-icon>
+                        Register
+                    </md-nav-item>
+                </md-nav-bar>
+                <!-- <ul ng-if="features.users" class="nav navbar-nav navbar-right" style="margin-right:0" role="menubar">
+                        <li class="dropdown" ng-show="auth.isLoggedIn()">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button"
+                               ng-bind="auth.getUser().username"></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <li><a tabindex="-1" onclick="$('.navbar-collapse').collapse('hide');" ui-sref="profile">Account
+                                    Details</a></li>
+                                <li><a tabindex="-1" onclick="$('.navbar-collapse').collapse('hide');"
+                                       href="/accounts/signout/">Log Out</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown navbar-right" ng-show="!auth.isLoggedIn()">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">Account</a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <li><a onclick="$('.navbar-collapse').collapse('hide');" ui-sref="signup">Register</a></li>
+                                <li><a onclick="$('.navbar-collapse').collapse('hide');" ng-click="login(true)">Sign In</a></li>
+                            </ul>
+                        </li>
+                    </ul> -->
+            </div>
+            <div flex="20"  class="nav navbar-nav navbar-right text-right" style="margin-right:0" role="menubar" ng-show="auth.isLoggedIn()">
+                <!-- <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="login-wrap">
+                    <md-nav-item md-nav-click="goto('page6')" name="page6" >
+                        <a ui-sref="profile"  ng-click="makeActive('profile')">
+                            <md-icon class="fa fa-sign-in" aria-hidden="true"></md-icon>
+                            <span ng-bind="auth.getUser().username"></span> Account Details
+                        </a>                       
+                    </md-nav-item>
+                    <md-nav-item md-nav-click="goto('page7')" name="page7" >
+                        <a  href="/accounts/signout/" >
+                            <md-icon class="fa fa-user-plus" aria-hidden="true"></md-icon>
+                            Log Out
+                        </a>    
+                    </md-nav-item>
+                </md-nav-bar> -->
+                <md-menu class="login-wrap" md-position-mode="target-right target">
+                    <md-button aria-label="username" ng-click="$mdMenu.open()"><span ng-bind="auth.getUser().username"></span></md-button>
+                    <md-menu-content>
+                        <md-menu-item class="md-indent">
+                            <a ui-sref="profile" class="signinicon" ng-click="makeActive('profile')">
+                                <md-icon class="fa fa-user" aria-hidden="true"></md-icon>
+                                 Account Details
+                            </a> 
+                        </md-menu-item>
+                        <md-menu-item class="md-indent">
+                            <a class="signinicon" href="/accounts/signout/"> 
+                                <md-icon class="fa fa-sign-out"  aria-hidden="true"> </md-icon>
+                                Log Out
+                            </a>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </div>        
+    </div>
+    <div layout="column" class="hide-gt-sm mobile-menu" ng-cloak>
+        <section layout="row" flex>
+            <md-sidenav class="md-sidenav-left" md-is-open="isSidenavOpen" md-component-id="left" md-whiteframe="4" style="height:100vh;">
+                <md-content class="md-padding">
+                    <div layout="column"  class="navbar-wrap">
+                        <div flex="100">
+                            <div ng-cloak>
+                                <ul>
+                                    <li>
+                                        <a class="logo" ui-sref="home" ng-click="close()"><img src="/static/images/logo.png" alt="中文"/> <h3>ChineseVault.com</h3></a>
+                                    </li>
+                                    <li class="loginuserdetail" ng-show="auth.isLoggedIn()"><span ng-bind="auth.getUser().username"></span></li>
+                                    <li><a ui-sref="dictionary" ng-click="close()">Dictionary</a></li>
+                                    <li><a ui-sref="flashcards" ng-click="close()">Flashcards</a></li>
+                                    <li><a ui-sref="texttool" ng-click="close()">Text Tool</a></li>
+                                    <li><a ui-sref="lesson" ng-click="close()">Lessons</a></li>
+                                    <li><a ui-sref="study_content_list" ng-click="close()">Study Content</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div flex="100" ng-show="!auth.isLoggedIn()">
+                            <ul>
+                                <li>
+                                    <a ui-sref="login" ng-click="close()">
+                                        <md-icon class="fa fa-sign-in" aria-hidden="true"></md-icon>
+                                        Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="signup" ng-click="close()">
+                                        <md-icon class="fa fa-user-plus" aria-hidden="true"></md-icon>
+                                        Register
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div flex="100" ng-show="auth.isLoggedIn()">
+                            <ul>
+                                <li>
+                                    <a ui-sref="profile" class="signinicon" ng-click="close()">
+                                        <md-icon class="fa fa-user" aria-hidden="true"></md-icon> Account Details
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="signinicon" href="/accounts/signout/" ng-click="close()"> 
+                                        <md-icon class="fa fa-sign-out"  aria-hidden="true"> </md-icon>
+                                        Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <md-button aria-label="toggle" ng-click="toggleLeft()" class="md-accent close-btn">X</md-button>
+                </md-content>
+
+            </md-sidenav>
+
+            <md-content flex layout-padding>
+                <div layout="row" layout-align="top center">
+                    
+                    <div flex="10">
+                        <md-button aria-label="togglemenu" ng-click="toggleLeft()" class="toggle-menu">
+                            <span class="linebar-one"> </span>
+                            <span class="linebar-two"> </span>
+                            <span class="linebar-three"> </span>
+                        </md-button>
+                    </div>
+                    <div flex="90">
+                        <a ui-sref="home" class="sm-logo" layout="row" layout-align="center center">
+                            <img src="/static/images/logo.png" alt="中文"/> ChineseVault.com
+                        </a>
+                    </div>
+                </div>
+            </md-content>
+        </section>
+    </div>
+</header>
+<!-- Header --> 

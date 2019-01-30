@@ -1,0 +1,70 @@
+<div flex="100" flex-gt-sm="100" ng-cloak>   
+    <div class="test-card ">
+        <md-content>
+            <div layout="column">
+                <md-content class="test-result-section " ng-if="!showResults" ng-scrollbars ng-scrollbars-config="config">
+                    <table ng-table  class="table table-striped text-center text-result" >
+                        <tbody>
+                            <tr ng-if="options.show.hanzi">
+                                <td colspan="2" class="card-simplified">
+                                    <span ng-if="!options.show.traditional" ng-bind-html="currentCard.word.simplified|asChinese:'s'|asHtml"></span>
+                                    <span ng-if="options.show.traditional" ng-bind-html="currentCard.word.traditional|asChinese:'t'|asHtml"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="options.show.pinyin">
+                                <td colspan="2" class="card-pinyin ">{$ currentCard.word.pinyin_normalized $}</td>
+                            </tr>
+                            <tr ng-if="options.show.english" ng-repeat="meaning in currentCard.word.meanings_references">
+                                <td width="0%"></td>
+                                <td width="100%" style="text-align: center" class="card-meaning">
+                                    <span ng-if="currentCard.word.meanings_references.length > 1">{$ $index+1 $}.</span>
+                                    <span class="meaning" ng-bind-html="meaning|asHtml"></span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <!-- <span >No results</span> -->
+                </md-content>
+                <md-content class="test-mode" ng-if="showResults">
+                    <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} words correctly for a score of {$ statistics['Percentage']()|number:1 $} %</h4>
+                </md-content>
+                <md-content class=" mode-options" >
+                    <div layout="column"  class=" layout-align-center-center" >
+                        <div class="show-cards" flex="100" flex-gt-sm="100" ng-if="!cardRevealed && !showResults"><a ng-click="showCurrentCard()">Show Card</a></div>
+                        <div class="show-status" layout="column" flex="100" flex-gt-sm="100" ng-if="cardRevealed && !showResults">
+                            <div layout="row" layout-align="center">
+                                <div flex="50" flex-gt-sm="50" class="brd-right">
+                                    <div class="result-heading"><md-icon class="fa fa-check"></md-icon>Correct</div>
+                                    <div layout="row" layout-align="center">
+                                        <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(4)" class="brd-right answercard">
+                                            <p class="button-number">4</p>
+                                            <p>Immediate Recall</p>
+                                        </div>
+                                        <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(3)" class="answercard">
+                                            <p class="button-number">3</p>
+                                            <p>Took Some Time</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div flex="50" flex-gt-sm="50">
+                                    <div class="result-heading"><md-icon class="fa fa-close"></md-icon>Incorrect</div>
+                                    <div layout="row" layout-align="center">
+                                        <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(1)" class="brd-right answercard">
+                                            <p class="button-number">2</p>
+                                            <p>Not Quite Right</p>
+                                        </div>
+                                        <div flex="50" flex-gt-sm="50" ng-disabled="counter > cards.length - 1" ng-click="answerCard(0)" class="answercard">
+                                            <p class="button-number">1</p>
+                                            <p>Don't Know</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+        </md-content>
+    </div> 
+</div>

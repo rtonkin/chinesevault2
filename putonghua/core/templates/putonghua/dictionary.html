@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div ng-controller="DictionaryController">
+
+    <div class="row">
+        <div class="col-md-8 col-lg-8">
+            <div class="form-group dictionary-search">
+                <input tabindex="1" class="form-control search-field" type="text" placeholder="有, yǒu, you3 ..." ng-change="queryChanged()"
+                  ng-model="query"
+                  ng-init="query=initQuery('{{ query|default:"" }}')" />
+                <button type="submit" class="btn" style="display: inline;">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Options</div>
+                <div class="panel-body" style="text-align: center">
+                    <div class="col-md-5 col-lg-5 dictionary-options">
+                        Show Results:
+                        <a ng-class="'options-items ' + classForOption('results', 'chinese')" ng-click="setOption('results', 'chinese')">Chinese</a>
+
+                        <a ng-class="'options-items ' + classForOption('results', 'english')" ng-click="setOption('results', 'english')">English</a>
+
+                        <a ng-class="'options-items ' + classForOption('results', 'both')" ng-click="setOption('results', 'both')">Both</a>
+                    </div>
+
+                    <div class="col-md-5 col-lg-5 dictionary-options">
+                        Show Characters:
+                        <a ng-class="'options-items ' + classForOption('characters', 'simplified')" ng-click="setOption('characters', 'simplified')">Simplified</a>
+
+                        <a ng-class="'options-items ' + classForOption('characters', 'traditional')" ng-click="setOption('characters', 'traditional')">Traditional</a>
+
+                        <a ng-class="'options-items ' + classForOption('characters', 'both')" ng-click="setOption('characters', 'both')">Both</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-danger" ng-show="query.length > 0 && (options.results === 'both' || options.results == 'chinese')">
+                <div class="panel-heading">Chinese Results <span class="small">(Showing {$ searchResults.chinese_visible.length $} of {$ searchResults.chinese_total_count $})</span></div>
+                <div class="panel-body">
+                    <table class="table table-striped table-condensed" ng-if="searchResults.chinese.length"><tbody>
+                        <tr ng-repeat="entry in searchResults.chinese_visible">
+                            <td class="column simplified"
+                                ng-show="options.characters === 'simplified' || options.characters === 'both'">{$ entry.simplified $}</td>
+                            <td class="column traditional"
+                                ng-show="options.characters === 'traditional' || options.characters === 'both'">{$ entry.traditional $}</td>
+                            <td class="column pinyin">{$ entry.pinyin_normalized $} <span ng-if="entry.taiwanese_pinyin.length > 0">[台. {$ entry.taiwanese_pinyin $}]</span></td>
+                            <td class="column meanings"><span ng-repeat="meaning in entry.meanings_references">{$ $index+1 $}.<span class="meaning" ng-bind-html="meaning | mark_safe"></span></span></td>
+                            <td class="column added"><span ng-class="entry.added ? 'fa fa-check' : ''"></span></td>
+                            <td class="column add"><span class="fa fa-plus-square-o"></span></td>
+                        </tr>
+                    </tbody></table>
+                    <span ng-if="!searchResults.chinese.length">No results</span>
+                </div>
+                <div class="show-hide-results">
+                    <span class="fa fa-chevron-down" ng-if="searchResults.chinese_visible.length < searchResults.chinese_total_count"></span>
+                    <span class="fa fa-chevron-up" ng-if="searchResults.chinese_visible.length >= searchResults.chinese_total_count"></span>
+                    &nbsp;
+                    <a ng-click="toggleShowHideResults('chinese', 'more')" ng-if="searchResults.chinese_visible.length < searchResults.chinese_total_count">Show more</a>
+                    <a ng-click="toggleShowHideResults('chinese', 'less')" ng-if="searchResults.chinese_visible.length >= searchResults.chinese_total_count">Show less</a>
+                    &nbsp;
+                    <span class="fa fa-chevron-down" ng-if="searchResults.chinese_visible.length < searchResults.chinese_total_count"></span>
+                    <span class="fa fa-chevron-up" ng-if="searchResults.chinese_visible.length >= searchResults.chinese_total_count"></span>
+                </div>
+            </div>
+
+            <div class="panel panel-danger" ng-show="query.length > 0 && (options.results === 'both' || options.results === 'english')">
+                <div class="panel-heading">English Results <span class="small">(Showing {$ searchResults.english_visible.length $} of {$ searchResults.english_total_count $})</span></div>
+                <div class="panel-body">
+                    <table class="table table-striped table-condensed" ng-if="searchResults.english.length"><tbody>
+                        <tr ng-repeat="entry in searchResults.english_visible">
+                            <td class="column simplified"
+                                ng-show="options.characters === 'simplified' || options.characters === 'both'">{$ entry.simplified $}</td>
+                            <td class="column traditional"
+                                ng-show="options.characters === 'traditional' || options.characters === 'both'">{$ entry.traditional $}</td>
+                            <td class="column pinyin">{$ entry.pinyin_normalized $}</td>
+                            <td class="column meanings"><span ng-repeat="meaning in entry.meanings_references">{$ $index+1 $}. <span class="meaning" ng-bind-html="meaning | highlight : query"></span></span></td>
+                            <td class="column added"><span ng-class="entry.added ? 'fa fa-check' : ''"></span></td>
+                            <td class="column add"><span class="fa fa-plus-square-o"></span></td>
+                        </tr>
+                    </tbody></table>
+                    <span ng-if="!searchResults.english.length">No results</span>
+                </div>
+                <div class="show-hide-results">
+                    <span class="fa fa-chevron-down" ng-if="searchResults.english_visible.length < searchResults.english_total_count"></span>
+                    <span class="fa fa-chevron-up" ng-if="searchResults.english_visible.length >= searchResults.english_total_count"></span>
+                    &nbsp;
+                    <a ng-click="toggleShowHideResults('english', 'more')" ng-if="searchResults.english_visible.length < searchResults.english_total_count">Show more</a>
+                    <a ng-click="toggleShowHideResults('english', 'less')" ng-if="searchResults.english_visible.length >= searchResults.english_total_count">Show less</a>
+                    &nbsp;
+                    <span class="fa fa-chevron-down" ng-if="searchResults.english_visible.length < searchResults.english_total_count"></span>
+                    <span class="fa fa-chevron-up" ng-if="searchResults.english_visible.length >= searchResults.english_total_count"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

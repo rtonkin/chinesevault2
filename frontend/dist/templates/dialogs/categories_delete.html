@@ -1,0 +1,15 @@
+<div class="panel categories-dialog">
+    <div class=" panel-heading">
+        Delete Categories
+    </div>
+
+    <div class=" panel-body p10px">
+        <p>Are you sure you want to delete the following categories:</p>
+        <ul class="name-category-list">
+            <li ng-repeat="category in selectedCategories()">{$ category.name $}</li>
+        </ul>
+        <div class="text-center">
+            <md-button aria-label="delete" class="md-primary light-blue-btn md-raised" ng-click="categoriesDelete()">Delete</md-button>
+        </div>
+    </div>
+</div>

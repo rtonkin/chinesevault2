@@ -1,0 +1,50 @@
+<div class="content charfequency" ng-controller="StaticController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row"></div>
+        </div>
+    </div>
+
+    <section class="ptb40px">
+        <div class="container">
+            <md-content class="md-whiteframe-7dp staticContainer">
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools" layout-align="center">
+                        <h2 class="md-display-3">Chinese Names</h2>
+                    </div>
+                </md-toolbar>
+                <md-content class="content">
+                    <p style="margin: 0px 0 20px;font-size: 20px;" class="text-center">Find your Chinese name by using the below tools</p>
+                    <div class="text-center mb20px">
+                        <ul class="first-letter">
+                            <li ng-repeat="letter in alphabet">
+                                <button type="button" class="btn-albha" ng-class="{active:activeLetter === letter}" ng-click="getNames(letter)">{$ letter $}</button>
+                            </li>
+                        </ul>                        
+                    </div>
+                    <div class="table-responsive no-margin-bottom">
+                        <table class="table table-striped nametable">
+                            <thead>
+                                <tr>
+                                    <th>English</th>
+                                    <th class="text-center">Sex</th>
+                                    <th>Chinese</th>
+                                    <th>Pinyin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="name in filteresChineseNames = ( chineseNames | firstLetter:activeLetter )">
+                                    <th>{$ name.english $}</th>
+                                    <th class="text-center" ng-if="name.sex == 1"><md-icon class="fa fa-mars fa-2x" aria-hidden="true"></md-icon></th>
+                                    <th class="text-center" ng-if="name.sex == 2"><md-icon class="fa fa-venus fa-2x" aria-hidden="true"></md-icon></th>
+                                    <th>{$ name.chinese $}</th>
+                                    <th>{$ name.pinyin $}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </md-content>
+            </md-content>
+        </div>
+    </section>
+</div>

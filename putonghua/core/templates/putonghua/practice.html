@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content_title %}<h3 class="page-header">Practice Flashcards</h3>{% endblock %}
+
+
+{% block content %}
+	<div class="col-md-1 col-lg-1">&nbsp;</div>
+	<div class="col-md-5 col-lg-5">
+		<div class="panel panel-danger">
+			<div class="panel-heading">Arrange Cards</div>
+			<div class="panel-body">
+				<p>Sort your cards into categories to make testing easier</p>
+				<a href="{% url 'arrange-cards' %}" class="btn btn-sm">Arrange Cards</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-5 col-lg-5">
+		<div class="panel panel-danger">
+			<div class="panel-heading">Test</div>
+			<div class="panel-body">
+				<p>Test yourself by taking a Flashcard Test</p>
+				<a href="{% url 'test' %}" class="btn btn-sm">New Test</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-1 col-lg-1">&nbsp;</div>
+{% endblock %}

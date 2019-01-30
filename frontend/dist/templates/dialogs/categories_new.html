@@ -1,0 +1,25 @@
+<div class="panel categories-dialog">
+    <div class=" panel-heading">
+        Create New Category
+    </div>
+
+    <div class=" panel-body">
+        <form ng-submit="categoriesNew($parent.newCategoryName)">
+            <fieldset>
+                <div class="input-group input-category-name">
+                    <md-input-container md-no-float class="md-block" >
+                        <input class="form-control" type="text" ng-model="$parent.newCategoryName" placeholder="Name" />
+                    </md-input-container>
+                    <md-icon class="new-category-name" ng-class="newCategoryNameOk() ? 'fa fa-check' : 'fa fa-times'" ng-show="$parent.newCategoryName.length >= 0" ></md-icon>
+                    <!-- <span class="input-group-addon">
+                        <i ng-class="newCategoryNameOk() ? 'new-category-name fa fa-check' : 'new-category-name fa fa-times'" ng-show="$parent.newCategoryName.length >= 0">
+                        </i>
+                    </span> -->
+                </div>
+                <div class="text-center">
+                    <md-button type="submit" aria-label="create" class="md-primary light-blue-btn md-raised" ng-click="categoriesNew($parent.newCategoryName)" ng-disabled="!newCategoryNameOk()"> Create </md-button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

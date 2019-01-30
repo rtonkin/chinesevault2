@@ -1,0 +1,19 @@
+<div class="panel cards-dialog">
+    <div class=" panel-heading">
+        Add word to category
+    </div>
+    <div class=" panel-body">
+        <form>
+            <fieldset >
+                <p>Which category would you like to add this {$ ngDialogData.itemName $} to?</p>
+                <!-- <select class="form-control mtb20px" ng-options="category.name for category in ngDialogData.categories" ng-model="ngDialogData.destinationCategory"></select>
+                <md-select ng-init="selectLevel = dataLevel.data[0]" ng-model='selectLevel' placeholder="All Levels" ng-change='selectFunction(selectLevel, selectTheme)' class="md-no-underline" >
+                    <md-option ng-repeat="val in dataLevel.data track by val.levelUrl" ng-value="val">{$ val.levelName $}</md-option>
+                </md-select>
+                -->               
+                <select class="form-control mtb20px" ng-options="category.name for category in ngDialogData.categories" ng-model="ngDialogData.destinationCategory"></select>                
+                <div class="text-center"><md-button aria-label="add" class="md-primary md-raised light-blue-btn " ng-click="ngDialogData.addToList(ngDialogData.item, ngDialogData.destinationCategory) || closeThisDialog()">Add</md-button></div>
+            </fieldset>
+        </form>
+    </div>
+</div>

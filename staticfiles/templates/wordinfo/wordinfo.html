@@ -1,0 +1,29 @@
+<div ng-show="word || OpenedWord" class="text-center wordinfo">
+    <div class="huge-font">Word Information</div>
+    <div class="simplified huge-font bigger" ng-bind-html="word.simplified|asChinese:'s'|asHtml" ui-sref="word({wordId: word.id})"></div>
+    <div class="text-left wordinfo__definition" ng-repeat="item in word.pinyinSortedMeanings">
+        <div class="text-center medium-font">
+            <strong><span ng-bind="item.pinyin"></span></strong>
+        </div>
+        <div ng-repeat="meaning in item.meanings" class="meaning">
+            <span>{$ $index + 1 $}. </span><span ng-bind-html="meaning|asHtml"></span>
+        </div>
+    </div>
+    <div class="text-center speaker">
+        <a ng-click="playSound(word.id)"><span class="icon icon-speaker" ng-class="{speakerplaying: soundIsPlaying}"></span></a>
+    </div>
+    <div ng-if="features.users">
+        <div ng-if="word.categories.length > 0">
+            <p>Found in lists:</p>
+            <ul style="text-align: left; list-style-type: none">
+                <li ng-repeat="category in word.categories">{$ category $}</li>
+            </ul>
+        </div>
+        <div ng-if="word.categories.length == 0">
+            This word is not currently in any of your flashcards lists
+        </div>
+        <div>
+            <md-button aria-label="Add to List" class="light-blue-btn md-raised md-primary" ng-click="openAddToListDialog(word)">Add to List</md-button>
+        </div>
+    </div>
+</div>

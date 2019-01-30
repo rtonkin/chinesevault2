@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div ng-controller="TestSettingsController">
+	<div class="col-md-6 col-lg-6">
+		<div class="panel panel-danger test-settings card-categories">
+			<div class="panel-heading">Card Categories</div>
+			<div class="panel-body">
+					<table class="table table-striped">
+						<tr ng-repeat="category in categories">
+							<td> {$ category.name $} </td>
+							<td> {$ category.cardNumber $} </td>
+							<td> {$ ((category.learnedNumber / category.cardNumber) * 100) | number:0 $}% </td>
+							<td> {$ category.lastPracticed $} </td>
+							<td> <input type="checkbox" ng-model="category.selected" /> </td>
+						</tr>
+					</table>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-md-8 col-lg-8">
+						<span>Total Selected: {$ getTotalSelected() $}</span>
+					</div>
+
+					<div class="col-md-4 col-lg-4">
+						<span class="footer-buttons">
+							<a class="btn btn-sm" ng-click="selectAllCategories()">Select All</a>
+							<a class="btn btn-sm" ng-click="clearCategoriesSelection()">Clear</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6 col-lg-6">
+		<div class="panel panel-danger test-settings selection-options">
+			<div class="panel-heading">Selection Options</div>
+			<form>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<tr><td>
+							No. Of Cards<br/>
+							<input type="radio" name="number" value="20" ng-model="options.number" /> 20
+							<input type="radio" name="number" value="30" ng-model="options.number" /> 30
+							<input type="radio" name="number" value="50" ng-model="options.number" /> 50
+							<input type="radio" name="number" value="100" ng-model="options.number" /> 100
+							<input type="radio" name="number" value="200" ng-model="options.number" /> 200
+						</td></tr>
+
+						<tr><td>
+							Show<br/>
+							<input type="checkbox" ng-model="options.show.hanzi" /> Hanzi
+							<input type="checkbox" ng-model="options.show.pinyin" /> Pinyin
+							<input type="checkbox" ng-model="options.show.english" /> English
+						</td></tr>
+
+						<tr><td>
+							Selection Method<br/>
+							<input type="radio" name="method" value="random" ng-model="options.method"/> Random
+							<div class="description">The system will randomly select cards regardless of score</div>
+							<input type="radio" name="method" value="priority" ng-model="options.method"/> Priority
+							<div class="description">The system will prioritize cards with lower scores</div>
+						</td></tr>
+					</table>
+				</div>
+
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-md-8 col-lg-8">&nbsp;</div>
+
+						<div class="col-md-4 col-lg-4">
+							<span class="footer-buttons">
+								<a class="btn btn-sm" ng-click="resetDefaults()">Defaults</a>
+								<a href="{% url 'test' %}" class="btn btn-sm">Start</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+{% endblock %}

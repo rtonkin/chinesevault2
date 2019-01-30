@@ -1,0 +1,31 @@
+<div flex="100" flex-gt-sm="100" ng-cloak >    
+    <div ng-cloak class="test-card ">
+        <md-content class="test-result-section " ng-if="!showResults" ng-scrollbars ng-scrollbars-config="config">
+            <div style="color: green" class="text-center resultmsg" ng-show="correctMessage">Correct!</div>
+            <div style="color: red" class="text-center resultmsg" ng-show="incorrectMessage">Incorrect!</div>
+            <div class="option-list" >
+                <md-list ng-cloak ng-repeat="meaning in currentCard.word.meanings_references">
+                    <div layout="row" layout-align="center" flex class="card-meaning">
+                        <span ng-if="currentCard.word.meanings_references.length > 1">{$ $index+1 $}.</span>
+                        <span class="meaning" ng-bind-html="meaning|asHtml"></span>
+                    </div>
+                </md-list> 
+            </div>
+        </md-content>
+        <md-content class="test-mode" ng-if="showResults">
+            <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} words correctly for a score of {$ statistics['Percentage']()|number:1 $} %</h4>
+        </md-content>
+        <md-content class="tone-panel mode-options" ng-if="!showResults">
+            <div layout="row" class="layout-align-center-center">
+                <div flex="100" flex-gt-sm="100" class="search text-center" >
+                    <form ng-submit="answerFillin(filltext)">
+                        <md-input-container class="search-input">                                           
+                            <input type="text" ng-model="filltext.text">
+                        </md-input-container>   
+                        <md-button aria-label="check" type="submit" class="md-primary md-filter ">&#10003;</md-button>
+                    </form>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,221 @@
+<style>
+    md-list-item:before {
+    content: '';
+    display: block;
+    min-height: 7px;
+    height: 7px;
+    width: 7px;
+    background: #323b3f;
+    border-radius: 50%;
+    visibility: visible;
+    left: 25px;
+    top: 13px;
+    position: absolute;
+}
+md-list-item.hyperlink:before {
+	visibility: hidden
+}
+</style>
+<div class="content" ng-controller="SignupController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row"></div>
+        </div>
+    </div>
+    <section class="login-section">
+        <div class="container">
+            <div layout="row" layout-xs="column" layout-align="center">
+                <div flex="80" flex-xs="100" flex-sm="90" ng-cloak >
+                    <md-content class="md-content-st md-whiteframe-7dp login-panel">
+                        <div ng-cloak layout="column">
+                            <div flex>
+                                <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                                    <div class="md-toolbar-tools" layout-align="center">
+                                        <h2 class="md-display-3">Signup</h2>
+                                    </div>
+                                </md-toolbar>                                
+                                <md-content layout-padding>
+                                    <div class="text-center signup-text">
+                                        <h4><em>By signing up you can keep track of your Chinese progress, it's completely free and only takes 2 minutes.</em></h4> 
+                                    </div>
+                                    <form name="registrationForm" class="form-horizontal signupform" ng-submit="submitSignupForm()" novalidate>
+                                        <div class="form-errors plr22px" ng-if="form.errors.__all__.length > 0">
+                                            <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.__all__">{$ error $}</div>
+                                        </div>
+                                        <div layout-md="row" layout-lg="row" layout-xl="row" class="layout-row flex" layout-wrap layout-align="space-around">
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <input type="text" required id="inputUserName " name="username" placeholder="Username" ng-model="form.username" pattern="{$ usernameValidationPattern $}" >
+                                                    <md-icon class="fa fa-user"></md-icon>
+                                                </md-input-container>
+                                                <div class="form-errors" ng-if="form.errors.username.length > 0">
+                                                    <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.username">{$ error $}</div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <!-- <input type="email" required id="inputEmail" name="email" placeholder="Email Address" ng-model="form.email"> -->
+                                                    <input class="form-control" type="email" required="true" id="inputEmail" name="email" placeholder="Email Address" ng-model="form.email">
+                                                    <md-icon class="fa fa-envelope-o"></md-icon>
+                                                </md-input-container>
+                                                <div class="form-errors" ng-if="form.errors.email.length > 0">
+                                                    <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.email">{$ error $}</div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <input id="inputPassword" required type="password" name="password1" min="6" placeholder="Password" ng-model="form.password1">
+                                                    <md-icon class="fa fa-lock"></md-icon>
+                                                </md-input-container>
+                                                <div class="form-errors" ng-if="form.errors.password1.length > 0">
+                                                    <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.password1">{$ error $}</div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <input id="inputPassword2" required type="password" name="password2" match="form.password1" placeholder="Password (confirm)" ng-model="form.password2">
+                                                    <md-icon class="fa fa-lock"></md-icon>
+                                                </md-input-container>
+                                                <div class="form-errors" ng-if="form.errors.password2.length > 0">
+                                                    <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.password2">{$ error $}</div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <label>Location</label>
+                                                    <md-select ng-model="form.location" aria-label="location" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                        <md-option><em>None</em></md-option>
+                                                        <md-option ng-repeat="location in countries" ng-value="location.id">{$ location.name $}</md-option>
+                                                    </md-select>
+                                                    <md-icon class="fa fa-map-marker"></md-icon>                                                    
+                                                </md-input-container>
+                                                <div class="form-errors" ng-if="form.errors.location.length > 0">
+                                                    <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.location">{$ error $}</div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <label>Chinese Level</label>
+                                                    <md-select ng-model="form.chinese_level" id="inputChineseLevel" name="chineseLevel" aria-label="Chinese level" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                        <md-option><em>None</em></md-option>
+                                                        <md-option ng-repeat="chinese_level in chinese_levels" ng-value="chinese_level">{$ chinese_level $}
+                                                        </md-option>
+                                                    </md-select>
+                                                    <md-icon class="fa fa-bar-chart"></md-icon>
+                                                </md-input-container>
+                                                <div class="form-errors" ng-if="form.errors.chineseLevel.length > 0">
+                                                    <div class="alert alert-danger" role="alert" ng-repeat="error in form.errors.chineseLevel">{$ error $}</div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="95" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block no-brd">
+                                                    <md-radio-group ng-model="form.paid">                                                            
+                                                        <md-radio-button name="freememberchkbox" ng-model="form.paid" ng-value="false" class="md-primary"  aria-label="free member">Free member</md-radio-button>
+                                                        <md-radio-button name="paidmemberchkbox" ng-model="form.paid" ng-value="true" class="md-primary"  aria-label="paid member"> 
+                                                            Paid member 
+                                                            <span style="color: #d24726; margin-left: 10px"><strong>Free 30-day trial</strong></span>
+                                                        </md-radio-button>                                      
+                                                    </md-radio-group>
+                                                    <p style="color: #d24726">$7/month after trial period 
+                                                        <a ui-sref="paidonly({hideSorry: true})" href="#">Tell me more</a>
+                                                    </p>
+                                                </md-input-container>
+                                            </div>
+                                            
+                                        </div>
+                                        <div layout-md="row" layout-lg="row" layout-xl="row" class="layout-row flex" layout-wrap layout-align="space-around" ng-if="form.paid">
+                                            <div flex="100" flex-gt-sm="100" ng-cloak class="stripe-logo">
+                                                <img src="/static/images/stripe.png">
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <input type="text" ng-model="form.card.name" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name" required >
+                                                    <md-icon class="fa fa-credit-card"></md-icon>
+                                                </md-input-container>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <input type="text" ng-model="form.card.number" name="card-number" id="card-number" placeholder="Debit/Credit Card Number" required>
+                                                    <md-icon class="fa fa-credit-card"></md-icon>
+                                                </md-input-container>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <div layout-xl="row" class="layout-row flex custom-width" layout-align="space-between" >
+                                                    <div flex="100" flex-gt-xs="45" ng-cloak >
+                                                        <md-input-container md-no-float class="md-block">
+                                                            <label>Month</label>
+                                                            <md-select required ng-model="form.card.expMonth" name="expiry-month" id="expiry-month" aria-label="month" md-on-open="stopscroll()" md-on-close="removestop()" md-no-asterisk="true">
+                                                                <md-option value="01">Jan (01)</md-option>
+                                                                <md-option value="02">Feb (02)</md-option>
+                                                                <md-option value="03">Mar (03)</md-option>
+                                                                <md-option value="04">Apr (04)</md-option>
+                                                                <md-option value="05">May (05)</md-option>
+                                                                <md-option value="06">June (06)</md-option>
+                                                                <md-option value="07">July (07)</md-option>
+                                                                <md-option value="08">Aug (08)</md-option>
+                                                                <md-option value="09">Sep (09)</md-option>
+                                                                <md-option value="10">Oct (10)</md-option>
+                                                                <md-option value="11">Nov (11)</md-option>
+                                                                <md-option value="12">Dec (12)</md-option>
+                                                            </md-select>
+                                                            <md-icon class="fa fa-calendar-o"></md-icon>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                        <md-input-container md-no-float class="md-block">
+                                                            <label>Year</label>
+                                                            <md-select required ng-model="form.card.expYear" name="expiry-year" aria-label="year" md-on-open="stopscroll()" md-on-close="removestop()" md-no-asterisk="true">
+                                                                    <md-option value="16">2016</md-option>
+                                                                    <md-option value="17">2017</md-option>
+                                                                    <md-option value="18">2018</md-option>
+                                                                    <md-option value="19">2019</md-option>
+                                                                    <md-option value="20">2020</md-option>
+                                                                    <md-option value="21">2021</md-option>
+                                                                    <md-option value="22">2022</md-option>
+                                                                    <md-option value="23">2023</md-option>
+                                                            </md-select>
+                                                            <md-icon class="fa fa-calendar"></md-icon>
+                                                        </md-input-container>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div flex="100" flex-gt-xs="45" ng-cloak class="mb20px">
+                                                <md-input-container md-no-float class="md-block">
+                                                    <input required ng-model="form.card.cvc" type="text" name="cvc" id="cvc" placeholder="Security Code">
+                                                    <md-icon class="fa fa-ellipsis-h"></md-icon>
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                        <md-button aria-label="Create Account" type="submit" ng-disabled="registrationForm.$invalid || registrationForm.$pending" class="md-primary md-raised md-login mt30px"> Create Account </md-button>                                        
+                                    </form>
+                                </md-content>
+                                <md-content layout-padding class="members-login mb20px">
+                                    <h3>What can members do?</h3>
+                                    <md-list>
+                                        <md-list-item>Use flashcards to keep track of your progress</md-list-item>
+                                        <md-list-item>Learn vocabulary for HSK levels 1-6</md-list-item>
+                                        <md-list-item>Learn by analyzing real text with the Text Tool</md-list-item>
+                                        <md-list-item>Use Audio and text study content to improve your listening and reading skills</md-list-item>
+                                        <md-list-item class="hyperlink"><a ui-sref="paidonly({hideSorry:true})">Discover more members only features</a></md-list-item>
+                                </md-list>
+                                </md-content>
+                            </div>
+                        </div>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- TODO
+
+Subcription Renewal Date: This field seems to be showing the wrong date. (This is for a user who has signed up and cancelled multiple times)
+
+We need to make it so that new user can become a paid user at registration.
+See NewSignup.jpg
+
+If user selects Paid member then presses "Create Account" the payments details should show below. Confirmation email should be sen once the entire page is completed.
+
+Fix payments form
+-->

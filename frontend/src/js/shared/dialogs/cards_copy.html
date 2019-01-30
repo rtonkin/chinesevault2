@@ -1,0 +1,15 @@
+<div class="panel cards-dialog">
+    <div class=" panel-heading">
+        Copy Cards
+    </div>
+
+    <div class=" panel-body">
+        <form>
+            <fieldset>
+                <p>Where would you like to copy the selected cards?</p>
+                <select class="form-control marginTop" ng-options="category.name for category in categories" ng-model="$parent.copyDestination"></select>
+                <md-button aria-label="copy" class="md-primary light-blue-btn md-raised" ng-click="cardsCopy()">Copy</md-button>
+            </fieldset>
+        </form>
+    </div>
+</div>

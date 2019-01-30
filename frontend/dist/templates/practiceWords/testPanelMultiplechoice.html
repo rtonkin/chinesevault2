@@ -1,0 +1,56 @@
+<div flex="100" flex-gt-sm="100" ng-cloak >    
+    <div class="test-card ">
+        <md-content>
+            <div layout="column">
+                <md-content class="test-result-section " ng-if="!showResults" ng-scrollbars ng-scrollbars-config="config">
+                    <div style="color: green" class="text-center resultmsg" ng-show="correctMessage">Correct!</div>
+                    <div style="color: red" class="text-center resultmsg" ng-show="incorrectMessage">Incorrect!</div>
+                    <table ng-table  class="table table-striped text-center text-result" >
+                        <tbody>
+                            <tr ng-if="options.show.hanzi">
+                                <td colspan="2" class="card-simplified">
+                                    <span ng-if="!options.show.traditional" ng-bind-html="currentCard.word.simplified|asChinese:'s'|asHtml"></span>
+                                    <span ng-if="options.show.traditional" ng-bind-html="currentCard.word.traditional|asChinese:'t'|asHtml"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="options.show.pinyin">
+                                <td colspan="2" class="card-pinyin">{$ currentCard.word.pinyin_normalized $}</td>
+                            </tr>
+                            <tr ng-if="options.show.english" ng-repeat="meaning in currentCard.word.meanings_references">
+                                <td width="0%"></td>
+                                <td width="100%" style="text-align: center" class="card-meaning">
+                                    <span ng-if="currentCard.word.meanings_references.length > 1">{$ $index+1 $}.</span>
+                                    <span class="meaning" ng-bind-html="meaning|asHtml"></span>
+                                </td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                    <!-- <span >No results</span> -->
+                </md-content>
+                <md-content class="test-mode" ng-if="showResults">
+                        <h4 class="text-center">You answered {$ correctCards() $} out of {$ cards.length $} words correctly for a score of {$ statistics['Percentage']()|number:1 $} %</h4>
+                </md-content>
+                <md-content class=" mode-options" >
+                    <div layout="column"  class=" layout-align-center-center" >
+                        <div class="show-status" layout="column" flex="100" flex-gt-sm="100">
+                            <div layout="row" layout-align="center">
+                                <div flex="25" flex-gt-sm="25" ng-disabled="counter > cards.length - 1" ng-click="answerMulti(choices[0])" class="brd-right multichoice">
+                                    <p class="multi-choice" ng-bind-html="choices[0]|asHtml"></p>
+                                </div>
+                                <div flex="25" flex-gt-sm="25" ng-disabled="counter > cards.length - 1" ng-click="answerMulti(choices[1])" class="brd-right multichoice">
+                                    <p class="multi-choice" ng-bind-html="choices[1]|asHtml"></p>
+                                </div>
+                                <div flex="25" flex-gt-sm="25" ng-disabled="counter > cards.length - 1" ng-click="answerMulti(choices[2])" class="brd-right multichoice">
+                                    <p class="multi-choice" ng-bind-html="choices[2]|asHtml"></p>
+                                </div>
+                                <div flex="25" flex-gt-sm="25" ng-disabled="counter > cards.length - 1" ng-click="answerMulti(choices[3])" class="multichoice">
+                                    <p class="multi-choice" ng-bind-html="choices[3]|asHtml"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+        </md-content>
+    </div> 
+</div>

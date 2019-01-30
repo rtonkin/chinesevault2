@@ -1,0 +1,44 @@
+<div class="content" ng-controller="CheckoutController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row"></div>
+        </div>
+    </div>
+    <section class="ptb40px checkout">
+        <div class="container">
+            <div layout="row" layout-align="center center">
+                <div flex-xs="100" flex-gt-xs="80"  >
+                    <md-content ng-if="!subscription || subscription.status == 'canceled'" class="md-whiteframe-4dp ">
+                        <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-3">Payment</h2>
+                            </div>
+                        </md-toolbar>
+                        <payments-form cb-get-subscription="getSubscription()" name="name" exp-month="expMonth" exp-year="expYear" number="number" cvc="cvc"> </payments-form>
+                    </md-content>
+                    <md-content ng-if="subscription && subscription.status != 'canceled'" class="md-whiteframe-4dp ">
+                        <md-toolbar layout="row" class="md-hue-3 headline-blk" layout-align="center">
+                            <div class="md-toolbar-tools" layout-align="center">
+                                <h2 class="md-display-3">Payment</h2>
+                            </div>
+                        </md-toolbar>
+                        <md-content class="md-padding payment-congratulation text-center">
+                            <h3>Congratulation, you're now a Paid Member of ChineseVault.com</h3>
+                            <p>This membership entitles you to unlimited use of all the features of the website.</p>
+                            <br>
+                            <p>You are currently enjoying 30-day trial period and will be charged $7 USD each month starting from
+                                <strong><span ng-bind="subscription.current_period_end | date:'yyyy-MM-dd'"></span></strong></p>
+                            <p>If you change your mind you can cancel at any time. To cancel your membership please go to "Account Details" and "Click Subscription"
+                                in the Subscription Details section.</p>
+                        </md-content>
+                        <md-content class="md-padding text-center">
+                            <md-button aria-label="continue" ng-click="goNextState()" class="md-primary md-raised light-blue-btn"> Continue</md-button>
+                        </md-content>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </section>        
+</div>
+
+

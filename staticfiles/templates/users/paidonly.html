@@ -1,0 +1,235 @@
+<div class="content" ng-controller="PaidonlyController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="login-section padionly">
+        <div class="container">
+            <md-content class="mb20px text-center user-message">
+                <div ng-if="usertype != 'Paid'" class="text-center">
+                    <h4 ng-hide="hideSorry">Sorry, that feature is only available to paid members.<strong> Take a free trial now.</strong></h4>
+                    <h4 ng-hide="loggedin" >If you are already a paid member please <a ui-sref="login({nextState:nextState,forceLogout:1})">Login</a></h4>
+                </div>
+                <div ng-if="usertype == 'Paid'"  class="text-center">
+                    <h4>That feature is available for you</h4>
+                </div>
+                <h3 class="text-center">Feature Comparsion Chart</h3>
+                <md-button aria-label="Start free trial" class="md-warn md-raised md-hue-2 md-curved" ui-sref="checkout({nextState:nextState})">Start Free Trial</md-button>
+            </md-content>
+            <md-content class="md-whiteframe-11dp pricechart text-center">
+                <div flex>
+                    <div layout-xs="row" layout-gt-xs="row" class="hidden-sm">
+                        <div class="tableheading" flex="100" flex-gt-sm="25">
+                            <md-toolbar class="headingtop">
+                                <div layout="row" layout-align="center center">
+                                    <h3>&nbsp;</h3>
+                                </div>
+                            </md-toolbar>
+                            <md-content>
+                                <div class="options-list">
+                                    <md-list layout="row" layout-align="center center">Dictionary</md-list>
+                                    <md-list layout="row" layout-align="center center">Flashcards - Words</md-list>
+                                    <md-list layout="row" layout-align="center center">Flashcards - Sentences</md-list>
+                                    <md-list layout="row" layout-align="center center">Lessons</md-list>
+                                    <md-list layout="row" layout-align="center center">Text Tool</md-list>
+                                    <md-list layout="row" layout-align="center center">Study Content - Audio</md-list>
+                                    <md-list layout="row" layout-align="center center">Study Content - Text</md-list>                                 
+                                </div>
+                            </md-content>
+                            <md-toolbar class="headingbottom">
+                                <div layout="row" layout-align="center center">
+                                    <h3> Price</h3>
+                                </div>
+                            </md-toolbar>
+                        </div>
+                        <div class="members" flex="100" flex-gt-sm="25">
+                            <md-toolbar class="headingtop">
+                                <div layout="row" layout-align="center center">
+                                    <h3>Guest</h3>
+                                </div>
+                            </md-toolbar>
+                            <md-content>
+                                <div class="options-list">
+                                    <md-list layout="column" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                        (but can’t save words for future)
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="column" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                        (but can’t save words for future)
+                                    </md-list> 
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>                               
+                                </div>
+                            </md-content>
+                            <md-toolbar class="headingbottom">
+                                <div layout="row" layout-align="center center">
+                                    <h3> Free</h3>
+                                </div>
+                            </md-toolbar>
+                        </div>
+                        <div class="members" flex="100" flex-gt-sm="25">
+                            <md-toolbar class="headingtop">
+                                <div layout="row" layout-align="center center">
+                                    <h3>Free Member</h3>
+                                </div>
+                            </md-toolbar>
+                            <md-content>
+                                <div class="options-list">
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list> 
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-close"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>                               
+                                </div>
+                            </md-content>
+                            <md-toolbar class="headingbottom">
+                                <div layout="row" layout-align="center center">
+                                    <h3> Free</h3>
+                                </div>
+                            </md-toolbar>
+                        </div>
+                        <div class="members paid" flex="100" flex-gt-sm="25">
+                            <md-toolbar class="headingtop">
+                                <div layout="row" layout-align="center center">
+                                    <h3>Paid Member</h3>
+                                </div>
+                            </md-toolbar>
+                            <md-content>
+                                <div class="options-list">
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list> 
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>
+                                    <md-list layout="row" layout-align="center center">
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </md-list>                               
+                                </div>
+                            </md-content>
+                            <md-toolbar class="headingbottom">
+                                <div layout="column" layout-align="center center" >
+                                    <h3> Free 30 Days Trial than $7/month</h3>
+                                    <md-button aria-label="Start Free Trial" class="md-warn md-raised md-hue-2 md-curved" ui-sref="checkout({nextState:nextState})">Start Free Trial</md-button>
+                                </div>
+                            </md-toolbar>
+                        </div>
+                    </div>
+                    <div layout="row" class="visible-sm">
+                        <table class="table text-result">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Guest</th>
+                                    <th>Free Member</th>
+                                    <th>Paid Member</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>Free</td>
+                                    <td>Free</td>
+                                    <td>Free 30 Day Trial then $7/month</td>
+                                </tr>
+                                <tr>
+                                    <td>Dictionary</td>
+                                    <td>
+                                        <md-icon class="fa fa-check"></md-icon>
+                                        (but can’t save words for future)
+                                    </td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Flashcards - Words</td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></i></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Flashcards - Sentences</td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Lessons</td>
+                                    <td><md-icon class="fa fa-check"></md-icon>(but can’t save words for future)</td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Text Tool</td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Study Content - Audio</td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td><md-icon class="fa fa-close"></md-icon></td>
+                                    <td>
+                                        <md-icon class="fa fa-check"></md-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Study Content - Text</td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                    <td><md-icon class="fa fa-check"></md-icon></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <md-button aria-label="Start Free Trial" class="md-warn md-raised md-hue-2 md-curved mtb20px" ui-sref="checkout({nextState:nextState})">Start Free Trial</md-button>
+                    </div>
+                </div> 
+            </md-content>
+        </div>
+    </section>
+</div>

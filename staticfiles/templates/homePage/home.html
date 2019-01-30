@@ -1,0 +1,196 @@
+<!-- Content -->
+    <div class="content" ng-controller="HomeController">
+        <div class="banner">
+            <div class="container">
+                <div layout-xs="row" layout-gt-xs="row">
+                    <div flex-xs="90" flex-offset-xs="5" flex-gt-xs="70" flex-offset-gt-xs="15" >	
+                        <div  ng-cloak>	
+                            <md-content>
+                            <div class="search-form">
+                                <form ng-submit="submitQuery()">
+                                    <!-- <input type="text" name="textbox1" placeholder="Search" class="textbox" /> -->
+                                    <input type="search" class="textbox" id="home-search" placeholder="有, yǒu, you3 ..." name="query" ng-model="query" ng-change="submitQuery()" ng-model-options="{debounce:400}">
+                                    <button type="submit" class="search-btn"> &nbsp; </button>
+                                </form>
+                            </div>
+                            </md-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="words-search-sec">
+            <div class="container">
+                <div layout-md="row" layout-lg="row" layout-xl="row" flex>
+                    <div flex="100" flex-gt-sm="75" flex-gt-xs="100" class="word-search-tab">
+                        <div ng-cloak>
+                            <!-- <li ng-repeat="character in randomCharacters | limitTo:5"><a ui-sref="word({wordId: character.id})" ng-bind-html="character.simplified|asChinese|asHtml"></a></li> -->
+                            <md-content ng-scrollbars ng-scrollbars-config="config">
+                                <md-tabs >
+                                    <md-tab label="{$ words.creation_date $}" ng-repeat="words in wordofTheDay" >
+                                        <!-- <md-tab-label>13 <span class="hide">Sep</span></md-tab-label> -->
+                                        <md-content  >
+                                            <div>
+                                                <h3 class="md-display-1"> <strong> Word  </strong> of the Day</h3>
+                                                <span class="word-title"> <strong> {$ words.title $} </strong></span>
+                                                <ul class="word-gram">
+                                                    <li>{$ words.pinyin $}</li>
+                                                </ul>
+                                                <ul class="word-sentence mt10px">
+                                                    <li ng-bind-html="words.description | asHtml "> </li>
+                                                </ul>
+                                            </div>
+                                        </md-content>
+                                    </md-tab>
+                                </md-tabs>
+                            </md-content>
+                        </div>
+                    </div>
+                    <div flex="100" flex-gt-sm="35" flex-gt-xs="100" class="member-ship">
+                        <div layout="column" ng-cloak>
+                            <h3>Sign Up for a Free Membership </h3>
+                            <p>Create Your Account. <span> It's Free! </span> </p>
+                            <form ng-submit="submitSignup()">
+                                <input type="email" placeholder="Email" class="textbox" id="signup-email" name="email" ng-model="email" />
+                             <!-- <input type="email" class="form-control" id="signup-email" name="email" ng-model="$parent.email" placeholder="Email Address"> -->
+                                <md-button type="submit" class="md-primary light-blue-btn md-raised" aria-label="register now"> Register Now! </md-button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tab-section">
+            <div class="container">
+                <div class="tabs-wrapper" ng-cloak>
+                    <md-content>
+                        <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+                            <md-tab id="tab1" ng-if="features.lessons">
+                                <md-tab-label>
+                                    <md-icon class="lession-icon"></md-icon> Lessons
+                                </md-tab-label>
+                                <md-tab-body>
+                                    <phua-small-lesson-list></phua-small-lesson-list>
+                                </md-tab-body>
+                            </md-tab>
+                            <md-tab id="tab2" ng-if="features.lessons">
+                                <md-tab-label>
+                                    <md-icon class="stud-icon"></md-icon> Practice
+                                </md-tab-label>
+                                <md-tab-body >
+                                    <div class="practice" layout="row" layout-align="center center">
+                                        <div flex-xs="100" flex-gt-xs="80">
+                                            <div layout="row" layout-align="center center">
+                                                <div flex="50" flex-xs="100">                                               
+                                                    <a ui-sref="test-settings">
+                                                        <img class="medium-image flashcards" src="/static/images/flashcards.png" />
+                                                        <h3 class="md-display-2">Flashcards</h3>
+                                                    </a>
+                                                </div>
+                                                <div flex="50" flex-xs="100">
+                                                    <a ng-click="clickTones()">
+                                                        <img class="medium-image" src="/static/images/headphones.png" />
+                                                        <h3 class="md-display-2">Listening</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </md-tab-body>
+                            </md-tab>
+                            <md-tab id="tab3" ng-if="features.studyContent">
+                                <md-tab-label>
+                                    <md-icon class="book-icon"></md-icon> Study Content
+                                </md-tab-label>
+                                <md-tab-body>
+                                    <div layout="row" layout-align="center center">
+                                        <div flex-gt-xs="80" flex-xs="100">
+                                            <div class="tab-cont-block no-brd">
+                                                <phua-small-study-content-list></phua-small-study-content-list>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </md-tab-body>
+                            </md-tab>
+                            <md-tab id="tab4">
+                                <md-tab-label>
+                                    <md-icon class="res-icon"></md-icon> Resources
+                                </md-tab-label>
+                                <md-tab-body>
+                                    <div class="resources" layout="row" layout-xs="column" layout-wrap layout-align="center center">
+                                        <div flex="30" flex-xs="100" class="resource-list">
+                                            <a ui-sref="resources_pinyin_chart">
+                                                <md-icon class="fa fa-3x fa-book"></md-icon>
+                                                <h4>Pinyin Chart</h4>
+                                                <h5>A reference chart showing all possible Pinyin combinations.</h5>
+                                            </a>
+                                        </div>
+                                        <div flex="30" flex-xs="100" class="resource-list">
+                                            <a ui-sref="resources_char_freq">
+                                                <md-icon class="fa fa-3x fa-line-chart"></md-icon>
+                                                <h4>Chinese Character Frequency</h4>
+                                                <h5>Want to know how common a character is? Here you can find the frequency for more than 5,000.</h5>
+                                            </a>
+                                        </div>
+                                        <div flex="30" flex-xs="100" class="resource-list">
+                                            <a ui-sref="resources_word_freq">
+                                                <md-icon class="fa fa-3x fa-line-chart"></md-icon>
+                                                <h4>Chinese Word Frequency</h4>
+                                                <h5>Use this list to make sure you are studying the most commonly used words.</h5>
+                                            </a>
+                                        </div>
+                                        <div flex="30" flex-xs="100" class="resource-list last">
+                                            <a ui-sref="resources_word_chart">
+                                                <md-icon class="fa fa-3x fa-bar-chart"></md-icon>
+                                                <h4>Measure Word Chart</h4>
+                                                <h5>A useful reference chart reminding you about the most commonly used measure words.</h5>
+                                            </a>
+                                        </div>
+                                        <div flex="30" flex-xs="100" class="resource-list last">
+                                            <a ui-sref="resources_names">
+                                                <md-icon class="fa fa-3x fa-venus-mars"></md-icon>
+                                                <h4>Your Chinese Name</h4>
+                                                <h5> Want to know your Chinese name? Find it using this simple tool</h5>
+                                            </a>
+                                        </div>
+                                        <div flex="30" flex-xs="100" class="resource-list last">
+                                            <a ui-sref="pinyintool">
+                                                <md-icon class="fa fa-keyboard-o fa-3x"></md-icon>
+                                                <h4>Pinyin Keyboard</h4>
+                                                <h5> Type pinyin online with this simple tool</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </md-tab-body>
+                            </md-tab>
+                        </md-tabs>
+                    </md-content>
+                </div>
+        </section>
+
+        <section class="latest-blogs-section">
+            <div class="container">
+                <div class="head-title">
+                    <h2> Featured Content </h2>
+                    <!-- <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias except </p> -->
+                </div>
+            </div>
+            <div class="container">
+                <div layout="row" layout-xs="column">
+                    <div flex="33" flex-xs="100" class="blogs-box md-whiteframe-3dp" ng-repeat="data in featuredContent" ui-sref="study_content_audio_item({id: data.content})">
+                        <figure>
+                            <!-- <img src="/static/images/blog_img1.jpg" alt="blog_img1" /> -->
+                            <img ng-src="{$ data.feature_image $}" alt="blog_img1" />
+                        </figure>
+                        <div class="blogs-figcap">
+                            <strong ng-bind-html="data.title | asHtml"></strong>
+                            <p ng-bind-html="data.description | asHtml"></p>
+                            <!-- <a ng-click="setPageId(data.content)" ui-sref="study_content_audio_item({id: data.content})">Read More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div><!-- Content -->

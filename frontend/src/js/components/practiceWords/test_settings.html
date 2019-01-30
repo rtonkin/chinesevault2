@@ -1,0 +1,178 @@
+<div class="content" ng-controller="TestSettingsController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+
+    <section class="test-section">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row">
+                <div flex="100" flex-gt-sm="50" ng-cloak class="flash-list" ng-class="{diss: options.mode=='tonepracticewithaudio'}">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Flashcard Lists </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="card-list md-whiteframe-4dp">
+                        <md-content>
+                            <div class="flashcard-table cards-table" flex>
+                                <md-content class="xasisscroll">                                    
+                                    <table ng-table  class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Cards</th>
+                                                <th>Score</th>
+                                                <th>Last Tested</th>
+                                                <th> </th>
+                                            </tr>
+                                        </thead>
+                                        <tr ng-if="!categories.length" ng-cloak>
+                                            <td colspan="5">
+                                                <p class="p10px">No list...</p>
+                                            </td>
+                                        </tr>
+                                        <tr ng-repeat="category in categories">
+                                            <td> {$ category.name $} </td>
+                                            <td> {$ category.cards_count $} </td>
+                                            <td> {$ ((category.learned_cards_count / category.cards_count) * 100) | number:0 $}% </td>
+                                            <td> {$ category.current_time | default: 'Never' $} </td>
+                                            <td><md-checkbox aria-label="normal" name="normal" class="md-primary" ng-model="category.selected" ng-change="loadCategory($index, category.id)"></md-checkbox></td>
+                                                <!--td><input type="checkbox" ng-model="category.selected" ng-change="loadCategory($index, category.id)"/>  -->
+                                        </tr>
+                                    </table>
+                                </md-content>
+                                <md-content>
+                                    <div layout="row" layout-xs="row" layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                        <md-label>Total Selected: {$ getTotalSelected() $}</md-label>
+                                        <md-button aria-label="Select All" class="md-raised md-primary light-blue-btn" ng-click="selectAllCategories()"> Select All </md-button>
+                                        <md-button aria-label="Clear" class="md-raised md-primary light-blue-btn" ng-click="clearCategoriesSelection()"> Clear </md-button>
+                                    </div>
+                                    <!-- <div class="panel-footer">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-8 col-md-7 col-lg-8 marginBottom">
+                                                    <span>Total Selected: {$ getTotalSelected() $}</span>
+                                                </div>
+                        
+                                                <div class="col-xs-12 col-sm-4 col-md-5 col-lg-4">
+                                                    <span class="footer-buttons">
+                                                        <a class="btn btn-sm" ng-click="selectAllCategories()">Select All</a>
+                                                        <a class="btn btn-sm" ng-click="clearCategoriesSelection()">Clear</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                </md-content>
+                            </div>
+                        </md-content>
+                    </div>
+                </div>
+                
+                <div flex="100" flex-gt-sm="50" ng-cloak class="flash-list">
+                    <div class="main-heading">
+                        <md-toolbar layout="row">
+                            <div layout="row" layout-align="center" flex>
+                                <h2 class="md-display-7">  Selection Options </h2>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div ng-cloak class="card-list md-whiteframe-4dp">
+                        <md-content>
+                            <form>
+                                <div class="flashcard-table option-list" flex>
+                                    <md-list ng-cloak>
+                                        <md-subheader class="md-no-sticky">No. of Cards </md-subheader>	
+                                        <md-radio-group ng-model="options.number" layout="row" layout-wrap="wrap">
+                                            <md-radio-button name="number" value="20" class="md-primary" ng-model="options.number" aria-label="20Cards">20 </md-radio-button>
+                                            <md-radio-button name="number" value="30" class="md-primary" ng-model="options.number" aria-label="30Cards"> 30  </md-radio-button>
+                                            <md-radio-button name="number" value="50" class="md-primary" ng-model="options.number" aria-label="50Cards">50 </md-radio-button>
+                                            <md-radio-button name="number" value="100" class="md-primary" ng-model="options.number" aria-label="100Cards">100 </md-radio-button>
+                                            <md-radio-button name="number" value="200" class="md-primary" ng-model="options.number" aria-label="200Cards">200 </md-radio-button>
+                                        </md-radio-group>
+                                    </md-list>
+                                    <md-list ng-cloak>
+                                        <md-subheader class="md-no-sticky"> Test mode </md-subheader>	
+                                        <div ng-cloak layout="column">
+                                            <md-card-content> 
+                                                <div layout="row" layout-align="space-between center">
+                                                    <md-select class="md-no-underline" name="testmode" ng-model="options.mode" aria-label="test mode" md-on-open="stopscroll()" md-on-close="removestop()">
+                                                        <md-option value="normal">Normal</md-option>
+                                                        <md-option value="tonepractice">Tone Practice</md-option>
+                                                        <md-option value="tonepracticewithaudio">Tone Practice With Audio</md-option>
+                                                        <md-option value="fillintheblanks">Fill In The Blanks</md-option>
+                                                        <md-option value="multiplechoice">Multiple Choice</md-option>
+                                                    </md-select>
+                                                </div>
+                                            </md-card-content>
+                                        </div>
+                                    </md-list>
+                                    <md-list ng-cloak ng-if="options.mode=='normal'">
+                                        <md-subheader class="md-no-sticky">Show</md-subheader>
+                                        <md-checkbox name="normal" class="md-primary" ng-model="options.show.hanzi" aria-label="Chinese">Chinese</md-checkbox>
+                                        <md-checkbox name="normal" class="md-primary" ng-model="options.show.pinyin" aria-label="Pinyin" >Pinyin</md-checkbox>
+                                        <md-checkbox name="normal" class="md-primary" ng-model="options.show.english" aria-label="English" >English</md-checkbox>
+                                    </md-list>                               
+                                    <md-list ng-cloak ng-if="options.mode=='tonepractice'">
+                                        <md-subheader class="md-no-sticky">Show</md-subheader>
+                                        <md-radio-group layout="row" layout-xs="column" layout-wrap="wrap" ng-model="options.tone">
+                                            <md-radio-button name='tonepractice' ng-model="options.tone" value="hanzi" class="md-primary" aria-label="Chinese">Show Chinese - Enter  Tones</md-radio-button>
+                                            <md-radio-button name='tonepractice' ng-model="options.tone" value="englishpinyin" class="md-primary" aria-label="English + Pinyin"> Show English + Untoned Pinyin - Enter Tones </md-radio-button>                         
+                                        </md-radio-group>
+                                    </md-list>
+                                    <md-list ng-cloak ng-if="options.mode=='fillintheblanks'">
+                                        <md-subheader class="md-no-sticky">Show</md-subheader>
+                                        <md-radio-group layout="row" ng-model="options.fill" layout-wrap="wrap" >                                            
+                                            <md-radio-button name='fillintheblanks' ng-model="options.fill" value="pinyin" class="md-primary" aria-label="English + Pinyin">Show English – Enter Pinyin</md-radio-button>
+                                            <md-radio-button name='fillintheblanks' ng-model="options.fill" value="hanzi" class="md-primary" aria-label="English + Chinese"> Show English – Enter Chinese </md-radio-button>                         
+                                        </md-radio-group>
+                                    </md-list>
+                                    <md-list ng-cloak ng-if="options.mode=='multiplechoice'">
+                                        <md-subheader class="md-no-sticky">Show</md-subheader>
+                                        <md-radio-group layout-xs="column" layout="row"  layout-wrap="wrap" ng-model="options.multi">
+                                            <md-radio-button name='multiplechoice' ng-model="options.multi" value="pinyin" class="md-primary mb5px" aria-label="Chinese + Pinyin">Show Chinese – Select Pinyin</md-radio-button>
+                                            <md-radio-button name='multiplechoice' ng-model="options.multi" value="correcttones" class="md-primary mb5px" aria-label="Correct tone"> Show Chinese – Select Correct Tones </md-radio-button>                     
+                                            <md-radio-button name='multiplechoice' ng-model="options.multi" value="definition" class="md-primary mb5px" aria-label="Definition"> Show Chinese – Select Definition </md-radio-button>
+                                        </md-radio-group>
+                                    </md-list>
+                                    <md-list ng-cloak ng-hide="options.mode=='tonepracticewithaudio'">
+                                        <md-subheader class="md-no-sticky">Chinese Characters</md-subheader>
+                                        <md-radio-group layout-xs="column" layout="row" layout-wrap="wrap" ng-model="options.show.traditional"> 
+                                            <md-radio-button name="chinese_characters" ng-model="options.show.traditional" ng-value="false" class="md-primary" aria-label="Simplified"> Simplified </md-radio-button>
+                                            <md-radio-button name="chinese_characters"  ng-model="options.show.traditional" ng-value="true" class="md-primary" aria-label="Traditional"> Traditional </md-radio-button>                         
+                                        </md-radio-group>
+                                    </md-list>
+                                    <md-list ng-cloak ng-hide="options.mode=='tonepracticewithaudio'">
+                                        <md-subheader class="md-no-sticky">Selection Method </md-subheader>	
+                                        <md-radio-group layout-xs="column" layout="row"  layout-wrap="wrap" ng-model="options.method">
+                                            <md-radio-button value="Random2" class="md-primary" name="method" value="random" ng-model="options.method" aria-label="Random"> Random 
+                                            <span class="text-bottom"> The system will randomly select cards regardless of score </span>	
+                                            </md-radio-button>
+                                            <md-radio-button name="method" class="md-primary" value="priority" ng-model="options.method" aria-label="Priority"> Priority 
+                                            <span class="text-bottom"> The system will prioritize cards with lower scores </span>	
+                                            </md-radio-button>
+                                        </md-radio-group>
+                                    </md-list>                                 
+                                
+                                    <md-list ng-cloak class="list-btn">
+                                        <div layout="row" layout-xs="row" layout-align="center center" layout-wrap class="flash-btn-wrap">
+                                            <md-button aria-label="Defaults" class="md-raised md-primary light-blue-btn" ng-click="resetDefaults()"> Defaults </md-button>
+                                            <md-button aria-label="Start" class="md-raised md-primary light-blue-btn" ui-sref="test" ng-if="options.mode!='tonepracticewithaudio'" ng-disabled="selectedCategories() <= 0"> Start </md-button>
+                                            <md-button aria-label="Start" class="md-raised md-primary light-blue-btn" ui-sref="test" ng-if="options.mode=='tonepracticewithaudio'"> Start </md-button>                                        
+                                        </div>	
+                                    </md-list> 									
+                                </div>
+                            </form>
+                        </md-content>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+</div>
+
+

@@ -1,0 +1,65 @@
+<div class="studycontent_mainmenu content" ng-controller="StudyContentListController">
+    <div class="banner flash-banner">
+        <div class="container">
+            <div layout-xs="row" layout-gt-xs="row">
+
+            </div>
+        </div>
+    </div>
+    <section class="sentences-sec topaudio">
+        <div class="container">
+            <div layout="column" layout-gt-sm="row">
+                <div flex="100" flex-gt-sm="50" ng-cloak class="study-content">
+                    <div class="main-heading" >
+                        <md-toolbar layout="row">
+                            <div layout="row" class="layout-align-center-center" flex>
+                                <div flex="100" flex-gt-sm="40" class="text-right">
+                                    <md-icon class="fa fa-headphones fa-5x"></md-icon>
+                                </div>
+                                <div flex="100" flex-gt-sm="60" class="pl20px">
+                                    <h2 class="md-display-3">  Audio </h2>
+                                    <h3 ui-sref="study_content_audio_list" class="seeall pl15px">See all</h3>
+                                </div>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <md-content class="sentense-cont ">
+                        <phua-audio-items-list></phua-audio-items-list>                                
+                        <md-list flex class="list-row">
+                            <md-list-item class="md-3-line" layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex>
+                                    <md-button aria-label="See all" class="md-raised md-primary light-blue-btn md-curved " ng-click="studyContentAudio()">See all</md-button>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>           
+                </div>                    
+                <div flex="100" flex-gt-sm="50" ng-cloak class="study-content">
+                    <div class="main-heading toptext" >
+                        <md-toolbar layout="row">
+                            <div layout="row" class="layout-align-center-center" flex>
+                                <div flex="100" flex-gt-sm="40" class="text-right">
+                                    <md-icon class="fa fa-book fa-5x"></md-icon>
+                                </div>
+                                <div flex="100" flex-gt-sm="60" class="pl20px">
+                                    <h2 class="md-display-3">  Text </h2>
+                                    <h3 ui-sref="study_content_text_list" class="seeall">See all</h3>
+                                </div>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <md-content class="sentense-cont ">
+                        <phua-text-items-list></phua-text-items-list>                               
+                        <md-list flex class="list-row">
+                            <md-list-item class="md-3-line" layout="row">
+                                <div layout="row" layout-align="center" class="show-btn-wrap" flex>
+                                    <md-button aria-label="Sell all" class="md-raised md-primary light-blue-btn md-curved " ng-click="studyContentText()">See all</md-button>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </div>                
+            </div>
+        </div>        
+    </section>
+</div>
